@@ -48,12 +48,12 @@
 	margin: 0 5px 0 -17px;
 }
 
-.active {
+.feed-stats-tabs .active {
 	border: 1px solid #999999 !important;
 	border-bottom: 1px solid #ffffff !important;
 }
 
-.active span {
+.feed-stats-tabs .active span {
 	color: #000000;
 	font-weight: bold;
 }
