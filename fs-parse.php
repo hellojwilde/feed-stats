@@ -50,14 +50,16 @@ function fs_grab_yesterday_entry ($xml) {
 }
 
 function fs_shorten_date ($date) {
-	return substr($date, 5);
+	$short = substr($date, 5);
+	return str_replace('-', '/', $short);
 }
 
 function fs_shorten_label ($label) {
 	if (strlen($label) > 17) {
+		$label = str_replace(array('”', '“'), array('"', '"'), $label);
 		return substr($label, 0, 17) . '...';
 	} else {
-		return $label;
+		return str_replace(array('”', '“'), array('"', '"'), $label);
 	}	
 }
 

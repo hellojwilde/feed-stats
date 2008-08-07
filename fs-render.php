@@ -62,14 +62,18 @@ function fs_items_chart ($data, $type) {
 	$labels = substr($labels, 1);
 	$datas = 't:';
 
-	foreach ($data as $value) {
-		$datas .= round(($value / $total) * 100, 1) . ',';
-	}	
+	if ($total > 0) {
+		foreach ($data as $value) {
+			$datas .= round(($value / $total) * 100, 1) . ',';
+		}	
 
-	$datas = substr($datas, 0, strlen($datas) - 1);
+		$datas = substr($datas, 0, strlen($datas) - 1);
 	
-	$url = 'http://chart.apis.google.com/chart?cht=p&chs=450x200&chco=E4F2FD,A0BAE9&chd=' . $datas . '&chl=' . $labels;
-	echo "<img class='feed-stats-chart' src='$url' />";
+		$url = 'http://chart.apis.google.com/chart?cht=p&chs=450x200&chco=E4F2FD,A0BAE9&chd=' . $datas . '&chl=' . $labels;
+		echo "<img class='feed-stats-chart' src='$url' />";
+	} else {
+		echo 'There were no views of your feed items yesterday.';
+	}
 }
 
 function fs_items_table ($xml) {
