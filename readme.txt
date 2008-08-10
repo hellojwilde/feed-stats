@@ -3,7 +3,7 @@ Contributors: speedbreeze
 Tags: feedburner, stats, statistics, comments, hits, subscribers
 Requires at least: 2.3.3
 Tested up to: 2.6
-Stable tag: 1.0
+Stable tag: 1.0.1
 
 Finally, you can see your FeedBurner feed stats from inside your WordPress admin panel!
 
