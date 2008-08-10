@@ -39,10 +39,19 @@ function feed_stats_classes() {
 	<script type="text/javascript" src="<?php plugin_folder() ?>js/tabs.js"></script>
 	<link type="text/css" href="<?php plugin_folder() ?>style.css" rel="stylesheet" media="all"></script>
 
-	<!--[if lte IE 6]>
+	<!--[if lte IE 7]>
 	<style type="text/css">
-		#feed-stats-subs, #feed-stats-hits {
-			margin-top: -23px;
+		.total-tab-list {
+			margin: 0 !important;
+			padding: 0 !important;
+		}
+
+		#hits-tab, #clicks-tab {
+			margin-left: 11px;
+		}
+
+		.feed-stats-tabs div {
+			margin-top: 10px !important;
 		}
 	</style>
 	<![endif]-->
@@ -103,8 +112,9 @@ function display_feed_stats() {
 						<li id="reach-tab" onclick="selectTab('total-tab', 'reach');">
 							<span>Reach</span></a></li>
 						<?php endif; ?>
-						<li style="float: none; padding: 0;
-							   clear: both; margin: 0; 
+						<li class="fs-clr-tb" 
+						    style="float: none; padding: 0;
+							   clear: both; margin: -21px 0 0 0 !important;
 							   border: 0;"></li>
 					</ul>
 					<div id="hits">
@@ -138,8 +148,9 @@ function display_feed_stats() {
 							<span>Clicks</span></a></li>
 						<li id="views-tab" onclick="selectTab('yest-tab', 'views');">
 							<span>Views</span></a></li>
-						<li style="float: none; padding: 0;
-							   clear: both; margin: 0; 
+						<li class="fs-clr-tb" 
+						    style="float: none; padding: 0;
+							   clear: both; margin: -21px 0 0 0 !important;
 							   border: 0;"></li>
 					</ul>
 					<div id="clicks">

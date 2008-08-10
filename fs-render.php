@@ -72,7 +72,7 @@ function fs_items_chart ($data, $type) {
 		$url = 'http://chart.apis.google.com/chart?cht=p&chs=450x200&chco=E4F2FD,A0BAE9&chd=' . $datas . '&chl=' . $labels;
 		echo "<img class='feed-stats-chart' src='$url' />";
 	} else {
-		echo 'There were no views of your feed items yesterday.';
+		echo "There were no $type of your feed items yesterday.";
 	}
 }
 
