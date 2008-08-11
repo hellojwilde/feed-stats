@@ -1,6 +1,6 @@
 === FeedBurner Feed Stats ===
 Contributors: speedbreeze
-Tags: feedburner, stats, statistics, comments, hits, subscribers
+Tags: feedburner, stats, statistics, rss, feed, hits, subscribers
 Requires at least: 2.3.3
 Tested up to: 2.6
 Stable tag: 1.0.1
