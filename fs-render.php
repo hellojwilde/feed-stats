@@ -29,16 +29,22 @@ function fs_feed_chart ($data, $type) {
 	
 	$highest = max($chart_values) * 1.1;
 
-	foreach ($entries as $entry) {
-		$data = fs_parse_entry($entry);
-		$chart_data_string .= round((($data[$type] / $highest) * 100), 1) . ",";
+	if (isset($highest) && $highest > 0) {
+		foreach ($entries as $entry) {
+			$data = fs_parse_entry($entry);
+			$chart_data_string .= @round((($data[$type] / $highest) * 100), 1) . ",";
+		}
+
+		$chart_data_string = substr($chart_data_string, 0, strlen($chart_data_string) - 1);
+		$url = 'http://chart.apis.google.com/chart?cht=lc&chg=0,20,2,2&chls=3,6,0&chs=450x220&' . $chart_data_string . 
+			    '&chco=A0BAE9&chm=B,E4F2FD,0,0,0&chxt=x,y&' . $chart_day_string . "&chxr=1,0," . $highest;
+
+		echo "<img class='feed-stats-chart' src='$url' />";
+	} else {
+		echo "<strong>Welcome!</strong> It appears that this is a brand new FeedBurner 
+		      account&mdash;please wait a day or two for your first 
+		      stats to appear.";
 	}
-
-	$chart_data_string = substr($chart_data_string, 0, strlen($chart_data_string) - 1);
-	$url = 'http://chart.apis.google.com/chart?cht=lc&chg=0,20,2,2&chls=3,6,0&chs=450x220&' . $chart_data_string . 
-	            '&chco=A0BAE9&chm=B,E4F2FD,0,0,0&chxt=x,y&' . $chart_day_string . "&chxr=1,0," . $highest;
-
-	echo "<img class='feed-stats-chart' src='$url' />";
 }
 
 function fs_items_chart ($data, $type) {
