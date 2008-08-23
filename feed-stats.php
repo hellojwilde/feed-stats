@@ -1,9 +1,9 @@
 <?php
 /*
 	Plugin Name: FeedBurner Feed Stats
-	Plugin URI: http://www.speedbreeze.com
+	Plugin URI: http://www.speedbreeze.com/2008/02/22/feed-stats-wordpress-plugin/
 	Description: A quick and easy way to view the stats for your FeedBurner feed. After activating the plugin, make sure to  <a href="http://www.speedbreeze.com/wp-admin/options-general.php?page=feed-stats">configure</a> which feed you want to track.
-	Version: 1.0.2
+	Version: 1.0.
 	Author: Jonathan Wilde
 	Author URI: http://www.speedbreeze.com
 */
