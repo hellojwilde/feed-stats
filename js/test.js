@@ -41,16 +41,15 @@ function testChange(state, XHR) {
 			good.innerHTML = good.title + XHR.responseText;
 		} else {
 			bad.style.display = "inline";
-			bad.innerHTML = bad.title + XHR.responseText + '. [<a href="javascript:displayTroubleshooting();">What does this mean?</a>]';
-			tester.value = "Retest";
+			bad.innerHTML = bad.title + XHR.responseText + '. [<a href="#" onclick="displayTroubleshooting();">' + help + '</a>]';
 		}
 	}
 }
 			
 function displayTroubleshooting() {
-	document.getElementById('feed-stats-troubleshooting').style.display = "block";
+	document.getElementById('feed-stats-ts-box').style.display = "block";
 }
 			
 function hideTroubleshooting() {
-	document.getElementById('feed-stats-troubleshooting').style.display = "none";
+	document.getElementById('feed-stats-ts-box').style.display = "none";
 }
