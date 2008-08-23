@@ -62,6 +62,35 @@ function feed_stats_classes() {
 		.feed-stats-tabs {
 			margin-top: 20px !important;
 		}
+		
+		/* Borrowed from wp-admin.css v. 2.5.1, copyright 2008 
+		   Automattic, Inc. Licensed under GPL. */
+		.info-box {
+			background:#F8F8F8 none repeat scroll 0 0;
+			border:5px solid #DDDDDD;
+			display:none;
+			height:300px;
+			left:50%;
+			margin-left:-225px;
+			padding:15px 15px 10px;
+			position:absolute;
+			top:100px;
+			width:450px;
+			z-index:1000;
+		}
+
+		.info-box .submit {
+			bottom:15px;
+			padding:15px 0 0;
+			position:absolute;
+			width:450px;
+		}
+
+		.info-box-title {
+			line-height:2;
+			margin:0;
+			padding:0 7px;
+		}
 	</style>
 <?php
 	}
@@ -78,6 +107,10 @@ function display_feed_stats() {
 	$days = get_option('feedburner_feed_stats_entries');
 	$name = get_option('feedburner_feed_stats_name');
 
+	// A security fix for injection attacks
+	$name = sanitize_url($name);
+	$name = str_replace('http://', '', $name);
+
 	// Load data from FeedBurner
 	$feed = fs_load_feed_data($name, $days);
 	$items = fs_load_item_data($name, $days);
@@ -93,9 +126,9 @@ function display_feed_stats() {
 ?>
 	<div class="wrap">
 		<h2>
-			Feed Stats: <?php fs_feed_name($meta); ?>
+			<?php _e('Feed Stats:') ?> <?php fs_feed_name($meta); ?>
 			<span class="feed-stats-link">
-				&nbsp;(<a href="<?php fs_dashboard_url($meta); ?>">FeedBurner Dashboard</a>)
+				&nbsp;(<a href="<?php fs_dashboard_url($meta); ?>"><?php _e('FeedBurner Dashboard'); ?></a>)
 			<span>
 		</h2>
 		
@@ -105,12 +138,12 @@ function display_feed_stats() {
 				<div id="total-tab" class="feed-stats-tabs">
 					<ul class="total-tab-list">
 						<li id="hits-tab" onclick="selectTab('total-tab', 'hits');">
-							<span>Hits</span></a></li>
+							<span><?php _e('Hits') ?></span></a></li>
 						<li id="subs-tab" onclick="selectTab('total-tab', 'subs');">
-							<span>Subscribers</span></a></li>
+							<span><?php _e('Subscribers') ?></span></a></li>
 						<?php if ($item_errors == false): ?>
 						<li id="reach-tab" onclick="selectTab('total-tab', 'reach');">
-							<span>Reach</span></a></li>
+							<span><?php _e('Reach') ?></span></a></li>
 						<?php endif; ?>
 						<li class="fs-clr-tb" 
 						    style="float: none; padding: 0;
@@ -135,7 +168,7 @@ function display_feed_stats() {
 				</div>
 			</td>
 			<td width="50%">
-				<h3>Yesterday's Viewed &amp; Clicked Feed Items</h3>
+				<h3><?php _e('Yesterday\'s Viewed &amp; Clicked Feed Items') ?></h3>
 <?php
 		if ($item_errors == false) {
 			$item_count = fs_count_yesterday_items($items);
@@ -145,9 +178,9 @@ function display_feed_stats() {
 				<div id="yest-tab" class="feed-stats-tabs">
 					<ul class="total-tab-list">
 						<li id="clicks-tab" onclick="selectTab('yest-tab', 'clicks');">
-							<span>Clicks</span></a></li>
+							<span><?php _e('Clicks') ?></span></a></li>
 						<li id="views-tab" onclick="selectTab('yest-tab', 'views');">
-							<span>Views</span></a></li>
+							<span><?php _e('Views') ?></span></a></li>
 						<li class="fs-clr-tb" 
 						    style="float: none; padding: 0;
 							   clear: both; margin: -21px 0 0 0 !important;
@@ -168,18 +201,18 @@ function display_feed_stats() {
 			} else {
 ?>
 				<div style="font-size: 16px;">
-					<p>There weren't any items that were clicked on in your feed yesterday. 
-					   If you just turned on item stats, wait a day or two for information to start showing up.</p>
+					<p><?php _e('There weren\'t any items that were clicked on in your feed yesterday. 
+					   If you just turned on item stats, wait a day or two for information to start showing up.') ?></p>
 				</div>
 <?php
 			}
 		} else {
 ?>
 				<div style="font-size: 16px;">
-					<p>It appears that you don't have Item Stats enabled in your 
+					<p><?php _e('It appears that you don\'t have Item Stats enabled in your 
 					   FeedBurner account.  If it was enabled, you would be able to 
-					   view information about clickthroughs on individual feed items.</p>
-					<p>To enable them, you can go to the <a href="<?php fs_stats_set_url($meta) ?>">FeedBurner Stats settings</a>.</p>
+					   view information about clickthroughs on individual feed items.') ?></p>
+					<p><?php _e('To enable them, you can go to') ?> <a href="<?php fs_stats_set_url($meta) ?>"><?php _e('FeedBurner Stats settings') ?></a>.</p>
 				</div>
 <?php
 		}
@@ -206,6 +239,10 @@ function display_feed_stats() {
 
 function display_feed_options() {
 	if (!empty($_POST)) {
+		// Validate the nonce
+		check_admin_referer('feed-stats-edit_options');
+
+		// Execute the function
 		update_option('feedburner_feed_stats_name', $_POST['feed-stats-feed']);
 		update_option('feedburner_feed_stats_entries', $_POST['feed-stats-entries']);
 	}
@@ -218,43 +255,51 @@ function display_feed_options() {
 
 	<div class="wrap">
 		<h2><?php _e('Feed Stats Configuration'); ?></h2>
-		<form action="" method="post" id="feed-stats">			
+		<form action="" method="post" id="feed-stats">
+			<?php wp_nonce_field('feed-stats-edit_options') ?>			
 			<table class="form-table">
 				<tr>
-					<th scope="row" valign="top">FeedBurner Feed Name</th>
+					<th scope="row" valign="top"><?php _e('FeedBurner Feed Name'); ?></th>
 					<td>
+						<script type="text/javascript">
+							var help = "<?php _e('What Does This Mean?') ?>";
+						</script>
 						<input type="text" name="feed-stats-feed" id="feed-stats-feed" style="width: 190px" value="<?php echo get_option('feedburner_feed_stats_name'); ?>" />
 						<input type="button" class="button" name="feed-stats-tester" id="feed-stats-tester" value="Test" onclick="testURL('<?php ajax_test_url(); ?>', '<?php echo ABSPATH ?>', '<?php echo WPINC ?>')" style="display: none" />
 						<span id="feed-stats-waiting"><img src="<?php plugin_folder(); ?>images/ajax-loader.gif" alt="testing-icon" />Testing...</span>
 						<span id="feed-stats-result-good" title="<img src='<?php plugin_folder(); ?>images/accept.gif' alt='good-icon' />"></span>
 						<span id="feed-stats-result-bad" title="<img src='<?php plugin_folder(); ?>images/exclamation.gif' alt='bad-icon' />"></span>
-						<br />The part of your feed URL that comes after "http://feeds.feedburner.com/".
-						
-						<div id="feed-stats-troubleshooting">
-							<h4>Troubleshooting [<a href="javascript:hideTroubleshooting();">Hide</a>]</h4>
-							<dl>
-								<dt>"Feed Not Found"</dt>
-								<dd>This means that you probably mistyped the name of your feed.  Make sure to check its capitalization.</dd>
-								<dt>"This feed does not permit Awareness API access."</dt>
-								<dd>You haven't enabled the FeedBurner Awareness API. Go into your <a href="http://www.feedburner.com/fb/a/myfeeds">FeedBurner account</a>, click on your feed, click on the "Publicize" tab, click on the "Awareness API" button in the sidebar, and then click on the "Activate" button.</dd>
-								<dt>"The FeedBurner server is not available."</dt>
-								<dd>One of FeedBurner's servers must be down.  Try again later.  It's also possible that you're using this on a development server that does not have access to the internet.</dd>
-							</dl>
+						<br /><?php _e('The part of your feed URL that comes after "http://feeds.feedburner.com/".') ?>						
+
+						<div id="feed-stats-ts-box" class="info-box">
+							<h3 class="info-box-title"><?php _e('Troubleshooting') ?></h3>
+							<h4 class="feed-stats-nmb">"Feed Not Found"</h4>
+							<p class="feed-stats-nmt"><?php _e('This means that you probably mistyped the name of your feed.  Make sure to check its capitalization.') ?></p>
+							
+							<h4 class="feed-stats-nmb">"This feed does not permit Awareness API access."</h4>
+							<p class="feed-stats-nmt"><?php _e('You haven\'t enabled the FeedBurner Awareness API. Go into your <a href="http://www.feedburner.com/fb/a/myfeeds">FeedBurner account</a>, click on your feed, click on the "Publicize" tab, click on the "Awareness API" button in the sidebar, and then click on the "Activate" button.') ?></p>
+
+							<h4 class="feed-stats-nmb">"The FeedBurner server is not available."</h4>
+							<p class="feed-stats-nmt"><?php _e('One of FeedBurner\'s servers must be down.  Try again later.  It\'s also possible that you\'re using this on a development server that does not have access to the internet.') ?></p>
+
+							<div class="submit">
+								<button class="button" onclick="hideTroubleshooting(); return false;"><?php _e('Close') ?></button>
+							</div>
 						</div>
 					</td>
 				</tr>
 				<tr>
-					<th scope="row" valign="top">Number of Days to Show</th>
+					<th scope="row" valign="top"><?php _e('Number of Days to Show') ?></th>
 					<td>
 						<input type="text" name="feed-stats-entries" id="feed-stats-feed" style="width: 190px" value="<?php echo get_option('feedburner_feed_stats_entries'); ?>" />
 					</td>
 				</tr>
 			</table>
 			<p style="float: right; margin-top: 35px">
-				Icons by <a href="http://www.famfamfam.com/">FamFamFam</a>.
+				<?php _e('Icons by') ?> <a href="http://www.famfamfam.com/">FamFamFam</a>.
 			</p>
 			<p class="submit">
-				<input type="submit" name="submit" id="submit" value="Save Changes" />
+				<input type="submit" name="submit" id="submit" value="<?php _e('Save Changes') ?>" />
 			</p>
 			<p style="clear:both"></p>
 		</form>

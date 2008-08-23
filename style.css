@@ -101,3 +101,11 @@ table.feed-stats-data td.feed-stats-alt {
 .layout td {
 	vertical-align: top;
 }
+
+.feed-stats-nmb {
+	margin: 10px 0 0 0 !important;
+}
+
+.feed-stats-nmt {
+	margin: 0 0 10px 0 !important;
+}

@@ -41,9 +41,9 @@ function fs_feed_chart ($data, $type) {
 
 		echo "<img class='feed-stats-chart' src='$url' />";
 	} else {
-		echo "<strong>Welcome!</strong> It appears that this is a brand new FeedBurner 
+		echo _e("<strong>Welcome!</strong> It appears that this is a brand new FeedBurner 
 		      account&mdash;please wait a day or two for your first 
-		      stats to appear.";
+		      stats to appear.");
 	}
 }
 
@@ -78,7 +78,7 @@ function fs_items_chart ($data, $type) {
 		$url = 'http://chart.apis.google.com/chart?cht=p&chs=450x200&chco=E4F2FD,A0BAE9&chd=' . $datas . '&chl=' . $labels;
 		echo "<img class='feed-stats-chart' src='$url' />";
 	} else {
-		echo "There were no $type of your feed items yesterday.";
+		echo _e("There were no $type of your feed items yesterday.");
 	}
 }
 
@@ -86,9 +86,9 @@ function fs_items_table ($xml) {
 ?>
 	<table class="feed-stats-data">
 		<tr>
-			<th>Title</th>
-			<th style="width: 50px;">Clicks</th>
-			<th style="width: 50px;">Views</th>
+			<th><?php _e('Title'); ?></th>
+			<th style="width: 50px;"><?php _e('Clicks') ?></th>
+			<th style="width: 50px;"><?php _e('Views') ?></th>
 		</tr>
 <?php
 	// A slightly ugly hack to fix FeedBurner's issues
@@ -127,10 +127,10 @@ function fs_feed_table ($xml) {
 ?>
 	<table class="feed-stats-data">
 		<tr>
-			<th>Date</th>
-			<th style="width: 100px;">Subscribers</th>
-			<th style="width: 50px;">Hits</th>
-			<th style="width: 50px;">Reach</th>
+			<th><?php _e('Date'); ?></th>
+			<th style="width: 100px;"><?php _e('Subscribers'); ?></th>
+			<th style="width: 50px;"><?php _e('Hits'); ?></th>
+			<th style="width: 50px;"><?php _e('Reach'); ?></th>
 		</tr>
 <?php
 		$entries = fs_grab_entries($xml);

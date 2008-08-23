@@ -1,9 +1,9 @@
 === FeedBurner Feed Stats ===
 Contributors: speedbreeze
-Tags: feedburner, stats, statistics, rss, feed, hits, subscribers
+Tags: feedburner, stats, statistics, comments, hits, subscribers
 Requires at least: 2.3.3
 Tested up to: 2.6
-Stable tag: 1.0.2
+Stable tag: 1.0.1
 
 Finally, you can see your FeedBurner feed stats from inside your WordPress admin panel!
 
@@ -23,6 +23,9 @@ Currently, this plugin allows you to view the following types of statistics:
 
 **Note:** This is a third-party plugin for viewing data from the FeedBurner web service. I am *not* 
 in any way affiliated with FeedBurner.
+
+**Another Note:** This plugin is not any affiliated with and should not be confused with the plugin
+at: http://weblogtoolscollection.com/archives/2007/03/02/wp-plugin-feedburner-feed-stats/.
 
 == Installation ==
 
