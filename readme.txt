@@ -24,9 +24,6 @@ Currently, this plugin allows you to view the following types of statistics:
 **Note:** This is a third-party plugin for viewing data from the FeedBurner web service. I am *not* 
 in any way affiliated with FeedBurner.
 
-**Another Note:** This plugin is not any affiliated with and should not be confused with the plugin
-at: http://weblogtoolscollection.com/archives/2007/03/02/wp-plugin-feedburner-feed-stats/.
-
 == Installation ==
 
 Installing this plugin into your copy of WordPress and configuring it is really a three 
