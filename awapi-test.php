@@ -8,6 +8,10 @@ function do_action() {
 	return true;
 }
 
+function apply_filters($tag, $value) {
+	return $value;	
+}
+
 // The dependencies
 require_once ('fs-comm.php');
 require_once ('fs-parse.php');

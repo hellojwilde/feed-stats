@@ -1,3 +1,10 @@
+2008-11-21  Jonathan Wilde  <speedbreeze@gmail.com>
+
+	* awapi-test.php: Included a dummy function for apply_filters() so 
+		that http.php in WordPress 2.7 works.
+	* fs-comm.php: Added the necessary include files for WordPress' 
+		rss.php.
+
 2008-11-20  Jonathan Wilde <speedbreeze@gmail.com>
 
 	* feed-stats.php: Edited the description line so that the link to 
