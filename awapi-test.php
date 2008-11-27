@@ -1,17 +1,13 @@
 <?php
 
-// Some constants to make the WP libraries happy
-define("ABSPATH", $_GET['abs']);
-define("WPINC", $_GET['inc']);
-
-// Dummy do_action and apply_filters to make the WP HTTP library happy
-function do_action() {
-	return true;
-}
-
-function apply_filters($tag, $value) {
-	return $value;	
-}
+// Include the wp-config.php file. We're going to do this with relative 
+// paths, but to ensure that something bad doesn't happen if somebody 
+// unzips the plugin directly into the plugins folder, we're going to 
+// check the name of the parent directory.
+if (dirname(__FILE__) == 'plugins')
+	require_once '../../wp-config.php';
+else
+	require_once '../../../wp-config.php';
 
 // Include the WP internationalization libraries
 require_once(ABSPATH . WPINC . '/l10n.php');
@@ -39,6 +35,7 @@ if (isset($xml)) {
 	else
 		echo $errors;
 } else {
-	echo 'The FeedBurner server is not available.';
+	// If we cannot get xml, we'll tell the user that
+	echo 'Cannot access FeedBurner.';
 }
 ?>
