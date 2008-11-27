@@ -1,11 +1,11 @@
 <?php
 
 function fetch_remote_xml($url) {
-	require_once (ABSPATH . WPINC . '/classes.php');	
-	require_once (ABSPATH . WPINC . '/functions.php');	
-	require_once (ABSPATH . WPINC . '/http.php');	
+	require_once(ABSPATH . WPINC . '/classes.php');	
+	require_once(ABSPATH . WPINC . '/functions.php');	
+	require_once(ABSPATH . WPINC . '/http.php');	
 	
-	require_once (ABSPATH . WPINC . '/rss.php');
+	require_once(ABSPATH . WPINC . '/rss.php');
 		
 	$remote = _fetch_remote_file($url);
 

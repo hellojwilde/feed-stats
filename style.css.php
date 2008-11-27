@@ -1,3 +1,11 @@
+<?php 
+	// Set the content-type header so that the browser knows what to do
+	header('Content-type: text/css');
+	
+	// Set variable with the WP version taken from the post header
+	$ver = $_GET['v'];
+?>
+
 .feed-stats-container {
 	text-align: center;
 }
@@ -25,10 +33,17 @@
 	padding: 0; 
 	list-style-type: none; 
 	font-size: 12pt;
+<?php if (version_compare($ver, '2.5', '>=')) : ?>
+	margin-top: 20px !important;
+<?php endif; ?>
 }
 
 .feed-stats-tabs ul {
 	border-bottom: 1px solid #999999;
+<?php if (strpos($ver, '2.7') == 0) : ?>
+	margin-bottom: 10px;
+	padding-left: 20px;
+<?php endif; ?>
 }
 
 .feed-stats-tabs ul li {

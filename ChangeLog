@@ -1,3 +1,21 @@
+2008-11-27  Jonathan Wilde  <speedbreeze@gmail.com>
+
+	* awapi-test.php: Fixed a spelling error in the feed checker.  Did 
+		some cleanup of the conditional statement.  Improved the 
+		comments.  Included the internationalization library 
+		(wp-includes/l10n.php).
+	* feed-stats.php: Moved the help onto a separate page. Removed 
+		extraneous inline CSS. Bumped the version number.
+	* fs-comm.php: Cleanup.
+	* js/test.js: Changed the "What does this mean?" link to point to 
+		the new "Troubleshooting" page.
+	* style.css.php: Converted from static CSS to dynamic PHP so that we 
+		can do templated CSS.  This makes the markup so much more 
+		elegant; it allows us to remove all of the extra style tags that 
+		we used to add to the header of the admin panel.
+	* +   style.css.php (added): style.css was renamed to style.css.php.
+	* style.css (deleted): style.css was renamed to style.css.php.
+
 2008-11-21  Jonathan Wilde  <speedbreeze@gmail.com>
 
 	* awapi-test.php: Included a dummy function for apply_filters() so 

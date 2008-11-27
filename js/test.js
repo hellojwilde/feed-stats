@@ -41,7 +41,7 @@ function testChange(state, XHR) {
 			good.innerHTML = good.title + XHR.responseText;
 		} else {
 			bad.style.display = "inline";
-			bad.innerHTML = bad.title + XHR.responseText + '. [<a href="#" onclick="displayTroubleshooting();">' + help + '</a>]';
+			bad.innerHTML = bad.title + XHR.responseText + '. (<a href="./options-general.php?page=feed-stats&help=true">' + help + '</a>)';
 		}
 	}
 }

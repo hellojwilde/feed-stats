@@ -3,7 +3,7 @@
 	Plugin Name: FeedBurner Feed Stats
 	Plugin URI: http://www.speedbreeze.com/2008/02/22/feed-stats-wordpress-plugin/
 	Description: A quick and easy way to view the stats for your FeedBurner feed. After activating the plugin, make sure to  <a href="./options-general.php?page=feed-stats">configure</a> which feed you want to track.
-	Version: 1.0.
+	Version: 1.0.4
 	Author: Jonathan Wilde
 	Author URI: http://www.speedbreeze.com
 */
@@ -37,7 +37,7 @@ function add_feed_stats_pages() {
 function feed_stats_classes() {
 ?>
 	<script type="text/javascript" src="<?php plugin_folder() ?>js/tabs.js"></script>
-	<link type="text/css" href="<?php plugin_folder() ?>style.css" rel="stylesheet" media="all"></script>
+	<link type="text/css" href="<?php plugin_folder() ?>style.css.php?v=<?php echo get_bloginfo('version'); ?>" rel="stylesheet" media="all"></script>
 
 	<!--[if lte IE 7]>
 	<style type="text/css">
@@ -56,44 +56,6 @@ function feed_stats_classes() {
 	</style>
 	<![endif]-->
 <?php
-	if (version_compare(get_bloginfo('version'), '2.5', '>=')) {
-?>
-	<style type="text/css">
-		.feed-stats-tabs {
-			margin-top: 20px !important;
-		}
-		
-		/* Borrowed from wp-admin.css v. 2.5.1, copyright 2008 
-		   Automattic, Inc. Licensed under GPL. */
-		.info-box {
-			background:#F8F8F8 none repeat scroll 0 0;
-			border:5px solid #DDDDDD;
-			display:none;
-			height:300px;
-			left:50%;
-			margin-left:-225px;
-			padding:15px 15px 10px;
-			position:absolute;
-			top:100px;
-			width:450px;
-			z-index:1000;
-		}
-
-		.info-box .submit {
-			bottom:15px;
-			padding:15px 0 0;
-			position:absolute;
-			width:450px;
-		}
-
-		.info-box-title {
-			line-height:2;
-			margin:0;
-			padding:0 7px;
-		}
-	</style>
-<?php
-	}
 }
 
 function display_feed_stats() {
@@ -248,12 +210,23 @@ function display_feed_options() {
 	}
 ?>
 	<?php if (!empty($_POST)): ?>
-	<div id="message" class="updated fade">
-		<p><strong><?php _e('Options saved successfully.') ?></strong></p>
-	</div>
+		<div id="message" class="updated fade">
+			<p><strong><?php _e('Options saved successfully.') ?></strong></p>
+		</div>
 	<?php endif; ?>
-
+	
 	<div class="wrap">
+	<?php if ($_GET['help'] == 'true'): ?>
+		<h2 class="info-box-title"><?php _e('Troubleshooting') ?></h3>
+		<h3 class="feed-stats-nmb">"Feed Not Found"</h4>
+		<p class="feed-stats-nmt"><?php _e('This means that you probably mistyped the name of your feed.  Make sure to check its capitalization.') ?></p>
+						
+		<h3 class="feed-stats-nmb">"This feed does not permit Awareness API access."</h4>
+		<p class="feed-stats-nmt"><?php _e('You haven\'t enabled the FeedBurner Awareness API. Go into your <a href="http://www.feedburner.com/fb/a/myfeeds">FeedBurner account</a>, click on your feed, click on the "Publicize" tab, click on the "Awareness API" button in the sidebar, and then click on the "Activate" button.') ?></p>
+
+		<h3 class="feed-stats-nmb">"The FeedBurner server is not available."</h4>
+		<p class="feed-stats-nmt"><?php _e('One of FeedBurner\'s servers must be down.  Try again later.  It\'s also possible that you\'re using this on a development server that does not have access to the internet.') ?></p>
+	<?php else: ?>
 		<h2><?php _e('Feed Stats Configuration'); ?></h2>
 		<form action="" method="post" id="feed-stats">
 			<?php wp_nonce_field('feed-stats-edit_options') ?>			
@@ -270,22 +243,6 @@ function display_feed_options() {
 						<span id="feed-stats-result-good" title="<img src='<?php plugin_folder(); ?>images/accept.gif' alt='good-icon' />"></span>
 						<span id="feed-stats-result-bad" title="<img src='<?php plugin_folder(); ?>images/exclamation.gif' alt='bad-icon' />"></span>
 						<br /><?php _e('The part of your feed URL that comes after "http://feeds.feedburner.com/".') ?>						
-
-						<div id="feed-stats-ts-box" class="info-box">
-							<h3 class="info-box-title"><?php _e('Troubleshooting') ?></h3>
-							<h4 class="feed-stats-nmb">"Feed Not Found"</h4>
-							<p class="feed-stats-nmt"><?php _e('This means that you probably mistyped the name of your feed.  Make sure to check its capitalization.') ?></p>
-							
-							<h4 class="feed-stats-nmb">"This feed does not permit Awareness API access."</h4>
-							<p class="feed-stats-nmt"><?php _e('You haven\'t enabled the FeedBurner Awareness API. Go into your <a href="http://www.feedburner.com/fb/a/myfeeds">FeedBurner account</a>, click on your feed, click on the "Publicize" tab, click on the "Awareness API" button in the sidebar, and then click on the "Activate" button.') ?></p>
-
-							<h4 class="feed-stats-nmb">"The FeedBurner server is not available."</h4>
-							<p class="feed-stats-nmt"><?php _e('One of FeedBurner\'s servers must be down.  Try again later.  It\'s also possible that you\'re using this on a development server that does not have access to the internet.') ?></p>
-
-							<div class="submit">
-								<button class="button" onclick="hideTroubleshooting(); return false;"><?php _e('Close') ?></button>
-							</div>
-						</div>
 					</td>
 				</tr>
 				<tr>
@@ -303,8 +260,9 @@ function display_feed_options() {
 			</p>
 			<p style="clear:both"></p>
 		</form>
-		
+			
 		<script type="text/javascript" src="<?php plugin_folder() ?>js/test.js"></script>
+	<?php endif; ?>
 	</div>
 <?php
 }
