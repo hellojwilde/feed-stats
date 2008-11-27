@@ -1,5 +1,17 @@
 2008-11-27  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* feed-stats.php: Massive code cleanup. Cleaned up the tab code by 
+		removing the unnecessary </a> tags and the fs-clr-tab <li> tag. 
+		Replaced inline style tags with class names. Removed class names 
+		from troubleshooting page.
+	* js/test.js: The troubleshooting page now opens in a new window.
+	* style.css.php: Changed the tab code from using float to using 
+		display: inline.  Added styles for all of the new classnames.  
+		Removed the classnames that were removed from the 
+		troubleshooting page.
+
+2008-11-27  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* awapi-test.php: Fixed a spelling error in the feed checker.  Did 
 		some cleanup of the conditional statement.  Improved the 
 		comments.  Included the internationalization library 

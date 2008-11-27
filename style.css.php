@@ -42,25 +42,20 @@
 	border-bottom: 1px solid #999999;
 <?php if (strpos($ver, '2.7') == 0) : ?>
 	margin-bottom: 10px;
-	padding-left: 20px;
+	padding-left: 17px;
 <?php endif; ?>
 }
 
 .feed-stats-tabs ul li {
-	float: left; 
-	padding: 5px; 
-	margin-bottom: 0; 
+	display: inline;
 	border: 1px solid #dddddd; 
 	border-bottom: 0;
-	margin-right: 5px;
 	list-style-type: none;
 	cursor: pointer;
 	position: relative;
 	top: 1px;
-}
-
-#hits-tab, #clicks-tab {
-	margin: 0 5px 0 -17px;
+	padding: 9px 10px 0;
+	margin: 0 3px 0 0;
 }
 
 .feed-stats-tabs .active {
@@ -75,8 +70,8 @@
 
 .feed-stats-tabs ul li span {
 	cursor: pointer;
-	text-decoration: none;
-	border: 0;
+	position: relative;
+	top: -4px;
 }
 
 .feed-stats-clear {
@@ -117,10 +112,23 @@ table.feed-stats-data td.feed-stats-alt {
 	vertical-align: top;
 }
 
-.feed-stats-nmb {
-	margin: 10px 0 0 0 !important;
+.fs-message {
+	font-size: 16px;
 }
 
-.feed-stats-nmt {
-	margin: 0 0 10px 0 !important;
+.fs-text {
+	width: 190px
+}
+
+.fs-icons-credit {
+	float: right;
+<?php if (strpos($ver, '2.7') == 0) : ?>
+	margin-top: 27px;
+<?php else: ?>
+	margin-top: 35px;
+<?php endif; ?>
+}
+
+.fs-visual-clear {
+	clear: both;	
 }

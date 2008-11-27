@@ -100,17 +100,13 @@ function display_feed_stats() {
 				<div id="total-tab" class="feed-stats-tabs">
 					<ul class="total-tab-list">
 						<li id="hits-tab" onclick="selectTab('total-tab', 'hits');">
-							<span><?php _e('Hits') ?></span></a></li>
+							<span><?php _e('Hits') ?></span></li>
 						<li id="subs-tab" onclick="selectTab('total-tab', 'subs');">
-							<span><?php _e('Subscribers') ?></span></a></li>
+							<span><?php _e('Subscribers') ?></span></li>
 						<?php if ($item_errors == false): ?>
 						<li id="reach-tab" onclick="selectTab('total-tab', 'reach');">
-							<span><?php _e('Reach') ?></span></a></li>
+							<span><?php _e('Reach') ?></span></li>
 						<?php endif; ?>
-						<li class="fs-clr-tb" 
-						    style="float: none; padding: 0;
-							   clear: both; margin: -21px 0 0 0 !important;
-							   border: 0;"></li>
 					</ul>
 					<div id="hits">
 						<?php fs_feed_chart($feed, 'hits'); ?>
@@ -140,13 +136,9 @@ function display_feed_stats() {
 				<div id="yest-tab" class="feed-stats-tabs">
 					<ul class="total-tab-list">
 						<li id="clicks-tab" onclick="selectTab('yest-tab', 'clicks');">
-							<span><?php _e('Clicks') ?></span></a></li>
+							<span><?php _e('Clicks') ?></span></li>
 						<li id="views-tab" onclick="selectTab('yest-tab', 'views');">
-							<span><?php _e('Views') ?></span></a></li>
-						<li class="fs-clr-tb" 
-						    style="float: none; padding: 0;
-							   clear: both; margin: -21px 0 0 0 !important;
-							   border: 0;"></li>
+							<span><?php _e('Views') ?></span></li>
 					</ul>
 					<div id="clicks">
 						<?php fs_items_chart($items, 'clicks'); ?>
@@ -162,7 +154,7 @@ function display_feed_stats() {
 <?php
 			} else {
 ?>
-				<div style="font-size: 16px;">
+				<div class="fs-message">
 					<p><?php _e('There weren\'t any items that were clicked on in your feed yesterday. 
 					   If you just turned on item stats, wait a day or two for information to start showing up.') ?></p>
 				</div>
@@ -170,7 +162,7 @@ function display_feed_stats() {
 			}
 		} else {
 ?>
-				<div style="font-size: 16px;">
+				<div class="fs-message">
 					<p><?php _e('It appears that you don\'t have Item Stats enabled in your 
 					   FeedBurner account.  If it was enabled, you would be able to 
 					   view information about clickthroughs on individual feed items.') ?></p>
@@ -217,15 +209,15 @@ function display_feed_options() {
 	
 	<div class="wrap">
 	<?php if ($_GET['help'] == 'true'): ?>
-		<h2 class="info-box-title"><?php _e('Troubleshooting') ?></h3>
-		<h3 class="feed-stats-nmb">"Feed Not Found"</h4>
-		<p class="feed-stats-nmt"><?php _e('This means that you probably mistyped the name of your feed.  Make sure to check its capitalization.') ?></p>
+		<h2><?php _e('Troubleshooting') ?></h3>
+		<h3>"Feed Not Found"</h4>
+		<p><?php _e('This means that you probably mistyped the name of your feed.  Make sure to check its capitalization.') ?></p>
 						
-		<h3 class="feed-stats-nmb">"This feed does not permit Awareness API access."</h4>
-		<p class="feed-stats-nmt"><?php _e('You haven\'t enabled the FeedBurner Awareness API. Go into your <a href="http://www.feedburner.com/fb/a/myfeeds">FeedBurner account</a>, click on your feed, click on the "Publicize" tab, click on the "Awareness API" button in the sidebar, and then click on the "Activate" button.') ?></p>
+		<h3>"This feed does not permit Awareness API access."</h4>
+		<p><?php _e('You haven\'t enabled the FeedBurner Awareness API. Go into your <a href="http://www.feedburner.com/fb/a/myfeeds">FeedBurner account</a>, click on your feed, click on the "Publicize" tab, click on the "Awareness API" button in the sidebar, and then click on the "Activate" button.') ?></p>
 
-		<h3 class="feed-stats-nmb">"The FeedBurner server is not available."</h4>
-		<p class="feed-stats-nmt"><?php _e('One of FeedBurner\'s servers must be down.  Try again later.  It\'s also possible that you\'re using this on a development server that does not have access to the internet.') ?></p>
+		<h3>"The FeedBurner server is not available."</h4>
+		<p><?php _e('One of FeedBurner\'s servers must be down.  Try again later.  It\'s also possible that you\'re using this on a development server that does not have access to the internet.') ?></p>
 	<?php else: ?>
 		<h2><?php _e('Feed Stats Configuration'); ?></h2>
 		<form action="" method="post" id="feed-stats">
@@ -237,28 +229,30 @@ function display_feed_options() {
 						<script type="text/javascript">
 							var help = "<?php _e('What Does This Mean?') ?>";
 						</script>
-						<input type="text" name="feed-stats-feed" id="feed-stats-feed" style="width: 190px" value="<?php echo get_option('feedburner_feed_stats_name'); ?>" />
+						<input type="text" name="feed-stats-feed" id="feed-stats-feed" class="fs-text" value="<?php echo get_option('feedburner_feed_stats_name'); ?>" />
 						<input type="button" class="button" name="feed-stats-tester" id="feed-stats-tester" value="Test" onclick="testURL('<?php ajax_test_url(); ?>', '<?php echo ABSPATH ?>', '<?php echo WPINC ?>')" style="display: none" />
+						
 						<span id="feed-stats-waiting"><img src="<?php plugin_folder(); ?>images/ajax-loader.gif" alt="testing-icon" />Testing...</span>
 						<span id="feed-stats-result-good" title="<img src='<?php plugin_folder(); ?>images/accept.gif' alt='good-icon' />"></span>
 						<span id="feed-stats-result-bad" title="<img src='<?php plugin_folder(); ?>images/exclamation.gif' alt='bad-icon' />"></span>
+						
 						<br /><?php _e('The part of your feed URL that comes after "http://feeds.feedburner.com/".') ?>						
 					</td>
 				</tr>
 				<tr>
 					<th scope="row" valign="top"><?php _e('Number of Days to Show') ?></th>
 					<td>
-						<input type="text" name="feed-stats-entries" id="feed-stats-feed" style="width: 190px" value="<?php echo get_option('feedburner_feed_stats_entries'); ?>" />
+						<input type="text" name="feed-stats-entries" id="feed-stats-entries" class="fs-text" value="<?php echo get_option('feedburner_feed_stats_entries'); ?>" />
 					</td>
 				</tr>
 			</table>
-			<p style="float: right; margin-top: 35px">
+			<p class="fs-icons-credit">
 				<?php _e('Icons by') ?> <a href="http://www.famfamfam.com/">FamFamFam</a>.
 			</p>
 			<p class="submit">
 				<input type="submit" name="submit" id="submit" value="<?php _e('Save Changes') ?>" />
 			</p>
-			<p style="clear:both"></p>
+			<p class="fs-visual-clear"></p>
 		</form>
 			
 		<script type="text/javascript" src="<?php plugin_folder() ?>js/test.js"></script>
