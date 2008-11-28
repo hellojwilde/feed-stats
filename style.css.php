@@ -27,51 +27,50 @@
 }
 
 .feed-stats-tabs {
-	width: 450px; 
-	display: block; 
-	margin: 0; 
-	padding: 0; 
-	list-style-type: none; 
-	font-size: 12pt;
+	margin-right: 30px;
 <?php if (version_compare($ver, '2.5', '>=')) : ?>
 	margin-top: 20px !important;
 <?php endif; ?>
 }
 
 .feed-stats-tabs ul {
-	padding-left: 17px;
-	border-bottom: 1px solid #999999;
+	padding: 0 0 0 17px;
+	margin: 0;
 <?php if (strpos(' '.$ver, '2.7') == 1) : ?>
 	margin-bottom: 10px;
 <?php endif; ?>
 }
 
 .feed-stats-tabs ul li {
-	display: inline;
-	border: 1px solid #dddddd; 
-	border-bottom: 0;
+	float: left;
 	list-style-type: none;
-	cursor: pointer;
+	border: 1px solid #999;
+	padding: 3px;
+	margin: 0 3px 0 0;
 	position: relative;
 	top: 1px;
-	padding: 9px 10px 0;
-	margin: 0 3px 0 0;
+	z-index: 9999;
 }
 
 .feed-stats-tabs .active {
-	border: 1px solid #999999 !important;
-	border-bottom: 1px solid #ffffff !important;
-}
-
-.feed-stats-tabs .active span {
-	color: #000000;
+	border-bottom: 1px solid #fff;
 	font-weight: bold;
 }
 
-.feed-stats-tabs ul li span {
+.feed-stats-tabs ul li a {
+	padding: 0 10px;
 	cursor: pointer;
-	position: relative;
-	top: -4px;
+	color: #000 !important;
+}
+
+.feed-stats-tab {
+	border-top: 1px solid #999;
+	clear:both;
+	padding-top: 15px;
+}
+
+.feed-stats-tabs .feed-stats-clear {
+	width: 100%;
 }
 
 .feed-stats-clear {
@@ -131,8 +130,4 @@ table.feed-stats-data td.feed-stats-alt {
 <?php else: ?>
 	margin-top: 35px;
 <?php endif; ?>
-}
-
-.fs-visual-clear {
-	clear: both;	
 }

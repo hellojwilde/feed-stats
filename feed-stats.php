@@ -41,17 +41,10 @@ function feed_stats_classes() {
 
 	<!--[if lte IE 7]>
 	<style type="text/css">
-		.total-tab-list {
-			margin: 0 !important;
-			padding: 0 !important;
-		}
-
-		#hits-tab, #clicks-tab {
-			margin-left: 11px;
-		}
-
-		.feed-stats-tabs div {
-			margin-top: 10px !important;
+		.feed-stats-tab {
+			position:relative;
+			top: -20px;
+			padding-top: 7px;
 		}
 	</style>
 	<![endif]-->
@@ -102,22 +95,23 @@ function display_feed_stats() {
 				<div id="total-tab" class="feed-stats-tabs">
 					<ul class="total-tab-list">
 						<li id="hits-tab" onclick="selectTab('total-tab', 'hits');">
-							<span><?php _e('Hits') ?></span></li>
+							<a><?php _e('Hits') ?></a></li>
 						<li id="subs-tab" onclick="selectTab('total-tab', 'subs');">
-							<span><?php _e('Subscribers') ?></span></li>
+							<a><?php _e('Subscribers') ?></a></li>
 						<?php if ($item_errors == false): ?>
 						<li id="reach-tab" onclick="selectTab('total-tab', 'reach');">
-							<span><?php _e('Reach') ?></span></li>
+							<a><?php _e('Reach') ?></a></li>
 						<?php endif; ?>
 					</ul>
-					<div id="hits">
+
+					<div id="hits" class="feed-stats-tab">
 						<?php fs_feed_chart($feed, 'hits'); ?>
 					</div>
-					<div id="subs">
+					<div id="subs" class="feed-stats-tab">
 						<?php fs_feed_chart($feed, 'subs'); ?>
 					</div>
 					<?php if ($item_errors == false): ?>
-					<div id="reach">
+					<div id="reach" class="feed-stats-tab">
 						<?php fs_feed_chart($feed, 'reach'); ?>
 					</div>
 					<?php endif; ?>
@@ -138,14 +132,15 @@ function display_feed_stats() {
 				<div id="yest-tab" class="feed-stats-tabs">
 					<ul class="total-tab-list">
 						<li id="clicks-tab" onclick="selectTab('yest-tab', 'clicks');">
-							<span><?php _e('Clicks') ?></span></li>
+							<a><?php _e('Clicks') ?></a></li>
 						<li id="views-tab" onclick="selectTab('yest-tab', 'views');">
-							<span><?php _e('Views') ?></span></li>
+							<a><?php _e('Views') ?></a></li>
 					</ul>
-					<div id="clicks">
+
+					<div id="clicks" class="feed-stats-tab">
 						<?php fs_items_chart($items, 'clicks'); ?>
 					</div>
-					<div id="views">
+					<div id="views" class="feed-stats-tab">
 						<?php fs_items_chart($items, 'views'); ?>
 					</div>
 
@@ -254,7 +249,7 @@ function display_feed_options() {
 			<p class="submit">
 				<input type="submit" name="submit" id="submit" value="<?php _e('Save Changes') ?>" />
 			</p>
-			<p class="fs-visual-clear"></p>
+			<p class="feed-stats-clear"></p>
 		</form>
 			
 		<script type="text/javascript" src="<?php plugin_folder() ?>js/test.js"></script>
