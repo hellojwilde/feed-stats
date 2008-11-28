@@ -4,9 +4,10 @@ function fs_check_errors ($xml) {
 	if (preg_match('|rsp stat="fail"|', $xml)) {
 		preg_match('|msg="(.*?)"|', $xml, $msg);
 		return $msg[1];
-	} else {
-		return false;
-	}
+	} elseif (strlen($xml) == 0) 
+		return 'Cannot access FeedBurner';
+	else
+		return false;	
 }
 
 function fs_grab_meta ($xml) {
@@ -36,9 +37,11 @@ function fs_parse_entry ($xml) {
 
 // The function fs_grab_yesterday_entry is partially based on stripScripts
 // from the MooTools JavaScript Framework
-
-// MooTools is copyright © 2006-2008 Valerio Proietti and licensed
-// under the MIT License <http://www.opensource.org/licenses/mit-license.php>
+//
+// Copyright © 2006-2008 Valerio Proietti
+// Mootools uses the MIT License, which can be found at:
+//
+//      <http://www.opensource.org/licenses/mit-license.php>
 
 function fs_grab_yesterday_entry ($xml) {
 	$y = date('Y-m-d', mktime(0, 0, 0, date("m"), date("d") - 1,date("Y")));

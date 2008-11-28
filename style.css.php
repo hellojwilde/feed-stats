@@ -112,7 +112,7 @@ table.feed-stats-data td.feed-stats-alt {
 	vertical-align: top;
 }
 
-.fs-message {
+.fs-message, .fs-message p {
 	font-size: 16px;
 }
 

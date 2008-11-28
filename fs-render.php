@@ -29,7 +29,7 @@ function fs_feed_chart ($data, $type) {
 	
 	$highest = max($chart_values) * 1.1;
 
-	if (isset($highest) && $highest > 0) {
+	if (isset($highest)) {
 		foreach ($entries as $entry) {
 			$data = fs_parse_entry($entry);
 			$chart_data_string .= @round((($data[$type] / $highest) * 100), 1) . ",";
@@ -41,9 +41,11 @@ function fs_feed_chart ($data, $type) {
 
 		echo "<img class='feed-stats-chart' src='$url' />";
 	} else {
-		echo _e("<strong>Welcome!</strong> It appears that this is a brand new FeedBurner 
-		      account&mdash;please wait a day or two for your first 
-		      stats to appear.");
+		echo _e("It appears that this is a brand new FeedBurner 
+				 account&mdash;please wait a day or two for your first 
+				 stats to appear. If you know than you do have stats, 
+				 then your server is probably having issues 
+				 communicating with FeedBurner.");
 	}
 }
 

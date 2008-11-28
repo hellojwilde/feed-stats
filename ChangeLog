@@ -1,5 +1,15 @@
 2008-11-27  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* awapi-test.php: Removed error checking code; that has been moved 
+		into the fs_check_errors() function.
+	* feed-stats.php: Improved troubleshooting information. 
+	* fs-parse.php: Improved fs_check_errors().
+	* fs-render.php: Improved data checking and message for when there's 
+		no data.
+	* style.css.php: Tweaked the .fs-message class.
+
+2008-11-27  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* awapi-test.php: Tweaked wording.  Made it load the wp-config.php 
 		file rather than getting ABSPATH and WPINC from GET variables. 
 		Far more secure.
