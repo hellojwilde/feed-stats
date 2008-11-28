@@ -70,7 +70,9 @@ function display_feed_stats() {
 	$name = get_option('feedburner_feed_stats_name');
 
 	// A security fix for injection attacks
-	$name = sanitize_url($name);
+	if (function_exists("sanitize_url"))
+		$name = sanitize_url($name);
+	
 	$name = str_replace('http://', '', $name);
 
 	// Load data from FeedBurner
@@ -222,7 +224,7 @@ function display_feed_options() {
 		<h2><?php _e('Feed Stats Settings'); ?></h2>
 		<form action="" method="post" id="feed-stats">
 			<?php wp_nonce_field('feed-stats-edit_options') ?>			
-			<table class="form-table">
+			<table class="form-table optiontable">
 				<tr>
 					<th scope="row" valign="top"><?php _e('FeedBurner Feed Name'); ?></th>
 					<td>

@@ -39,10 +39,10 @@
 }
 
 .feed-stats-tabs ul {
-	border-bottom: 1px solid #999999;
-<?php if (strpos($ver, '2.7') == 0) : ?>
-	margin-bottom: 10px;
 	padding-left: 17px;
+	border-bottom: 1px solid #999999;
+<?php if (strpos(' '.$ver, '2.7') == 1) : ?>
+	margin-bottom: 10px;
 <?php endif; ?>
 }
 
@@ -121,8 +121,12 @@ table.feed-stats-data td.feed-stats-alt {
 }
 
 .fs-icons-credit {
+<?php if (version_compare($ver, '2.5', '<')) : ?>
+	float: left;
+<?php else: ?>
 	float: right;
-<?php if (strpos($ver, '2.7') == 0) : ?>
+<?php endif; ?>
+<?php if (strpos(' '.$ver, '2.7') == 1) : ?>
 	margin-top: 27px;
 <?php else: ?>
 	margin-top: 35px;

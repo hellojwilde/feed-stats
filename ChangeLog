@@ -1,5 +1,18 @@
 2008-11-27  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* feed-stats.php: Added a the optiontable class name, which makes 
+		the "Feed Stats Options" page look pretty in WordPress 2.3.  
+		Added a conditional that only tries to use sanitize_url if the 
+		user acutally has it.  This allows the dashboard subpage to work 
+		in WordPress 2.3.
+	* fs-comm.php: Changed the include_once to a require_once for the 
+		new WP 2.7 http.php library. Suppressed warnings for that line 
+		as well.  This allows it to work in WordPress 2.3.
+	* style.css.php: Added a few extra conditionals and statements to 
+		make everything look pretty in WordPress 2.3.
+
+2008-11-27  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* awapi-test.php: Removed error checking code; that has been moved 
 		into the fs_check_errors() function.
 	* feed-stats.php: Improved troubleshooting information. 
