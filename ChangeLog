@@ -1,5 +1,12 @@
 2008-11-27  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* readme.txt: Updated for version 1.0.4.  Added Google Chrome to the 
+		supported browsers list; tweaked grammar and wording to make it 
+		more readable.  Added feed-related words to the tags list, 
+		removed "comments."
+
+2008-11-27  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* feed-stats.php: Removed obsolete CSS styles for IE. Modified the 
 		tab markup.  Changed one of the styles for the clear block at 
 		the bottom of the Settings page.
