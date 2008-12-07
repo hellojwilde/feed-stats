@@ -27,6 +27,11 @@ statistics:
 **Note:** This is a third-party plugin for viewing data from the 
 FeedBurner web service. I am *not* in any way affiliated with FeedBurner.
 
+= Questions? Comments? Found a Bug? =
+Feel free to ask these questions, get help, find out about new releases, 
+and more at the 
+[Feed Stats Plugin Google Group](http://groups.google.com/group/feed-stats-plugin).
+
 == Installation ==
 
 Installing this plugin into your copy of WordPress and configuring it is 
