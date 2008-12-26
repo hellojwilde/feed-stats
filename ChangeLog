@@ -1,3 +1,10 @@
+2008-12-25  Jonathan Wilde  <speedbreeze@gmail.com>
+
+	* include (added): Added a folder (sort of like the wp-includes 
+		folder) to hold external classes that we're using in the plugin.
+	* include/class_http.php (added): Added Troy Wolf's fantastic 
+		class_http to use instead of the WordPress 2.7 HTTP API.
+
 2008-12-07  Jonathan Wilde  <speedbreeze@gmail.com>
 
 	* readme.txt: Added a section talking about the new Google Group.
