@@ -26,7 +26,7 @@ function fs_load_feed_data ($name, $days) {
 	$yesterday = date("Y-m-d", $minusone);
 
 	// Generate the URL
-	$url = "http://api.feedburner.com/awareness/1.0/GetFeedData" . 
+	$url = "https://feedburner.google.com/api/awareness/1.0/GetFeedData" . 
 		   "?uri=" . $name . "&dates=" . $start . "," . $end;
 
 	// Fetch and parse the data
@@ -43,7 +43,7 @@ function fs_load_item_data ($name, $days) {
 	$yesterday = date("Y-m-d", $minusone);
 
 	// Generate the URL
-	$url = "http://api.feedburner.com/awareness/1.0/GetItemData" . 
+	$url = "https://feedburner.google.com/api/awareness/1.0/GetItemData" . 
 		    "?uri=" . $name . "&dates=" . $start . "," . $end;
 
 	// Fetch and parse the data

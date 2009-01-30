@@ -1,3 +1,13 @@
+2009-01-29  Jonathan Wilde  <speedbreeze@gmail.com>
+
+	patch by: matrixagent
+
+	* fs-comm.php: Applied matrixagent's patch, which allows the plugin 
+		to function with the newer Google FeedBurner feeds.
+	* templates (added): Added a templates folder to neatly contain all 
+		of the views for different parts of the plugin.  This will make 
+		managing the look-and-feel far easier.
+	
 2008-12-25  Jonathan Wilde  <speedbreeze@gmail.com>
 
 	* include (added): Added a folder (sort of like the wp-includes 
