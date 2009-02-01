@@ -35,20 +35,7 @@ function add_feed_stats_pages() {
 }
 
 function feed_stats_classes() {
-?>
-	<script type="text/javascript" src="<?php plugin_folder() ?>js/tabs.js"></script>
-	<link type="text/css" href="<?php plugin_folder() ?>style.css.php?v=<?php echo get_bloginfo('version'); ?>" rel="stylesheet" media="all"></script>
-
-	<!--[if lte IE 7]>
-	<style type="text/css">
-		.feed-stats-tab {
-			position:relative;
-			top: -20px;
-			padding-top: 7px;
-		}
-	</style>
-	<![endif]-->
-<?php
+	load_template(dirname(__FILE__) . '/templates/header.php');
 }
 
 function display_feed_stats() {
@@ -205,55 +192,12 @@ function display_feed_options() {
 	<?php endif; ?>
 	
 	<div class="wrap">
-	<?php if ($_GET['help'] == 'true'): ?>
-		<h2><?php _e('Feed Stats Troubleshooting') ?></h3>
-		<h3>"Feed Not Found"</h4>
-		<p><?php _e('This means that you probably mistyped the name of your feed.  Make sure to check its capitalization.') ?></p>
-						
-		<h3>"This feed does not permit Awareness API access."</h4>
-		<p><?php _e('You haven\'t enabled the FeedBurner Awareness API. Go into your <a href="http://www.feedburner.com/fb/a/myfeeds">FeedBurner account</a>, click on your feed, click on the "Publicize" tab, click on the "Awareness API" button in the sidebar, and then click on the "Activate" button.') ?></p>
-
-		<h3>"Cannot access FeedBurner."</h4>
-		<p><?php _e('There are three possible explanations for this. The first is that one of FeedBurner\'s servers might be down.  If this is the case, ry again later.  The second possible reason is that you\'re using this on a development server that does not have access to the internet; if this is true, connect to the internet and try again.  The third possible explanation is that your server has a configuration issue that is preventing it from communicating with the internet.') ?></p>
-	<?php else: ?>
-		<h2><?php _e('Feed Stats Settings'); ?></h2>
-		<form action="" method="post" id="feed-stats">
-			<?php wp_nonce_field('feed-stats-edit_options') ?>			
-			<table class="form-table optiontable">
-				<tr>
-					<th scope="row" valign="top"><?php _e('FeedBurner Feed Name'); ?></th>
-					<td>
-						<script type="text/javascript">
-							var help = "<?php _e('What does this mean?') ?>";
-						</script>
-						<input type="text" name="feed-stats-feed" id="feed-stats-feed" class="fs-text" value="<?php echo get_option('feedburner_feed_stats_name'); ?>" />
-						<input type="button" class="button" name="feed-stats-tester" id="feed-stats-tester" value="Test" onclick="testURL('<?php ajax_test_url(); ?>')" style="display: none" />
-						
-						<span id="feed-stats-waiting"><img src="<?php plugin_folder(); ?>images/ajax-loader.gif" alt="testing-icon" />Testing...</span>
-						<span id="feed-stats-result-good" title="<img src='<?php plugin_folder(); ?>images/accept.gif' alt='good-icon' />"></span>
-						<span id="feed-stats-result-bad" title="<img src='<?php plugin_folder(); ?>images/exclamation.gif' alt='bad-icon' />"></span>
-						
-						<br /><?php _e('The part of your feed URL that comes after "http://feeds.feedburner.com/".') ?>						
-					</td>
-				</tr>
-				<tr>
-					<th scope="row" valign="top"><?php _e('Number of Days to Show') ?></th>
-					<td>
-						<input type="text" name="feed-stats-entries" id="feed-stats-entries" class="fs-text" value="<?php echo get_option('feedburner_feed_stats_entries'); ?>" />
-					</td>
-				</tr>
-			</table>
-			<p class="fs-icons-credit">
-				<?php _e('Icons by') ?> <a href="http://www.famfamfam.com/">FamFamFam</a>.
-			</p>
-			<p class="submit">
-				<input type="submit" name="submit" id="submit" value="<?php _e('Save Changes') ?>" />
-			</p>
-			<p class="feed-stats-clear"></p>
-		</form>
-			
-		<script type="text/javascript" src="<?php plugin_folder() ?>js/test.js"></script>
-	<?php endif; ?>
+	<?php 
+		if ($_GET['help'] == 'true') {
+			load_template(dirname(__FILE__) . "/template/troubleshooting.php");
+		} else {
+			load_template(dirname(__FILE__) . "/template/settings.php");
+		} ?>
 	</div>
 <?php
 }

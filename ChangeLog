@@ -1,5 +1,19 @@
 2009-01-31  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* feed-stats.php: Moved the header (which contains links to CSS 
+		files), the troubleshooting information for the settings page, 
+		and the settings form into their own separate template files.  
+		Add calls to load_template() to load the template files.
+	* templates/settings.php (added): Contains the markup for the 
+		settings form that controls this plugin.
+	* templates/troubleshooting.php (added): Contains troubleshooting 
+		information and descriptions of the various error messages.
+	* templates/header.php (added): Contains links to CSS files and 
+		conditional comments that apply Internet Explorer-specific 
+		styling.
+
+2009-01-31  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* awapi-test.php: Changed the old feedburner.com Awareness API URL 
 		to the new feedburner.google.com Awareness API URL.
 	* fs-comm.php: Edited the fetch_remote_xml() function to use Troy 
