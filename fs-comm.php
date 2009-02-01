@@ -1,24 +1,28 @@
 <?php
 
 function fetch_remote_xml($url) {
-	require_once(ABSPATH . WPINC . '/classes.php');	
-	require_once(ABSPATH . WPINC . '/functions.php');	
-	@include_once(ABSPATH . WPINC . '/http.php');
+	// Load up Troy Wolf's class
+	require_once 'include/class_http.php';
 	
-	require_once(ABSPATH . WPINC . '/rss.php');
-		
-	$remote = _fetch_remote_file($url);
-
-	if ( is_success($remote->status) ) { 
-		return $remote->results;
-	} else {
+	// Create a new instance of Troy Wolf's http class
+	$fetcher = new http();
+	$fetcher->dir = realpath("./cache/") . "/";
+	
+	// Fetch the data from the URL using a GET request (that's really 
+	// all we need for this plugin--we're really only fetching gdata here)
+	if (!$fetcher->fetch($url))
 		return false;
-	}
+		
+	// Let's return the informaton the caller function  assuming that we 
+	//  received some
+	return $fetcher->body;
 }
 
 function fs_load_feed_data ($name, $days) {
-	// Calculate out some dates
+	// Calculate out the date for the number of $days ago
 	$minussev = mktime(0, 0, 0, date("m"), date("d") - $days, date("Y"));
+	
+	// Calculate out yesterday's date
 	$minusone = mktime(0, 0, 0, date("m"), date("d") - 1, date("Y"));
 	
 	$end = date("Y-m-d");

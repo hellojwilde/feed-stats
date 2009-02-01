@@ -1,3 +1,14 @@
+2009-01-31  Jonathan Wilde  <speedbreeze@gmail.com>
+
+	* awapi-test.php: Changed the old feedburner.com Awareness API URL 
+		to the new feedburner.google.com Awareness API URL.
+	* fs-comm.php: Edited the fetch_remote_xml() function to use Troy 
+		Wolf's class_http rather than the WordPress 2.7 HTTP API.  This
+		will ensure a more consistent experience across different versions
+		of WordPress.
+	* cache (added): Added a cache directory for class_http to use to 
+		temporarily cache Awareness API feeds fetched by the script.
+
 2009-01-29  Jonathan Wilde  <speedbreeze@gmail.com>
 
 	patch by: matrixagent
