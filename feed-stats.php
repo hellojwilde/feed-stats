@@ -194,9 +194,9 @@ function display_feed_options() {
 	<div class="wrap">
 	<?php 
 		if ($_GET['help'] == 'true') {
-			load_template(dirname(__FILE__) . "/template/troubleshooting.php");
+			load_template(dirname(__FILE__) . "/templates/troubleshooting.php");
 		} else {
-			load_template(dirname(__FILE__) . "/template/settings.php");
+			load_template(dirname(__FILE__) . "/templates/settings.php");
 		} ?>
 	</div>
 <?php
