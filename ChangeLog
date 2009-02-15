@@ -1,5 +1,10 @@
 2009-02-15  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* fs-render.php: Made the "widefat" WordPress CSS class only added 
+		to the stats table if WordPress is version 2.7 or above.
+
+2009-02-15  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* style.css.php: Added background images to the waiting, good 
 		result, and bad result indicators on the feed tester.
 	* templates/header.php: Shortened a GET parameter name.

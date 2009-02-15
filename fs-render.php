@@ -86,7 +86,10 @@ function fs_items_chart ($data, $type) {
 
 function fs_items_table ($xml) {
 ?>
-	<table class="feed-stats-data widefat fixed">
+	<table class="feed-stats-data<?php 
+	if (version_compare(get_bloginfo('version'), '2.7', '>=')) :?>
+		widefat
+	<?endif;?>">
 		<thead>
 			<tr>
 				<th><?php _e('Title'); ?></th>
@@ -131,7 +134,10 @@ function fs_items_table ($xml) {
 
 function fs_feed_table ($xml) {
 ?>
-	<table class="feed-stats-data widefat">
+	<table class="feed-stats-data <?php 
+	if (version_compare(get_bloginfo('version'), '2.7', '>=')) :?>
+		widefat
+	<?endif;?>">
 		<thead>
 			<tr>
 				<th><?php _e('Date'); ?></th>
