@@ -1,5 +1,13 @@
 2009-02-15  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* feed-stats.php: Fixed one method call where the entire data array 
+		from fs_fetch_feedburner_data() was being sent rather than just 
+		the data.
+	* fs-comm.php: Added a semicolon that was missing.
+	* fs-parse.php: Added a space for cleanliness.
+
+2009-02-15  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* style.css.php: Tweaked the widths of the text boxes on the 
 		settings form.  Tweaked the way versions are detected.
 	* templates/header.php: Added the plugin folder name to the 

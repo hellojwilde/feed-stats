@@ -44,7 +44,7 @@ function fs_parse_entry ($xml) {
 //      <http://www.opensource.org/licenses/mit-license.php>
 
 function fs_grab_yesterday_entry ($xml) {
-	$y = date('Y-m-d', mktime(0, 0, 0, date("m"), date("d") - 1,date("Y")));
+	$y = date('Y-m-d', mktime(0, 0, 0, date("m"), date("d") - 1, date("Y")));
 
 	preg_match('/<entry date="' . $y . '"[^>]*>([\s\S]*?)<\/entry>/', 
 		$xml, $items);

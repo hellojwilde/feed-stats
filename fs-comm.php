@@ -96,7 +96,7 @@ function fs_load_item_data ($name, $days) {
 	$minussev = mktime(0, 0, 0, date("m"), date("d") - $days, date("Y"));
 	
 	// Calculate out yesterday's date
-	$minusone = mktime(0, 0, 0, date("m"), date("d") - 1, date("Y"))
+	$minusone = mktime(0, 0, 0, date("m"), date("d") - 1, date("Y"));
 	
 	$end = date("Y-m-d");
 	$start = date("Y-m-d", $minussev);

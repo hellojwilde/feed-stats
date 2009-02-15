@@ -103,7 +103,6 @@ function display_feed_stats() {
 <?php
 		if ($items['success'] == true) {
 			$item_count = fs_count_yesterday_items($items['data']);
-
 			if ($item_count > 0) {
 ?>
 				<div id="yest-tab" class="feed-stats-tabs">
@@ -151,7 +150,7 @@ function display_feed_stats() {
 				<?php fs_feed_table($feed['data']); ?>
 			</td>
 			<td>
-				<?php if ($items['success'] == true && $item_count > 0) fs_items_table($items); ?>
+				<?php if ($items['success'] == true && $item_count > 0) fs_items_table($items['data']); ?>
 			</td>
 		</tr></table>
 	</div>
