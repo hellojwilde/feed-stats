@@ -21,7 +21,7 @@
 		<tr>
 			<th scope="row" valign="top"><?php _e('Number of Days to Show') ?></th>
 			<td>
-				<input type="text" name="feed-stats-entries" id="feed-stats-entries" class="fs-text" value="<?php echo get_option('feedburner_feed_stats_entries'); ?>" />
+				<input type="text" name="feed-stats-entries" id="feed-stats-entries" class="fs-text" value="<?php $q = get_option('feedburner_feed_stats_entries'); echo ($q !== '') ? $q : 10; ?>" />
 			</td>
 		</tr>
 	</table>

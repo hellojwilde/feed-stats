@@ -43,7 +43,7 @@ installation of WordPress.
 1. In the "Plugins" page of the "Plugins" section of the admin 
 interface, click on the "Activate" button next to this plugin's name.
 1. Under the "Feed Stats" page of the "Settings" section of the admin 
-interface, type in the name of your feed on FeedBurner. Click the "Save 
+interface, type in the full URL of your feed on FeedBurner. Click the "Save 
 Settings" button.
 
 You're done! You can now see the stats of your feed in the "Feed Stats" 
@@ -58,13 +58,6 @@ subscribers actively click on and view items in your feed.  For more
 information on this, you can view the 
 ["What is Reach?"](http://www.google.com/support/feedburner/bin/answer.py?answer=78954) 
 article in the FeedBurner Help Center.
-
-= How do I know what the name of my FeedBurner feed is? =
-
-Look at the link to your FeedBurner Feed. It's that link, but without 
-the http://feeds.feedburner.com/ part. For instance, let's say that the 
-URL for your feed is http://feeds.feedburner.com/Speedbreeze. The name 
-of the feed is just the "Speedbreeze" part at the end.
 
 = What's the "Awareness API"? =
 
@@ -89,8 +82,8 @@ have to be installed on your server to run this plugin.
 
 = How many days of stats does the plugin display? =
 
-By default, 12 days of hits, subscribers, and reach stats are shown.  
-I've found that 12 days of stats displays well in the charts in the 
+By default, 10 days of hits, subscribers, and reach stats are shown.  
+I've found that 10 days of stats displays well in the charts in the 
 dashboard.  If you wish to change this, the number of days is 
 configurable from the "Feed Stats" page in the "Settings" section of the 
 WordPress admin interface.
