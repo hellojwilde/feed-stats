@@ -26,6 +26,14 @@
 	margin-left: 20px;
 }
 
+#feed-stats-feed {
+	width: 300px;
+}
+
+#feed-stats-entries {
+	width: 50px;
+}
+
 .feed-stats-tabs {
 	margin-right: 30px;
 <?php if (version_compare($ver, '2.5', '>=')) : ?>
@@ -125,8 +133,8 @@ table.feed-stats-data td.feed-stats-alt {
 <?php else: ?>
 	float: right;
 <?php endif; ?>
-<?php if (strpos(' '.$ver, '2.7') == 1) : ?>
-	margin-top: 27px;
+<?php if (version_compare($ver, '2.7', '>=')) : ?>
+	margin-top: 28px;
 <?php else: ?>
 	margin-top: 35px;
 <?php endif; ?>

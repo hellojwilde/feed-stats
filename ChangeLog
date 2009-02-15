@@ -1,5 +1,12 @@
 2009-02-15  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* style.css.php: Tweaked the widths of the text boxes on the 
+		settings form.  Tweaked the way versions are detected.
+	* templates/header.php: Added the plugin folder name to the 
+		parameters sent to the style.css.php file for templating.
+
+2009-02-15  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* awapi-test.php: Added URL decoding to deal with the new format of 
 		the feed names.  Modified it to work with the new 
 		fs_fetch_feedburner_data() function in fs-comm.php.
