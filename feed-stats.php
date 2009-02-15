@@ -49,23 +49,13 @@ function display_feed_stats() {
 	$days = get_option('feedburner_feed_stats_entries');
 	$name = get_option('feedburner_feed_stats_name');
 
-	// A security fix for injection attacks
-	if (function_exists("sanitize_url"))
-		$name = sanitize_url($name);
-	
-	$name = str_replace('http://', '', $name);
-
 	// Load data from FeedBurner
 	$feed = fs_load_feed_data($name, $days);
 	$items = fs_load_item_data($name, $days);
-
-	// Check to see if FeedBurner returned any errors
-	$feed_errors = fs_check_errors($feed);
-	$item_errors = fs_check_errors($items);
 	
 	// Render the data into a pretty set of charts
-	if ($feed_errors == false) {
-		$meta = fs_grab_meta($feed);
+	if ($feed['success'] == true) {
+		$meta = fs_grab_meta($feed['data']);
 			
 ?>
 	<div class="wrap">
@@ -85,21 +75,21 @@ function display_feed_stats() {
 							<a><?php _e('Hits') ?></a></li>
 						<li id="subs-tab" onclick="selectTab('total-tab', 'subs');">
 							<a><?php _e('Subscribers') ?></a></li>
-						<?php if ($item_errors == false): ?>
+						<?php if ($items['success'] == true): ?>
 						<li id="reach-tab" onclick="selectTab('total-tab', 'reach');">
 							<a><?php _e('Reach') ?></a></li>
 						<?php endif; ?>
 					</ul>
 
 					<div id="hits" class="feed-stats-tab">
-						<?php fs_feed_chart($feed, 'hits'); ?>
+						<?php fs_feed_chart($feed['data'], 'hits'); ?>
 					</div>
 					<div id="subs" class="feed-stats-tab">
-						<?php fs_feed_chart($feed, 'subs'); ?>
+						<?php fs_feed_chart($feed['data'], 'subs'); ?>
 					</div>
-					<?php if ($item_errors == false): ?>
+					<?php if ($items['success'] == true): ?>
 					<div id="reach" class="feed-stats-tab">
-						<?php fs_feed_chart($feed, 'reach'); ?>
+						<?php fs_feed_chart($feed['data'], 'reach'); ?>
 					</div>
 					<?php endif; ?>
 
@@ -111,8 +101,8 @@ function display_feed_stats() {
 			<td width="50%">
 				<h3><?php _e('Yesterday\'s Viewed &amp; Clicked Feed Items') ?></h3>
 <?php
-		if ($item_errors == false) {
-			$item_count = fs_count_yesterday_items($items);
+		if ($items['success'] == true) {
+			$item_count = fs_count_yesterday_items($items['data']);
 
 			if ($item_count > 0) {
 ?>
@@ -125,10 +115,10 @@ function display_feed_stats() {
 					</ul>
 
 					<div id="clicks" class="feed-stats-tab">
-						<?php fs_items_chart($items, 'clicks'); ?>
+						<?php fs_items_chart($items['data'], 'clicks'); ?>
 					</div>
 					<div id="views" class="feed-stats-tab">
-						<?php fs_items_chart($items, 'views'); ?>
+						<?php fs_items_chart($items['data'], 'views'); ?>
 					</div>
 
 					<script type="text/javascript">
@@ -158,10 +148,10 @@ function display_feed_stats() {
 			</td>
 		</tr><tr>
 			<td>
-				<?php fs_feed_table($feed); ?>
+				<?php fs_feed_table($feed['data']); ?>
 			</td>
 			<td>
-				<?php if ($item_errors == false && $item_count > 0) fs_items_table($items); ?>
+				<?php if ($items['success'] == true && $item_count > 0) fs_items_table($items); ?>
 			</td>
 		</tr></table>
 	</div>
@@ -169,7 +159,7 @@ function display_feed_stats() {
 	} else {
 ?>
 	<div id="message" class="error fade">
-		<p><strong><?php echo $feed_errors ?>.</strong></p>
+		<p><strong><?php echo $feed['data'] ?>.</strong></p>
 	</div>
 <?php
 	}

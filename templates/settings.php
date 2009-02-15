@@ -3,7 +3,7 @@
 	<?php wp_nonce_field('feed-stats-edit_options') ?>			
 	<table class="form-table optiontable">
 		<tr>
-			<th scope="row" valign="top"><?php _e('FeedBurner Feed Name'); ?></th>
+			<th scope="row" valign="top"><?php _e('FeedBurner Feed URL'); ?></th>
 			<td>
 				<script type="text/javascript">
 					var help = "<?php _e('What does this mean?') ?>";
@@ -12,10 +12,10 @@
 				<input type="button" class="button" name="feed-stats-tester" id="feed-stats-tester" value="Test" onclick="testURL('<?php ajax_test_url(); ?>')" style="display: none" />
 				
 				<span id="feed-stats-waiting"><img src="<?php plugin_folder(); ?>images/ajax-loader.gif" alt="testing-icon" />Testing...</span>
-				<span id="feed-stats-result-good" title="<img src='<?php plugin_folder(); ?>images/accept.gif' alt='good-icon' />"></span>
-				<span id="feed-stats-result-bad" title="<img src='<?php plugin_folder(); ?>images/exclamation.gif' alt='bad-icon' />"></span>
+				<span id="feed-stats-result-good"></span>
+				<span id="feed-stats-result-bad"></span>
 				
-				<br /><?php _e('The part of your feed URL that comes after "http://feeds.feedburner.com/".') ?>						
+				<br /><?php _e('The entire URL of your feed (eg. <code>http://feeds.feedburner.com/speedbreeze</code>).') ?>						
 			</td>
 		</tr>
 		<tr>
@@ -29,7 +29,7 @@
 		<?php _e('Icons by') ?> <a href="http://www.famfamfam.com/">FamFamFam</a>.
 	</p>
 	<p class="submit">
-		<input type="submit" name="submit" id="submit" value="<?php _e('Save Changes') ?>" />
+		<input type="submit" name="submit" id="submit" class="button-primary" value="<?php _e('Save Changes') ?>" />
 	</p>
 	<p class="feed-stats-clear"></p>
 </form>
