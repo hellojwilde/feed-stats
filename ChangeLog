@@ -1,5 +1,13 @@
 2009-02-15  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* style.css.php: Added background images to the waiting, good 
+		result, and bad result indicators on the feed tester.
+	* templates/header.php: Shortened a GET parameter name.
+	* templates/settings.php: Removed the loader icon image.  Re-added as 
+		a CSS background image (see above).
+
+2009-02-15  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* feed-stats.php: Added a CSS class so that we can add a bit of 
 		padding around the stats tables.
 	* fs-render.php: Added the necessary CSS classes on the stats tables 

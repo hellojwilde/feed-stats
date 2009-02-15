@@ -4,6 +4,7 @@
 	
 	// Set variable with the WP version taken from the post header
 	$ver = $_GET['v'];
+	$folder = urldecode($_GET['f']);
 ?>
 
 .feed-stats-container {
@@ -11,13 +12,21 @@
 }
 		
 #feed-stats-waiting, #feed-stats-result-good, #feed-stats-result-bad {
-	display: none; 
+	display: none;
+	padding-left: 20px;
+	background: transparent none no-repeat center left;
 }
-		
-#feed-stats-waiting img, #feed-stats-result-good img, #feed-stats-result-bad img {
-	margin: 0 5px;
-	position: relative;
-	top: 3px;
+
+#feed-stats-waiting {
+	background-image: url(<?php echo $folder; ?>images/ajax-loader.gif);
+}
+
+#feed-stats-result-good {
+	background-image: url(<?php echo $folder; ?>images/accept.gif);
+}
+
+#feed-stats-result-bad {
+	background-image: url(<?php echo $folder; ?>images/exclamation.gif);
 }
 		
 #feed-stats-troubleshooting {
