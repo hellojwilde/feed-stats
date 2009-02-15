@@ -86,12 +86,15 @@ function fs_items_chart ($data, $type) {
 
 function fs_items_table ($xml) {
 ?>
-	<table class="feed-stats-data">
-		<tr>
-			<th><?php _e('Title'); ?></th>
-			<th style="width: 50px;"><?php _e('Clicks') ?></th>
-			<th style="width: 50px;"><?php _e('Views') ?></th>
-		</tr>
+	<table class="feed-stats-data widefat fixed">
+		<thead>
+			<tr>
+				<th><?php _e('Title'); ?></th>
+				<th style="width: 50px;"><?php _e('Clicks') ?></th>
+				<th style="width: 50px;"><?php _e('Views') ?></th>
+			</tr>
+		</thead>
+		<tbody>
 <?php
 	// A slightly ugly hack to fix FeedBurner's issues
 	$entries = fs_grab_yesterday_entry($xml);
@@ -105,35 +108,39 @@ function fs_items_table ($xml) {
 		$style_data = "";
 		if ( $row_num % 2 != 0 ) $style_data = "feed-stats-alt";
 ?>
-		<tr>
-			<td class="feed-stats-left <?php echo $style_data; ?>">
-				<a href="<?php echo $parsed['url']; ?>">
-					<?php echo fs_shorten_title($parsed['title']); ?>
-				</a>
-			</td>
-			<td class="<?php echo $style_data; ?>">
-				<?php echo $parsed['clicks']; ?>
-			</td>
-			<td class="<?php echo $style_data; ?>">
-				<?php echo $parsed['views']; ?>
-			</td>
-		</tr>
+			<tr>
+				<td class="feed-stats-left <?php echo $style_data; ?>">
+					<a href="<?php echo $parsed['url']; ?>">
+						<?php echo fs_shorten_title($parsed['title']); ?>
+					</a>
+				</td>
+				<td class="<?php echo $style_data; ?>">
+					<?php echo $parsed['clicks']; ?>
+				</td>
+				<td class="<?php echo $style_data; ?>">
+					<?php echo $parsed['views']; ?>
+				</td>
+			</tr>
 <?php
 	}
 ?>
+		</tbody>
 	</table>
 <?php
 }
 
 function fs_feed_table ($xml) {
 ?>
-	<table class="feed-stats-data">
-		<tr>
-			<th><?php _e('Date'); ?></th>
-			<th style="width: 100px;"><?php _e('Subscribers'); ?></th>
-			<th style="width: 50px;"><?php _e('Hits'); ?></th>
-			<th style="width: 50px;"><?php _e('Reach'); ?></th>
-		</tr>
+	<table class="feed-stats-data widefat">
+		<thead>
+			<tr>
+				<th><?php _e('Date'); ?></th>
+				<th style="width: 100px;"><?php _e('Subscribers'); ?></th>
+				<th style="width: 50px;"><?php _e('Hits'); ?></th>
+				<th style="width: 50px;"><?php _e('Reach'); ?></th>
+			</tr>
+		</thead>
+		<tbody>
 <?php
 		$entries = fs_grab_entries($xml);
 		$table_entries = array_reverse($entries);
@@ -146,15 +153,16 @@ function fs_feed_table ($xml) {
 			$style_data = "";
 			if ( $row_num % 2 != 0 ) $style_data = "feed-stats-alt";
 ?>
-				<tr>
-					<td class="feed-stats-left <?php echo $style_data; ?>"><?php echo $data['date']; ?></td>
-					<td class="<?php echo $style_data; ?>"><?php echo $data['subs'] ?></td>
-					<td class="<?php echo $style_data; ?>"><?php echo $data['hits'] ?></td>
-					<td class="<?php echo $style_data; ?>"><?php echo $data['reach'] ?></td>
-				</tr>
+					<tr>
+						<td class="feed-stats-left <?php echo $style_data; ?>"><?php echo $data['date']; ?></td>
+						<td class="<?php echo $style_data; ?>"><?php echo $data['subs'] ?></td>
+						<td class="<?php echo $style_data; ?>"><?php echo $data['hits'] ?></td>
+						<td class="<?php echo $style_data; ?>"><?php echo $data['reach'] ?></td>
+					</tr>
 <?php
 		}
 ?>
+				</tbody>
 			</table>
 <?php
 }

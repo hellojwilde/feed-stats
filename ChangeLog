@@ -1,5 +1,16 @@
 2009-02-15  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* feed-stats.php: Added a CSS class so that we can add a bit of 
+		padding around the stats tables.
+	* fs-render.php: Added the necessary CSS classes on the stats tables 
+		to make them fit in with the new WP 2.7 styling.  Added a thead 
+		element around the stats table th elements.
+	* style.css.php: Added styling for the tabs on the dashboard that is 
+		similar to the tab styling for the media dialog in the editing 
+		view of WP 2.7.  
+
+2009-02-15  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* feed-stats.php: Fixed one method call where the entire data array 
 		from fs_fetch_feedburner_data() was being sent rather than just 
 		the data.

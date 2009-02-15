@@ -34,6 +34,58 @@
 	width: 50px;
 }
 
+<?php if (version_compare($ver, '2.7', '>=')) : ?>
+.feed-stats-tabs {
+	margin-right: 10px;
+}
+
+.feed-stats-tabs ul {
+	padding: 0 0 0 17px;
+	margin: 0;
+}
+
+.feed-stats-tabs ul li {
+	float: left;
+	list-style-type: none;
+	line-height: 28px;
+	padding: 0 7px;
+	position: relative;
+	margin: 0;
+	top: 1px;
+	z-index: 9999;
+}
+
+
+.feed-stats-tabs .active {
+	border: 1px solid #DFDFDF;
+	border-bottom: 1px solid #fff;
+	font-weight: normal;
+	background: #fff;
+	padding: 0 6px;
+	-moz-border-radius-bottomleft: 0;
+	-moz-border-radius-bottomright: 0;
+	-moz-border-radius-topleft: 4px;
+	-moz-border-radius-topright: 4px;
+}
+
+.feed-stats-tabs ul li a {
+	padding: 0;
+	cursor: pointer;
+}
+
+.feed-stats-tabs .active a {
+	color: #D54E21 !important;	
+}
+
+.feed-stats-tab {
+	border: 1px solid #DFDFDF;
+	clear: both;
+	padding: 10px 0;
+	background-color: #fff;
+	text-align: center;
+	min-height: 220px;
+}
+<?php else: ?>
 .feed-stats-tabs {
 	margin-right: 30px;
 <?php if (version_compare($ver, '2.5', '>=')) : ?>
@@ -44,9 +96,6 @@
 .feed-stats-tabs ul {
 	padding: 0 0 0 17px;
 	margin: 0;
-<?php if (strpos(' '.$ver, '2.7') == 1) : ?>
-	margin-bottom: 10px;
-<?php endif; ?>
 }
 
 .feed-stats-tabs ul li {
@@ -59,6 +108,7 @@
 	top: 1px;
 	z-index: 9999;
 }
+
 
 .feed-stats-tabs .active {
 	border-bottom: 1px solid #fff;
@@ -73,9 +123,10 @@
 
 .feed-stats-tab {
 	border-top: 1px solid #999;
-	clear:both;
+	clear: both;
 	padding-top: 15px;
 }
+<?php endif; ?>
 
 .feed-stats-tabs .feed-stats-clear {
 	width: 100%;
@@ -92,10 +143,13 @@
 }
 
 table.feed-stats-data {
-	margin: 20px 0; 
+	margin: 20px 0;
+<?php if (version_compare($ver, '2.7', '<')) : ?>
 	width: 450px;
+<?php endif; ?>
 }
 
+<?php if (version_compare($ver, '2.7', '<')) : ?>
 table.feed-stats-data th {
 	text-align: left; 
 	border-bottom: 2px solid #cccccc; 
@@ -114,6 +168,11 @@ table.feed-stats-data td.feed-stats-left {
 table.feed-stats-data td.feed-stats-alt {
 	background: #E6F0FF;
 }
+<? else: ?>
+.feed-stats-table-container {
+	padding-right: 10px;
+}
+<?php endif; ?>
 
 .layout td {
 	vertical-align: top;

@@ -146,10 +146,10 @@ function display_feed_stats() {
 ?>
 			</td>
 		</tr><tr>
-			<td>
+			<td class="feed-stats-table-container">
 				<?php fs_feed_table($feed['data']); ?>
 			</td>
-			<td>
+			<td class="feed-stats-table-container">
 				<?php if ($items['success'] == true && $item_count > 0) fs_items_table($items['data']); ?>
 			</td>
 		</tr></table>
