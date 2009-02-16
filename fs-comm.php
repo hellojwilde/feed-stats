@@ -45,7 +45,7 @@ function fs_fetch_feedburner_data ($url, $action, $updatable=true, $post=null) {
 	$data = fetch_remote_xml($location . $req);
 	$error = fs_check_errors($data);
 	
-	if ($error != false) {
+	if ($error != false && $nourl == true) {
 		$data_tmp = fetch_remote_xml($new_awareness_url . $req);
 		
 		if (fs_check_errors($data_tmp) != false) {
@@ -60,10 +60,15 @@ function fs_fetch_feedburner_data ($url, $action, $updatable=true, $post=null) {
 			if (function_exists('update_option') && $updatable == true)
 				update_option('feedburner_feed_stats_name', "http://feedproxy.google.com/" . $name);
 		}
-	} else {
+	} elseif ($error == false && $nourl == true) {
 		// If we have WordPress access, let's update the link
 		if (function_exists('update_option') && $updatable == true && $nourl == false)
 			update_option('feedburner_feed_stats_name', "http://feeds.feedburner.com/" . $name);
+	} elseif ($error != false && $nourl == false) {
+		return array(
+			'success' => false,
+			'data' => $error,
+		);
 	}
 	
 	return array(

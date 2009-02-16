@@ -1,3 +1,9 @@
+2009-02-16  Jonathan Wilde  <speedbreeze@gmail.com>
+
+	* fs-comm.php: Fixed fs_fetch_feedburner_data(...).  Made it check 
+		the $nourl variable before modifying the user's feed URL.  This 
+		fixes a bug reported by Bram Vandenbussche.
+
 2009-02-15  Jonathan Wilde  <speedbreeze@gmail.com>
 
 	* readme.txt: Updated to match the change of feed name -> feed URL 
