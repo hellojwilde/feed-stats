@@ -1,3 +1,16 @@
+2009-02-19  Jonathan Wilde  <speedbreeze@gmail.com>
+
+	* feed-stats.php: *Significantly* improved the error messages on the 
+		dashboard page.  If there's a "Feed Not Found" error from 
+		FeedBurner, it states the error, explains it, lists issues that 
+		might have caused it, and provides a link to go to the settings 
+		page.  If there's no feed URL saved, it asks the user to 
+		configure it and provides a link to the settings page.  If the 
+		Awareness API isn't enabled, it gives the user instructions and 
+		a link to their FeedBurner dashboard page.  If it's none of 
+		these, it tells the user probable causes and gives them 
+		instructions on how to contact me through the mailing list.
+
 2009-02-18  Jonathan Wilde  <speedbreeze@gmail.com>
 
 	* fs-render.php: Patched a PHP warning displayed when there are no 

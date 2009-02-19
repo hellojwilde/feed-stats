@@ -157,10 +157,72 @@ function display_feed_stats() {
 <?php
 	} else {
 ?>
-	<div id="message" class="error fade">
-		<p><strong><?php echo $feed['data'] ?>.</strong></p>
+	<div class="wrap">
+		<?php if ($name == ''): ?>
+			<h2>Please Configure Me!</h2>
+			<p class="fs-message">
+				This plugin doesn't have a FeedBurner feed URL on record to display.  
+				Please go to <a href="options-general.php?page=feed-stats">
+				the settings page</a> for this plugin and type in a feed URL. 
+				Thanks!
+			</p>
+		<?php elseif ($feed['data'] == 'Feed Not Found'): ?>
+			<h2>Feed Not Found :(</h2>
+			<p class="fs-message">
+				For some reason, FeedBurner can't find the feed URL that you 
+				wanted this plugin to track.  Did you move your feed over to Google 
+				FeedProxy? Did you delete the feed?  Is the URL correct?  
+				You might need to update the URL on 
+				<a href="options-general.php?page=feed-stats">the settings 
+				page</a>.
+			</p>
+		<?php elseif ($feed['data'] == 'This feed does not permit Awareness API access'): ?>
+			<h2>Please Enable the Awareness API</h2>
+			<p class="fs-message">
+				The Awareness API, which gives this plugin access to your 
+				stats, is not enabled for this feed.  Go into your 
+				<a href="http://www.feedburner.com/fb/a/myfeeds">FeedBurner 
+				account</a>, click on your feed, click on the "Publicize" 
+				tab, click on the "Awareness API" button in the sidebar, 
+				and then click on the "Activate" button.
+			</p>
+		<?php else: ?>
+			<h2>Something Didn't Work Right...</h2>
+			<div class="fs-message">
+				<p>
+					This means that an error occurred, but there's no 
+					specific problem that can be easily determined.  
+					This error was probably caused by one of two things:
+				</p>
+				<ol>
+					<li>FeedBurner is down.</li>
+					<li>Your server can't access FeedBurner for some reason.</li>
+				</ol>
+			</div>
+			
+			<p>
+				If you think it's the latter and there's no obvious 
+				cause, feel free to ask about these problems at the 
+				<a href="http://www.speedbreeze.com/feed-stats/product/support">
+				mailing list</a>. In order to make it easier for me to help 
+				you with this, please provide the following information 
+				about your server:
+			</p>
+			<ol>
+				<li>
+					What type of server you're running (e.g. Apache, 
+					Microsoft IIS).  If you're unsure, tell me the name 
+					of your web hosting company and the plan that you're 
+					using.
+				</li>
+				<li>
+					Your PHP version (copy &amp; paste the following 
+					into your email): <code><?php echo phpversion(); ?></code>
+				</li>
+			</ol>
+		<?php endif; ?>
 	</div>
-<?php
+<?
 	}
 }
 
