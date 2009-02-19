@@ -15,7 +15,7 @@ function fetch_remote_xml($url) {
 		
 	// Let's return the informaton the caller function  assuming that we 
 	// received some
-	return $fetcher->body;
+	return $fetcher;
 }
 
 function fs_fetch_feedburner_data ($url, $action, $updatable=true, $post=null) {
@@ -43,12 +43,12 @@ function fs_fetch_feedburner_data ($url, $action, $updatable=true, $post=null) {
 	
 	// Try to pull in the feed data from the autodetected url
 	$data = fetch_remote_xml($location . $req);
-	$error = fs_check_errors($data);
+	$error = fs_check_errors($data->body, $data->status);
 	
 	if ($error != false && $nourl == true) {
 		$data_tmp = fetch_remote_xml($new_awareness_url . $req);
 		
-		if (fs_check_errors($data_tmp) != false) {
+		if (fs_check_errors($data_tmp->body, $data_tmp->status) != false) {
 			return array(
 				'success' => false,
 				'data' => $error,
@@ -73,7 +73,7 @@ function fs_fetch_feedburner_data ($url, $action, $updatable=true, $post=null) {
 	
 	return array(
 		'success' => true,
-		'data' => $data
+		'data' => $data->body
 	);
 }
 
@@ -92,7 +92,7 @@ function fs_load_feed_data ($name, $days) {
 	return fs_fetch_feedburner_data($name, 
 		"GetFeedData",
 		true,
-		"&dates=" . $start . "," . $end
+		"dates=" . $start . "," . $end
 	);
 }
 
@@ -111,7 +111,7 @@ function fs_load_item_data ($name, $days) {
 	return fs_fetch_feedburner_data($name, 
 		"GetItemData",
 		true,
-		"&dates=" . $start . "," . $end
+		"dates=" . $start . "," . $end
 	);
 }
 

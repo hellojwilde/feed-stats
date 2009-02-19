@@ -1,9 +1,13 @@
 <?php
 
-function fs_check_errors ($xml) {
+function fs_check_errors ($xml, $status) {
 	if (preg_match('|rsp stat="fail"|', $xml)) {
 		preg_match('|msg="(.*?)"|', $xml, $msg);
 		return $msg[1];
+	} elseif ($status == "401") {
+		return "This feed does not permit Awareness API access";
+	} elseif ($status == "500") {
+		return "Feed Not Found";
 	} elseif (strlen($xml) == 0) 
 		return 'Cannot access FeedBurner';
 	else

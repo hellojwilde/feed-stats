@@ -1,5 +1,14 @@
 2009-02-19  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* fs-comm.php: Made the plugin give fs_check_errors(...) the http 
+		status codes from FeedBurner.
+	* fs-parse.php: Made fs_check_errors(...) also check for status 
+		codes of 500 and 401, which sometimes are sent by FeedBurner to 
+		indicate that the Awareness API is not enabled.  This fixes a bug
+		reported by Alexei Lee.
+
+2009-02-19  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* feed-stats.php: *Significantly* improved the error messages on the 
 		dashboard page.  If there's a "Feed Not Found" error from 
 		FeedBurner, it states the error, explains it, lists issues that 
