@@ -27,9 +27,9 @@ function fs_feed_chart ($data, $type) {
 		array_push($chart_values, $data[$type]);
 	}
 	
-	$highest = max($chart_values) * 1.1;
+	if (count($chart_values) > 0) {
+		$highest = max($chart_values) * 1.1;
 
-	if (isset($highest)) {
 		foreach ($entries as $entry) {
 			$data = fs_parse_entry($entry);
 			$chart_data_string .= @round((($data[$type] / $highest) * 100), 1) . ",";

@@ -1,3 +1,9 @@
+2009-02-18  Jonathan Wilde  <speedbreeze@gmail.com>
+
+	* fs-render.php: Patched a PHP warning displayed when there are no 
+		views of one's FeedBurner feed.  This issue was reported by 
+		Alexei Lee.
+
 2009-02-16  Jonathan Wilde  <speedbreeze@gmail.com>
 
 	* fs-comm.php: Fixed fs_fetch_feedburner_data(...).  Made it check 
