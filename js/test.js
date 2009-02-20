@@ -28,7 +28,7 @@ function testURL(tester) {
 		}
 		
 		// Figure out what the url to the test script will be
-		var testURL = tester + "?feed=" + 
+		var testURL = tester + "&feed=" + 
 			document.getElementById("feed-stats-feed").value;
 		
 		// Send the request
@@ -50,17 +50,20 @@ function testChange(state, XHR) {
 		// We'll hide the throbber and display the "test" button again
 		waiting.style.display = "none";
 		tester.style.display = "inline";
-		
+
+		var result = XHR.responseText.match(/\[result\].*\[result\]/g);
+		result = result[0].replace(/\[result\]/gi, '');		
+
 		// Check the response text to see whether the feed is valid
-		if (XHR.responseText == 'The feed is valid.') {
+		if (result == 'The feed is valid.') {
 			// Display the check mark icon and the response text
 			good.style.display = "inline";
-			good.innerHTML = good.title + XHR.responseText;
+			good.innerHTML = good.title + result;
 		} else {
 			// Display the exclamation icon and the response text
 			bad.style.display = "inline";
-			bad.innerHTML = bad.title + XHR.responseText + 
-				'. (<a href="./options-general.php?page=feed-stats&help=true" target="_new">' + help + '</a>)';
+			bad.innerHTML = bad.title + result + 
+				'. (<a href="./options-general.php?page=feed-stats&mode=help" target="_new">' + help + '</a>)';
 		}
 	}
 }

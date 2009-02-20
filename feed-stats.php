@@ -244,8 +244,12 @@ function display_feed_options() {
 	
 	<div class="wrap">
 	<?php 
-		if ($_GET['help'] == 'true') {
+		if ($_GET['mode'] == 'help') {
 			load_template(dirname(__FILE__) . "/templates/troubleshooting.php");
+		} elseif ($_GET['mode'] == 'test') {
+			echo '[result]';
+			include(dirname(__FILE__) . "/awapi-test.php");
+			echo '[result]';
 		} else {
 			load_template(dirname(__FILE__) . "/templates/settings.php");
 		} ?>
@@ -254,7 +258,7 @@ function display_feed_options() {
 }
 
 function ajax_test_url() {
-	echo get_plugin_folder() . "awapi-test.php";
+	echo admin_url() . "options-general.php?page=feed-stats&mode=test";
 }
 
 function plugin_folder() {

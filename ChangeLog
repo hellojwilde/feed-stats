@@ -1,5 +1,19 @@
 2009-02-19  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* feed-stats.php: Rewrote ajax_test_url() to use admin_url() to 
+		determine the current location so that the new method of 
+		referencing awapi-test.php works.  Changed the 'help' GET 
+		variable to 'mode' so that we can accomodate a third page (the 
+		testing page) in the admin section.  Set awapi-test.php to be 
+		loaded when the 'mode' variable is set to 'test'.  The 
+		troubleshooting page is loaded when the 'mode' variable is set 
+		to 'help'.  This will accomodate sites that block PHP files not 
+		running inside WordPress.
+	* js/test.js: Updated test.js to delete the content around the 
+		result on the test page. This is to accomodate the changes above.
+
+2009-02-19  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* fs-comm.php: Made the plugin give fs_check_errors(...) the http 
 		status codes from FeedBurner.
 	* fs-parse.php: Made fs_check_errors(...) also check for status 
