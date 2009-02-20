@@ -1,3 +1,5 @@
+<?php if (!defined('WPINC')) die("No outside script access allowed."); ?>
+
 <script type="text/javascript" src="<?php plugin_folder() ?>js/tabs.js"></script>
 <link type="text/css" href="<?php plugin_folder() ?>style.css.php?v=<?php echo get_bloginfo('version'); ?>&f=<?php echo urlencode(get_plugin_folder()); ?>" rel="stylesheet" media="all"></script>
 

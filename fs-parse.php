@@ -1,5 +1,7 @@
 <?php
 
+if (!defined('WPINC')) die("No outside script access allowed.");
+
 function fs_check_errors ($xml, $status) {
 	if (preg_match('|rsp stat="fail"|', $xml)) {
 		preg_match('|msg="(.*?)"|', $xml, $msg);

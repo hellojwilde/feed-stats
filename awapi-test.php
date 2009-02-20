@@ -1,4 +1,5 @@
 <?php
+if (!defined('WPINC')) die("No outside script access allowed.");
 
 // Some dependencies needed to use the WP HTTP libraries and parse the
 // output from the WP HTTP libraries

@@ -1,4 +1,7 @@
 <?php
+
+if (!defined('WPINC')) die("No outside script access allowed.");
+
 /*
 * Filename.......: class_http.php
 * Author.........: Troy Wolf [troy@troywolf.com]

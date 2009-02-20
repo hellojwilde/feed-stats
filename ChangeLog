@@ -1,5 +1,26 @@
 2009-02-19  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* awapi-test.php: Added <?php if (!defined('WPINC')) die("No outside 
+		script access allowed."); ?> to improve security.
+	* feed-stats.php: Added <?php if (!defined('WPINC')) die("No outside 
+		script access allowed."); ?> to improve security.
+	* fs-comm.php: Added <?php if (!defined('WPINC')) die("No outside 
+		script access allowed."); ?> to improve security.
+	* fs-parse.php: Added <?php if (!defined('WPINC')) die("No outside 
+		script access allowed."); ?> to improve security.
+	* fs-render.php: Added <?php if (!defined('WPINC')) die("No outside 
+		script access allowed."); ?> to improve security.
+	* include/class_http.php: Added <?php if (!defined('WPINC')) die("No 
+		outside script access allowed."); ?> to improve security.
+	* templates/header.php: Added <?php if (!defined('WPINC')) die("No 
+		outside script access allowed."); ?> to improve security.
+	* templates/settings.php: Added <?php if (!defined('WPINC')) die("No 
+		outside script access allowed."); ?> to improve security.
+	* templates/troubleshooting.php: Added <?php if (!defined('WPINC')) 
+		die("No outside script access allowed."); ?> to improve security.
+
+2009-02-19  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* feed-stats.php: Rewrote ajax_test_url() to use admin_url() to 
 		determine the current location so that the new method of 
 		referencing awapi-test.php works.  Changed the 'help' GET 

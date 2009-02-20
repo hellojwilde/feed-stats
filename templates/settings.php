@@ -1,3 +1,5 @@
+<?php if (!defined('WPINC')) die("No outside script access allowed."); ?>
+
 <h2><?php _e('Feed Stats Settings'); ?></h2>
 <form action="" method="post" id="feed-stats">
 	<?php wp_nonce_field('feed-stats-edit_options') ?>			

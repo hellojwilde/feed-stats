@@ -26,6 +26,8 @@
 	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+if (!defined('WPINC')) die("No outside script access allowed.");
+
 add_action('admin_menu', 'add_feed_stats_pages');
 add_action('admin_head', 'feed_stats_classes');
 

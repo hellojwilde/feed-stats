@@ -1,5 +1,7 @@
 <?php
 
+if (!defined('WPINC')) die("No outside script access allowed.");
+
 function fetch_remote_xml($url) {
 	// Load up Troy Wolf's http class
 	require_once 'include/class_http.php';

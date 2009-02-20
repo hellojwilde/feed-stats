@@ -1,5 +1,7 @@
 <?php
 
+if (!defined('WPINC')) die("No outside script access allowed.");
+
 function fs_feed_name ($meta) {
 	echo $meta[1];
 }
