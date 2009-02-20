@@ -77,10 +77,8 @@ function display_feed_stats() {
 							<a><?php _e('Hits') ?></a></li>
 						<li id="subs-tab" onclick="selectTab('total-tab', 'subs');">
 							<a><?php _e('Subscribers') ?></a></li>
-						<?php if ($items['success'] == true): ?>
 						<li id="reach-tab" onclick="selectTab('total-tab', 'reach');">
 							<a><?php _e('Reach') ?></a></li>
-						<?php endif; ?>
 					</ul>
 
 					<div id="hits" class="feed-stats-tab">
@@ -89,11 +87,9 @@ function display_feed_stats() {
 					<div id="subs" class="feed-stats-tab">
 						<?php fs_feed_chart($feed['data'], 'subs'); ?>
 					</div>
-					<?php if ($items['success'] == true): ?>
 					<div id="reach" class="feed-stats-tab">
 						<?php fs_feed_chart($feed['data'], 'reach'); ?>
 					</div>
-					<?php endif; ?>
 
 					<script type="text/javascript">
 						selectTab('total-tab', 'hits');
