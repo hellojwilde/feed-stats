@@ -1,5 +1,21 @@
 2009-03-06  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* feed-stats.php: Added an error message if FeedBurner returns a 500 code 
+        for GetItemData but returns the correct data for GetFeedData.  Implemented
+        the new fs_have_reach($xml) function to better choose whether to display 
+        reach stats while GetItemData is down.
+	* fs-comm.php: Improved documentation of fs_fetch_feedburner_data.  Increased
+        the amount of data (added the HTTP status code, the raw HTTP body, and 
+        the URL) returned from fs_fetch_feedburner_data.
+	* fs-parse.php: Tweaked the return message from fs_check_errors for 500 
+        status codes. Added the fs_have_reach($xml), which figures out if reach 
+        stats can be displayed purely from the XML returned from GetFeedData.
+	* fs-render.php: Implemented
+        the new fs_have_reach($xml) function to better choose whether to display 
+        reach stats while GetItemData is down.
+
+2009-03-06  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* COPYING: Added a full copy of the GPL v2 to the project in the form of a
         FSF-standard COPYING file.
 	* awapi-test.php: Added in the proper GPL v2 license block.

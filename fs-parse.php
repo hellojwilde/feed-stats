@@ -27,7 +27,7 @@ function fs_check_errors ($xml, $status) {
 	} elseif ($status == "401") {
 		return "This feed does not permit Awareness API access";
 	} elseif ($status == "500") {
-		return "Feed Not Found";
+		return "FeedBurner encountered an error.";
 	} elseif (strlen($xml) == 0) 
 		return 'Cannot access FeedBurner';
 	else
@@ -45,6 +45,10 @@ function fs_grab_entries ($xml) {
 	preg_match_all('|<entry(.*?)>|', $xml, $entries, PREG_PATTERN_ORDER);
 
 	return $entries[1];
+}
+
+function fs_have_reach ($xml) {
+    return (preg_match('|reach="(.*?)"|', $xml) == 1);
 }
 
 function fs_parse_entry ($xml) {

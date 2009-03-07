@@ -58,6 +58,7 @@ function display_feed_stats() {
 	
 	// Render the data into a pretty set of charts
 	if ($feed['success'] == true) {
+        $have_reach = fs_have_reach($feed['data']);
 		$meta = fs_grab_meta($feed['data']);
 			
 ?>
@@ -78,8 +79,10 @@ function display_feed_stats() {
 							<a><?php _e('Hits') ?></a></li>
 						<li id="subs-tab" onclick="selectTab('total-tab', 'subs');">
 							<a><?php _e('Subscribers') ?></a></li>
+                    <?php if ($have_reach): ?>
 						<li id="reach-tab" onclick="selectTab('total-tab', 'reach');">
 							<a><?php _e('Reach') ?></a></li>
+                    <?php endif; ?>
 					</ul>
 
 					<div id="hits" class="feed-stats-tab">
@@ -88,9 +91,11 @@ function display_feed_stats() {
 					<div id="subs" class="feed-stats-tab">
 						<?php fs_feed_chart($feed['data'], 'subs'); ?>
 					</div>
+                <?php if ($have_reach): ?>
 					<div id="reach" class="feed-stats-tab">
 						<?php fs_feed_chart($feed['data'], 'reach'); ?>
 					</div>
+                <?php endif; ?>
 
 					<script type="text/javascript">
 						selectTab('total-tab', 'hits');
@@ -100,10 +105,11 @@ function display_feed_stats() {
 			<td width="50%">
 				<h3><?php _e('Yesterday\'s Viewed &amp; Clicked Feed Items') ?></h3>
 <?php
-		if ($items['success'] == true) {
+		if ($items['success'] == true) :
 			$item_count = fs_count_yesterday_items($items['data']);
-			if ($item_count > 0) {
 ?>
+
+			<?php if ($item_count > 0) : ?>
 				<div id="yest-tab" class="feed-stats-tabs">
 					<ul class="total-tab-list">
 						<li id="clicks-tab" onclick="selectTab('yest-tab', 'clicks');">
@@ -123,30 +129,50 @@ function display_feed_stats() {
 						selectTab('yest-tab', 'clicks');
 					</script>
 				</div>
-<?php
-			} else {
-?>
+
+            <?php else: ?>
 				<div class="fs-message">
 					<p><?php _e('There weren\'t any items that were clicked on in your feed yesterday. 
 					   If you just turned on item stats, wait a day or two for information to start showing up.') ?></p>
 				</div>
-<?php
-			}
-		} else {
-?>
+
+            <?php endif; ?>
+
+        <?php elseif ($items['data'] == 'FeedBurner encountered an error.' &&
+            $feed['success'] == true): ?>
+			<p class="fs-message">
+			    FeedBurner encountered an internal error when this plugin tried 
+                to access item stats for your feed.  As of 6 March 2009, this is a 
+                <a href="http://groups.google.com/group/feedburner-for-developers/search?group=feedburner-for-developers&q=GetItemData+500&qt_g=Search+this+category">
+                known error</a> with the Google FeedBurner Awareness API, but 
+                has not been fixed by the Google FeedBurner team.
+			</p>
+
+            <p class="fs-message">
+                <em>When the Google FeedBurner team fixes this, this message will go 
+                away and your item stats will automatically appear here.</em>
+            </p>
+
+            <h4>Information for Support Personnel</h4>
+            <ul>
+                <li>Status code: <code><?php echo $items['code']; ?></code></li>
+                <li>URL: <code><?php echo $items['url']; ?></code></code>
+            </ul>
+
+		<? else: ?>
 				<div class="fs-message">
 					<p><?php _e('It appears that you don\'t have Item Stats enabled in your 
 					   FeedBurner account.  If it was enabled, you would be able to 
 					   view information about clickthroughs on individual feed items.') ?></p>
 					<p><?php _e('To enable them, you can go to') ?> <a href="<?php fs_stats_set_url($meta) ?>"><?php _e('FeedBurner Stats settings') ?></a>.</p>
 				</div>
-<?php
-		}
-?>
+
+        <?php endif; ?>
+
 			</td>
 		</tr><tr>
 			<td class="feed-stats-table-container">
-				<?php fs_feed_table($feed['data']); ?>
+				<?php fs_feed_table($feed['data'], $have_reach); ?>
 			</td>
 			<td class="feed-stats-table-container">
 				<?php if ($items['success'] == true && $item_count > 0) fs_items_table($items['data']); ?>

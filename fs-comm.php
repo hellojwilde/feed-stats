@@ -118,17 +118,32 @@ function fs_fetch_feedburner_data ($url, $action, $updatable=true, $post=null) {
 	// Try to pull in the feed data from the autodetected URL
 	$data = fetch_remote_xml($location . $req);
 	$error = fs_check_errors($data->body, $data->status);
+
+    // Create the base for a result array
+    $result = array(
+        'code' => $data->status,
+        'body' => $data->body,
+        'success' => true,
+		'data' => $data->body,
+        'url' => $data->url
+    );
 	
 	if ($error != false && $nourl == true) {
+        // Let's try the new FeedBurner servers to see if we can get a new result there.
 		$data_tmp = fetch_remote_xml($new_awareness_url . $req);
 		
 		if (fs_check_errors($data_tmp->body, $data_tmp->status) != false) {
-			return array(
-				'success' => false,
-				'data' => $error,
-			);
+            // We didn't have a complete URL to start with and our check of the 
+            // new Google FeedBurner servers failed, too.  We'll stop and give 
+            // that result to the calling function
+			$result['success'] = false;
+            $result['data'] = $error;
 		} else {
-			$data = $data_tmp;
+            // Since this second URL worked, let's update the result array
+			$result['code'] = $data_tmp->status;
+            $result['body'] = $data_tmp->body;
+            $result['data'] = $data_tmp->body;
+            $result['url'] = $data_tmp->url;
 			
 			// If we have WordPress access, let's update the link
 			if (function_exists('update_option') && $updatable == true)
@@ -139,16 +154,13 @@ function fs_fetch_feedburner_data ($url, $action, $updatable=true, $post=null) {
 		if (function_exists('update_option') && $updatable == true && $nourl == false)
 			update_option('feedburner_feed_stats_name', "http://feeds.feedburner.com/" . $name);
 	} elseif ($error != false && $nourl == false) {
-		return array(
-			'success' => false,
-			'data' => $error,
-		);
+        // We had a full URL to start with, but it didn't work; we don't really
+        // have any recourse.  Let's tell this to the caller function
+        $result['success'] = false;
+        $result['data'] = $error;
 	}
-	
-	return array(
-		'success' => true,
-		'data' => $data->body
-	);
+
+	return $result;
 }
 
 function fs_load_feed_data ($name, $days) {

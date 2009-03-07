@@ -152,7 +152,7 @@ function fs_items_table ($xml) {
 <?php
 }
 
-function fs_feed_table ($xml) {
+function fs_feed_table ($xml, $have_reach=false) {
 ?>
 	<table class="feed-stats-data <?php 
 	if (version_compare(get_bloginfo('version'), '2.7', '>=')) :?>
@@ -163,7 +163,9 @@ function fs_feed_table ($xml) {
 				<th><?php _e('Date'); ?></th>
 				<th style="width: 100px;"><?php _e('Subscribers'); ?></th>
 				<th style="width: 50px;"><?php _e('Hits'); ?></th>
+            <?php if ($have_reach): ?>
 				<th style="width: 50px;"><?php _e('Reach'); ?></th>
+            <?php endif; ?>
 			</tr>
 		</thead>
 		<tbody>
@@ -183,7 +185,9 @@ function fs_feed_table ($xml) {
 						<td class="feed-stats-left <?php echo $style_data; ?>"><?php echo $data['date']; ?></td>
 						<td class="<?php echo $style_data; ?>"><?php echo $data['subs'] ?></td>
 						<td class="<?php echo $style_data; ?>"><?php echo $data['hits'] ?></td>
+                    <?php if ($have_reach): ?>
 						<td class="<?php echo $style_data; ?>"><?php echo $data['reach'] ?></td>
+                    <?php endif; ?>
 					</tr>
 <?php
 		}
