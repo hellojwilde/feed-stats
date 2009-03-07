@@ -1,4 +1,4 @@
-<?php if (!defined('WPINC')) die("No outside script access allowed.");
+<?php
 
 /*
 	Copyright (c) 2008 - 2009 Jonathan Wilde
@@ -20,19 +20,9 @@
     <http://www.gnu.org/licenses/>.
 */
 
-// Some dependencies needed to use the WP HTTP libraries and parse the
-// output from the WP HTTP libraries
-require_once('fs-comm.php');
-require_once('fs-parse.php');
+require_once('simpletest/autorun.php');
+require_once('../fs-comm.php');
 
-// Figure out the URL for the information at FeedBurner
-$feed = urldecode($_GET['feed']);
-$data = fs_fetch_feedburner_data($feed, "GetFeedData", false);
+class TestOfFeedStatsComm extends UnitTestCase {
 
-// If there are no errors, tell the user that the feed is valid; if 
-// there are errors, print them out directly.
-if ($data['success'] == true)
-	echo 'The feed is valid.';
-else
-	echo $data['data'];
-?>
+}

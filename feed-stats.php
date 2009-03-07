@@ -1,4 +1,5 @@
-<?php
+<?php if (!defined('WPINC')) die("No outside script access allowed.");
+
 /*
 	Plugin Name: FeedBurner Feed Stats
 	Plugin URI: http://www.speedbreeze.com/2008/02/22/feed-stats-wordpress-plugin/
@@ -9,24 +10,24 @@
 */
 
 /*
-	Copyright (c) 2008 Jonathan Wilde
+	Copyright (c) 2008 - 2009 Jonathan Wilde
 
-	This program is free software; you can redistribute it and/or modify
-	it under the terms of the GNU General Public License as published by
-	the Free Software Foundation; either version 2 of the License, or
-	(at your option) any later version.
+	This file is part of the Feed Stats Plugin for WordPress.
 
-	This program is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	GNU General Public License for more details.
+    The Feed Stats Plugin for WordPress is free software: you can redistribute 
+    it and/or modify it under the terms of the GNU General Public License as 
+    published by the Free Software Foundation, either version 2 of the License, 
+    or (at your option) any later version.
 
-	You should have received a copy of the GNU General Public License
-	along with this program; if not, write to the Free Software
-	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+    The Feed Stats Plugin for WordPress is distributed in the hope that it will 
+    be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with the Feed Stats Plugin for WordPress.  If not, see 
+    <http://www.gnu.org/licenses/>.
 */
-
-if (!defined('WPINC')) die("No outside script access allowed.");
 
 add_action('admin_menu', 'add_feed_stats_pages');
 add_action('admin_head', 'feed_stats_classes');
