@@ -66,7 +66,7 @@ function display_feed_stats() {
 		<h2>
 			<?php _e('Feed Stats:') ?> <?php fs_feed_name($meta); ?>
 			<span class="feed-stats-link">
-				&nbsp;(<a href="<?php fs_dashboard_url($meta); ?>"><?php _e('FeedBurner Dashboard'); ?></a>)
+				&nbsp;(<a href="<?php fs_dashboard_url($name, $meta); ?>"><?php _e('FeedBurner Dashboard'); ?></a>)
 			<span>
 		</h2>
 		
@@ -164,7 +164,7 @@ function display_feed_stats() {
 					<p><?php _e('It appears that you don\'t have Item Stats enabled in your 
 					   FeedBurner account.  If it was enabled, you would be able to 
 					   view information about clickthroughs on individual feed items.') ?></p>
-					<p><?php _e('To enable them, you can go to') ?> <a href="<?php fs_stats_set_url($meta) ?>"><?php _e('FeedBurner Stats settings') ?></a>.</p>
+					<p><?php _e('To enable them, you can go to') ?> <a href="<?php fs_stats_set_url($name, $meta) ?>"><?php _e('FeedBurner Stats settings') ?></a>.</p>
 				</div>
 
         <?php endif; ?>
@@ -206,8 +206,7 @@ function display_feed_stats() {
 			<p class="fs-message">
 				The Awareness API, which gives this plugin access to your 
 				stats, is not enabled for this feed.  Go into your 
-				<a href="http://www.feedburner.com/fb/a/myfeeds">FeedBurner 
-				account</a>, click on your feed, click on the "Publicize" 
+				FeedBurner account, click on your feed, click on the "Publicize" 
 				tab, click on the "Awareness API" button in the sidebar, 
 				and then click on the "Activate" button.
 			</p>

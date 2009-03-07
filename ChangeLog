@@ -1,5 +1,14 @@
 2009-03-06  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* feed-stats.php: Implemented the changes (added the $name variable as the 
+        first argument) made to the fs_dashboard_url and fs_stats_set_url 
+        functions in fs-comm.php.
+	* fs-render.php: Added the fs_dashboard_domain($url) function which allows us
+        to distinguish between feeds that need account links to feedburner.com and 
+        feedburner.google.com.
+
+2009-03-06  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* feed-stats.php: Added an error message if FeedBurner returns a 500 code 
         for GetItemData but returns the correct data for GetFeedData.  Implemented
         the new fs_have_reach($xml) function to better choose whether to display 

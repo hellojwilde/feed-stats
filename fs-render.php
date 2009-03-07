@@ -24,12 +24,19 @@ function fs_feed_name ($meta) {
 	echo $meta[1];
 }
 
-function fs_dashboard_url ($meta) {
-	echo "http://www.feedburner.com/fb/a/dashboard?id=" . $meta[0];
+function fs_dashboard_domain ($url) {
+    if (strpos($url, "feeds.feedburner.com") !== false or strpos($url, "http://") === false)
+        return "http://www.feedburner.com/";
+    else
+        return "http://feedburner.google.com/";
 }
 
-function fs_stats_set_url ($meta) {
-	echo "https://www.feedburner.com/fb/a/analyze/totalstats?id=" . $meta[0];
+function fs_dashboard_url ($feed, $meta) {
+	echo fs_dashboard_domain($feed) . "fb/a/dashboard?id=" . $meta[0];
+}
+
+function fs_stats_set_url ($feed, $meta) {
+	echo fs_dashboard_domain($feed) . "fb/a/analyze/totalstats?id=" . $meta[0];
 }
 
 // $type can be 'subs', 'reach', or 'hits'
