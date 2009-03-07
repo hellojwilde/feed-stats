@@ -20,8 +20,23 @@
     <http://www.gnu.org/licenses/>.
 */
 
-/*  Script: fs-comm.php
-    Contains helper functions to simplify communication with FeedBurner. */ 
+/*  
+    Script: fs-comm.php
+
+    Contains helper functions to simplify communication with FeedBurner. 
+*/ 
+
+/* 
+    Constants: Awareness API URLs
+
+    FS_OLD_API_URL - The pre-Google Awareness API URL (used for people who 
+                     haven't moved their account over to Google FeedBurner).
+    FS_NEW_API_URL - The new Google Awareness API URL (for feeds at the new 
+                     Google FeedBurner).
+*/
+
+define("FS_OLD_API_URL", "http://api.feedburner.com/awareness/1.0/");
+define("FS_NEW_API_URL", "https://feedburner.google.com/api/awareness/1.0/");
 
 /*  
     Function: fetch_remote_xml
@@ -73,13 +88,6 @@ function fetch_remote_xml($url) {
 }
 
 function fs_fetch_feedburner_data ($url, $action, $updatable=true, $post=null) {
-    // The pre-Google Awareness API URL (used for people who haven't moved their 
-    // account over to Google FeedBurner)
-    $old_awareness_url = "http://api.feedburner.com/awareness/1.0/";
-
-    // The new Google Awareness API URL (for feeds at the new Google FeedBurner
-	$new_awareness_url = "https://feedburner.google.com/api/awareness/1.0/";
-	
     // Let's instantiate a few variables
 	$name = '';
 	$location = '';
@@ -91,13 +99,13 @@ function fs_fetch_feedburner_data ($url, $action, $updatable=true, $post=null) {
         // the feed name (stored in the $name variable) and set our $location 
         // variable to the old Awareness API URL
 		$name = preg_replace("|(http:\/\/)?feeds\.feedburner\.com\/|", "", $url);
-		$location = $old_awareness_url;
+		$location = FS_OLD_API_URL;
 	} elseif (preg_match("|(http:\/\/)?feed(.*)\.com\/|", $url) != 0) {
         // If we're using a Google FeedBurner/Google FeedProxy feed, we'll use
         // PCRE to grab the feed name (again stored in the $name variable) and 
         // set our $location variable to the new Awareness API URL
 		$name = preg_replace("|(http:\/\/)?feed(.*)\.com\/|", "", $url);
-		$location = $new_awareness_url;
+		$location = FS_NEW_API_URL;
 	} else {
         // If the data passed in doesn't match any of the above URLs, let's 
         // assume that a feed name, rather than a URL, was passed in; since this 
@@ -108,7 +116,7 @@ function fs_fetch_feedburner_data ($url, $action, $updatable=true, $post=null) {
         // API if it doesn't work, and need to eventually update the setting 
         // containing the feed name in the database once we find a working URL.
 		$name = $url;
-		$location = $old_awareness_url;
+		$location = FS_OLD_API_URL;
 		$nourl = true;
 	}
 	
@@ -130,7 +138,7 @@ function fs_fetch_feedburner_data ($url, $action, $updatable=true, $post=null) {
 	
 	if ($error != false && $nourl == true) {
         // Let's try the new FeedBurner servers to see if we can get a new result there.
-		$data_tmp = fetch_remote_xml($new_awareness_url . $req);
+		$data_tmp = fetch_remote_xml(FS_NEW_API_URL . $req);
 		
 		if (fs_check_errors($data_tmp->body, $data_tmp->status) != false) {
             // We didn't have a complete URL to start with and our check of the 
