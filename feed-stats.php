@@ -71,7 +71,7 @@ function display_feed_stats() {
 		</h2>
 		
 		<table class="layout" width="100%"><tr>
-			<td width="50%">
+			<td width="50%" class="feed-stats-left-chart-cell">
 				<h3>Total Hits &amp; Subscribers</h3>
 				<div id="total-tab" class="feed-stats-tabs">
 					<ul class="total-tab-list">
@@ -102,7 +102,7 @@ function display_feed_stats() {
 					</script>
 				</div>
 			</td>
-			<td width="50%">
+			<td width="50%" class="feed-stats-right-chart-cell">
 				<h3><?php _e('Yesterday\'s Viewed &amp; Clicked Feed Items') ?></h3>
 <?php
 		if ($items['success'] == true) :
@@ -171,10 +171,10 @@ function display_feed_stats() {
 
 			</td>
 		</tr><tr>
-			<td class="feed-stats-table-container">
+			<td class="feed-stats-table-container feed-stats-left-table-cell">
 				<?php fs_feed_table($feed['data'], $have_reach); ?>
 			</td>
-			<td class="feed-stats-table-container">
+			<td class="feed-stats-table-container feed-stats-right-table-cell">
 				<?php if ($items['success'] == true && $item_count > 0) fs_items_table($items['data']); ?>
 			</td>
 		</tr></table>

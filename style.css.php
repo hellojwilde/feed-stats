@@ -209,10 +209,27 @@ table.feed-stats-data td.feed-stats-alt {
 
 .fs-message, .fs-message p {
 	font-size: 16px;
+    color: #888;
 }
 
 .fs-text {
 	width: 190px
+}
+
+.feed-stats-left-chart-cell {
+    padding-right: 10px;
+}
+
+.feed-stats-right-chart-cell {
+    padding-left: 10px;
+}
+
+.feed-stats-left-table-cell {
+    padding-right: 20px;
+}
+
+.feed-stats-right-table-cell {
+    padding-left: 20px;
 }
 
 .fs-icons-credit {

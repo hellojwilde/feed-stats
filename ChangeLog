@@ -1,3 +1,13 @@
+2009-03-07  Jonathan Wilde  <speedbreeze@gmail.com>
+
+	* feed-stats.php: Added the feed-stats-left-chart-cell, 
+        feed-stats-right-chart-cell, feed-stats-left-table-cell, and 
+        feed-stats-right-table-cell CSS classes to the top left, top right, bottom
+        left, and bottom right table cells of the dashboard page, respectively.
+        This allows us to apply specific styles to each cell.
+	* style.css.php: Applied CSS styles to all of the aforementioned CSS classes
+        so that there is more whitespace on the dashboard page.
+
 2009-03-06  Jonathan Wilde  <speedbreeze@gmail.com>
 
 	* fs-comm.php: Made the old and new Awareness API URLs constants so that we 
