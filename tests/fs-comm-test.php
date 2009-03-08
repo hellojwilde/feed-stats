@@ -24,5 +24,5 @@ require_once('simpletest/autorun.php');
 require_once('../fs-comm.php');
 
 class TestOfFeedStatsComm extends UnitTestCase {
-
+    
 }

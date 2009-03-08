@@ -150,7 +150,7 @@ function display_feed_stats() {
 
             <p class="fs-message">
                 <em>When the Google FeedBurner team fixes this, this message will go 
-                away and your item stats will automatically appear here.</em>
+                away and your item stats will automatically appear.</em>
             </p>
 
             <h4>Information for Support Personnel</h4>
