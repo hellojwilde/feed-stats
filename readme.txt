@@ -2,7 +2,7 @@
 Contributors: speedbreeze
 Tags: feedburner, stats, statistics, feeds, rss, atom, hits, subscribers
 Requires at least: 2.3.3
-Tested up to: 2.6
+Tested up to: 2.7.1
 Stable tag: 1.0.4
 
 Finally, you can see your FeedBurner feed stats from inside your 
@@ -21,8 +21,10 @@ statistics:
 * Subscribers
 * Hits
 * Reach (see the FAQ section for more information about this)
-* Item Clickthroughs
-* Item Views
+* Item Clickthroughs (there's currently a known bug in the 
+Google FeedBurner Awareness API preventing it from working; this feature will 
+work again once Google fixes the bug)
+* Item Views (the same bug that affects Item Clickthroughs affects this)
 
 **Note:** This is a third-party plugin for viewing data from the 
 FeedBurner web service. I am *not* in any way affiliated with FeedBurner.
@@ -30,7 +32,7 @@ FeedBurner web service. I am *not* in any way affiliated with FeedBurner.
 = Questions? Comments? Found a Bug? =
 Feel free to ask these questions, get help, find out about new releases, 
 and more at the 
-[Feed Stats Plugin Google Group](http://groups.google.com/group/feed-stats-plugin).
+[Feed Stats Plugin mailing list](http://www.speedbreeze.com/feed-stats/product/support).
 
 == Installation ==
 
@@ -102,6 +104,6 @@ well in) the following set of browsers:
 == Screenshots ==
 
 You can view screenshots of this plugin at the 
-[official page](http://www.speedbreeze.com/2008/02/22/feed-stats-wordpress-plugin/) 
+[official page](http://www.speedbreeze.com/feed-stats/product/screenshots) 
 for the plugin on my website.
 

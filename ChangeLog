@@ -1,3 +1,11 @@
+2009-03-21  Jonathan Wilde  <speedbreeze@gmail.com>
+
+	* feed-stats.php: Tweaked version number of plugin (it's going out of beta 
+		today).  Updated the plugin URLs to reflect the new plugin website.
+	* readme.txt: Updated the plugin URLs.  Added a note about the bug with 
+		Google FeedBurner.
+	* templates/troubleshooting.php: Removed the link to FeedBurner.
+
 2009-03-07  Jonathan Wilde  <speedbreeze@gmail.com>
 
 	* feed-stats.php: Tweaked the Google FeedBurner 500 error message to make it
