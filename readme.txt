@@ -21,10 +21,8 @@ statistics:
 * Subscribers
 * Hits
 * Reach (see the FAQ section for more information about this)
-* Item Clickthroughs (there's currently a known bug in the 
-Google FeedBurner Awareness API preventing it from working; this feature will 
-work again once Google fixes the bug)
-* Item Views (the same bug that affects Item Clickthroughs affects this)
+* Item Clickthroughs
+* Item Views
 
 **Note:** This is a third-party plugin for viewing data from the 
 FeedBurner web service. I am *not* in any way affiliated with FeedBurner.
