@@ -33,8 +33,8 @@ add_action('admin_menu', 'add_feed_stats_pages');
 add_action('admin_head', 'feed_stats_classes');
 
 function add_feed_stats_pages() {
-	add_submenu_page('index.php', 'Feed Stats', 'Feed Stats', 'manage_options', 'feed-stats', 'display_feed_stats');
-	add_options_page('Feed Stats', 'Feed Stats', 'manage_options', 'feed-stats', 'display_feed_options');
+	add_submenu_page('index.php', 'Feed Stats', 'Feed Stats', 'manage_options', 'feed-stats-stats', 'display_feed_stats');
+	add_options_page('Feed Stats', 'Feed Stats', 'manage_options', 'feed-stats-options', 'display_feed_options');
 }
 
 function feed_stats_classes() {
