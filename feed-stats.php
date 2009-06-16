@@ -138,27 +138,6 @@ function display_feed_stats() {
 
             <?php endif; ?>
 
-        <?php elseif ($items['data'] == 'FeedBurner encountered an error.' &&
-            $feed['success'] == true): ?>
-			<p class="fs-message">
-			    FeedBurner encountered an internal error when this plugin tried 
-                to access item stats for your feed.  As of 6 March 2009, this is a 
-                <a href="http://groups.google.com/group/feedburner-for-developers/search?group=feedburner-for-developers&q=GetItemData+500&qt_g=Search+this+category">
-                known error</a> with the Google FeedBurner Awareness API, but 
-                has not been fixed by the Google FeedBurner team.
-			</p>
-
-            <p class="fs-message">
-                <em>When the Google FeedBurner team fixes this, this message will go 
-                away and your item stats will automatically appear.</em>
-            </p>
-
-            <h4>Information for Support Personnel</h4>
-            <ul>
-                <li>Status code: <code><?php echo $items['code']; ?></code></li>
-                <li>URL: <code><?php echo $items['url']; ?></code></code>
-            </ul>
-
 		<? else: ?>
 				<div class="fs-message">
 					<p><?php _e('It appears that you don\'t have Item Stats enabled in your 
