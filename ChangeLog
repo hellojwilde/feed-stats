@@ -1,3 +1,7 @@
+2009-06-16  Jonathan Wilde  <speedbreeze@gmail.com>
+
+	* feed-stats.php: Fixed the link to the AJAX feed tester.
+
 2009-06-15  Jonathan Wilde  <speedbreeze@gmail.com>
 
 	* awapi-test.php: Tweaked the code to work properly with the new

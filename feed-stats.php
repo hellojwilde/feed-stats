@@ -262,7 +262,7 @@ function display_feed_options() {
 }
 
 function ajax_test_url() {
-	echo admin_url() . "options-general.php?page=feed-stats&mode=test";
+	echo admin_url() . "options-general.php?page=feed-stats-options&mode=test";
 }
 
 function plugin_folder() {
