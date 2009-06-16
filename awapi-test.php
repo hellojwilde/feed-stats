@@ -32,7 +32,7 @@ $data = fs_fetch_feedburner_data($feed, "GetFeedData", false);
 // If there are no errors, tell the user that the feed is valid; if 
 // there are errors, print them out directly.
 if ($data['success'] == true)
-	echo 'The feed is valid.';
+	echo _e("The feed is valid.");
 else
-	echo $data['data'];
+	echo $data['data']["message"];
 ?>

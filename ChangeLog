@@ -1,5 +1,22 @@
 2009-06-15  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* awapi-test.php: Tweaked the code to work properly with the new
+        fs_make_error_translatable ($original) function. Made use of the
+        _e() function to ensure that it can be localized.
+	* feed-stats.php: Made use of the _e() function to ensure that it 
+        can be localized.
+	* fs-comm.php: Added the fs_make_error_translatable ($original) 
+        function, which allows us to localize those ugly FeedBurner 
+        error messages. Made use of this new function in the
+        fs_fetch_feedburner_data ($url, $action, $updatable=true, $post=null)
+        function.
+	* fs-parse.php: Made use of the _e() function to ensure that it can 
+        be localized.
+	* templates/troubleshooting.php: Made use of the _e() function to 
+        ensure that it can be localized.
+
+2009-06-15  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* feed-stats.php: Removed the scary Google FeedBurner error message.
         Since Google fixed this, the message is no longer needed.
 

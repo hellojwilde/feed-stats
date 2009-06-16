@@ -87,6 +87,21 @@ function fetch_remote_xml($url) {
 	return $fetcher;
 }
 
+function fs_make_error_translatable ($original) {
+    $translatable = array(
+        'Feed Not Found' => array(
+            'code' => 0,
+            'message' => __('The specified feed was not found.')
+        ),
+        'This feed does not permit Awareness API access' => array(
+            'code' => 1,
+            'message' => __('This feed does not permit Awareness API access.')
+        )
+    );
+    
+    return $translatable[$original];
+}
+
 function fs_fetch_feedburner_data ($url, $action, $updatable=true, $post=null) {
     // Let's instantiate a few variables
 	$name = '';
@@ -145,7 +160,8 @@ function fs_fetch_feedburner_data ($url, $action, $updatable=true, $post=null) {
             // new Google FeedBurner servers failed, too.  We'll stop and give 
             // that result to the calling function
 			$result['success'] = false;
-            $result['data'] = $error;
+            $result['data'] = fs_make_error_translatable($error);
+            
 		} else {
             // Since this second URL worked, let's update the result array
 			$result['code'] = $data_tmp->status;
@@ -165,7 +181,7 @@ function fs_fetch_feedburner_data ($url, $action, $updatable=true, $post=null) {
         // We had a full URL to start with, but it didn't work; we don't really
         // have any recourse.  Let's tell this to the caller function
         $result['success'] = false;
-        $result['data'] = $error;
+        $result['data'] = fs_make_error_translatable($error);
 	}
 
 	return $result;

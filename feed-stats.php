@@ -163,64 +163,65 @@ function display_feed_stats() {
 ?>
 	<div class="wrap">
 		<?php if ($name == ''): ?>
-			<h2>Please Configure Me!</h2>
+			<h2><?php _e('Please Configure Me!') ?></h2>
 			<p class="fs-message">
-				This plugin doesn't have a FeedBurner feed URL on record to display.  
-				Please go to <a href="options-general.php?page=feed-stats">
-				the settings page</a> for this plugin and type in a feed URL. 
-				Thanks!
+				<?php _e("This plugin doesn't have a FeedBurner feed URL 
+                on record to display.  Please go to the settings page 
+                for this plugin and type in a feed URL. Thanks!"); ?>
 			</p>
-		<?php elseif ($feed['data'] == 'Feed Not Found'): ?>
-			<h2>Feed Not Found :(</h2>
+		<?php elseif ($feed['data']['code'] == 0): ?>
+			<h2><?php _e('Feed Not Found'); ?></h2>
 			<p class="fs-message">
-				For some reason, FeedBurner can't find the feed URL that you 
-				wanted this plugin to track.  Did you move your feed over to Google 
-				FeedProxy? Did you delete the feed?  Is the URL correct?  
-				You might need to update the URL on 
-				<a href="options-general.php?page=feed-stats">the settings 
-				page</a>.
+				<?php _e("For some reason, FeedBurner can't find the 
+                feed URL that you wanted this plugin to track.  Did you 
+                move your feed over to Google FeedProxy? Did you delete 
+                the feed?  Is the URL correct?  You might need to update 
+                the URL on the settings page."); ?>
 			</p>
-		<?php elseif ($feed['data'] == 'This feed does not permit Awareness API access'): ?>
-			<h2>Please Enable the Awareness API</h2>
+		<?php elseif ($feed['data']['code'] == 1): ?>
+			<h2><?php _e('Please Enable the Awareness API')</h2>
 			<p class="fs-message">
-				The Awareness API, which gives this plugin access to your 
-				stats, is not enabled for this feed.  Go into your 
-				FeedBurner account, click on your feed, click on the "Publicize" 
-				tab, click on the "Awareness API" button in the sidebar, 
-				and then click on the "Activate" button.
+				<?php _e("The Awareness API, which gives this plugin 
+                access to your stats, is not enabled for this feed.  Go 
+                into your FeedBurner account, click on your feed, click 
+                on the \"Publicize\" tab, click on the \"Awareness API\" 
+                button in the sidebar, and then click on the \"Activate\" 
+                button."); ?>
 			</p>
 		<?php else: ?>
-			<h2>Something Didn't Work Right...</h2>
+			<h2><?php _e("Something Didn't Work Right...");</h2>
 			<div class="fs-message">
 				<p>
-					This means that an error occurred, but there's no 
-					specific problem that can be easily determined.  
-					This error was probably caused by one of two things:
+					<?php _e("This means that an error occurred, but 
+                    there's no specific problem that can be easily 
+                    determined.  This error was probably caused by one 
+                    of two things:"); ?>
 				</p>
 				<ol>
-					<li>FeedBurner is down.</li>
-					<li>Your server can't access FeedBurner for some reason.</li>
+					<li><?php _e("FeedBurner is down."); ?></li>
+					<li><?php _e("Your server can't access FeedBurner for some reason."); ?></li>
 				</ol>
 			</div>
 			
 			<p>
-				If you think it's the latter and there's no obvious 
-				cause, feel free to ask about these problems at the 
-				<a href="http://www.speedbreeze.com/feed-stats/product/support">
-				mailing list</a>. In order to make it easier for me to help 
-				you with this, please provide the following information 
-				about your server:
+				<?php echo sprintf(__("If you think it's the latter and 
+                there's no obvious cause, feel free to ask about these 
+                problems at this plugin's %a mailing list %a. In order 
+                to make it easier for me to help you with this, please 
+                provide the following information about your server:"), 
+                "<a href=\"http://www.speedbreeze.com/feed-stats/product/support\">", 
+                "</a>"); ?>
 			</p>
 			<ol>
 				<li>
-					What type of server you're running (e.g. Apache, 
-					Microsoft IIS).  If you're unsure, tell me the name 
-					of your web hosting company and the plan that you're 
-					using.
+					<?php _e("What type of server you're running (e.g. 
+                    Apache, Microsoft IIS).  If you're unsure, tell me 
+                    the name of your web hosting company and the plan 
+                    that you're using."); ?>
 				</li>
 				<li>
-					Your PHP version (copy &amp; paste the following 
-					into your email): <code><?php echo phpversion(); ?></code>
+					<?php _e("Your PHP version (copy &amp; paste the following 
+					into your email):");?> <code><?php echo phpversion(); ?></code>
 				</li>
 			</ol>
 		<?php endif; ?>

@@ -25,11 +25,11 @@ function fs_check_errors ($xml, $status) {
 		preg_match('|msg="(.*?)"|', $xml, $msg);
 		return $msg[1];
 	} elseif ($status == "401") {
-		return "This feed does not permit Awareness API access";
+		return _e("This feed does not permit Awareness API access");
 	} elseif ($status == "500") {
-		return "FeedBurner encountered an error.";
+		return _e("FeedBurner encountered an error.");
 	} elseif (strlen($xml) == 0) 
-		return 'Cannot access FeedBurner';
+		return _e("Cannot access FeedBurner");
 	else
 		return false;	
 }
