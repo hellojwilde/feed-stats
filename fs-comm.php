@@ -85,7 +85,7 @@ function fs_translatable_error ($original) {
             'message' => sprintf(__('This means that an error occurred,  
                 but there\'s no specific problem that can be easily 
                 determined. If you have questions, feel free to send a 
-                message to this plugin\'s <a href="%u">mailing list</a>.
+                message to this plugin\'s <a href="%s">mailing list</a>.
                 '), SUPPORT_URL)
         ),
         'Feedburner issues' => array(
@@ -94,7 +94,7 @@ function fs_translatable_error ($original) {
             'message' => sprintf(__('FeedBurner\'s Awareness API servers are 
                 currently having issues right now.  Try again later.  If
                 this problem persists, feel free to send a message to 
-                this plugin\'s <a href="%u">mailing list</a>.'), 
+                this plugin\'s <a href="%s">mailing list</a>.'), 
                 SUPPORT_URL)
         ),
         'Cannot access FeedBurner' => array(
@@ -104,7 +104,7 @@ function fs_translatable_error ($original) {
                 to the FeedBurner Awareness API servers.  This is 
                 usually due to a configuration issue on your server.  If
                 you have questions, feel free to send a message to this 
-                plugin\'s <a href="%u">mailing list</a>.'), SUPPORT_URL)
+                plugin\'s <a href="%s">mailing list</a>.'), SUPPORT_URL)
         ),
         'Configuration needed' => array(
             'code' => -1,
@@ -130,7 +130,7 @@ function fs_translatable_error ($original) {
                 into your FeedBurner account, click on your feed, click 
                 on the "Publicize" tab, click on the "Awareness API" 
                 button in the sidebar, and then click on the "Activate" 
-                button.');
+                button.')
         )
     );
     
@@ -159,53 +159,54 @@ function fs_fetch_feedburner_data ($url, $action, $get='', $update=true) {
     
     if ($url == '')
         // If no URL was passed in, then return an error message
-        $result['error'] = fs_translatable_error('Configuration Needed');
+        $result['error'] = fs_translatable_error('Configuration needed');
     elseif (preg_match("|(http:\/\/)?feed(.*)\.com\/|", $url) != 0) {
         // If we're using a Google FeedBurner/Google FeedProxy feed, 
         // we'll use PCRE to grab the feed name (temporarily stored in  
         // the $name variable)
 		$name = preg_replace("|(http:\/\/)?feed(.*)\.com\/|", "", $url);
-        
-        // Generate our request string
-        $format = "https://feedburner.google.com/api/awareness/1.0/%a?uri=%n&%g";
-        $request = sprintf($format, $action, $name, $get);
-        
-        // Try to pull down the data
-        $response = fetch_remote_xml($request);
-        
-        // Search through the feed for errors
-        if (preg_match('|rsp stat="fail"|', $xml)) {
-            // If there's an error embedded in the feed response, make it
-            // grammatically correct and translatable
-            preg_match('|msg="(.*?)"|', $xml, $msg);
-            $result['error'] = fs_make_error_translatable($msg[1]);
-        } elseif ($response->status == "401") {
-            // If the feed does not permit AwAPI access, return that;
-            // sometimes
-            $result['error'] = fs_make_error_translatable(
-                'This feed does not permit Awareness API access');
-        } elseif ($response->status == "500") {
-            // If FeedBurner is giving us an internal server error, 
-            // return the boilerplate message
-            $result['error'] = fs_make_error_translatable(
-                'Feedburner issues');
-        } elseif (strlen($response->data) == 0) {
-            // If there was no data returned, then there was some 
-            // problem with trying to contact FeedBurner
-            $result['error'] = fs_make_error_translatable(
-                'Cannot access FeedBurner');
-        } elseif ($status == "200") {
-            // Everything went well, so return the response from 
-            // FeedBurner back to the user
-            $result['success'] = true;
-            $result['status'] = $response->status;
-            $result['data'] = $response->body;
-            $result['url'] = $data->url;
-        } else {
-            // We have no idea what went wrong; tell that to the user
-            $result['error'] = fs_make_error_translatable(
-                'Unknown error');
-        }
+    } else 
+        // For backwards compatibility reasons, if the feed URL isn't 
+        // a URL, we'll assume that it's the feed name
+        $name = $url;
+
+    // Generate our request string
+    $format = "https://feedburner.google.com/api/awareness/1.0/%s?uri=%s&%s";
+    $request = sprintf($format, $action, $name, $get);
+    
+    // Try to pull down the data
+    $response = fetch_remote_xml($request);
+    
+    // Search through the feed for errors
+    if (preg_match('|rsp stat="fail"|', $response->data)) {
+        // If there's an error embedded in the feed response, make it
+        // grammatically correct and translatable
+        preg_match('|msg="(.*?)"|', $response->data, $msg);
+        $result['error'] = fs_translatable_error($msg[1]);
+    } elseif ($response->status == "401") {
+        // If the feed does not permit AwAPI access, return that;
+        // sometimes
+        $result['error'] = fs_translatable_error(
+            'This feed does not permit Awareness API access');
+    } elseif ($response->status == "500") {
+        // If FeedBurner is giving us an internal server error, 
+        // return the boilerplate message
+        $result['error'] = fs_translatable_error('Feedburner issues');
+    } elseif (strlen($response->body) == 0) {
+        // If there was no data returned, then there was some 
+        // problem with trying to contact FeedBurner
+        $result['error'] = fs_translatable_error(
+            'Cannot access FeedBurner');
+    } elseif ($response->status == "200") {
+        // Everything went well, so return the response from 
+        // FeedBurner back to the user
+        $result['success'] = true;
+        $result['status'] = $response->status;
+        $result['data'] = $response->body;
+        $result['url'] = $data->url;
+    } else {
+        // We have no idea what went wrong; tell that to the user
+        $result['error'] = fs_translatable_error('Unknown error');
     }
     
     // Return our result array to the user
@@ -226,8 +227,8 @@ function fs_load_feed_data ($name, $days) {
 	// Get the data from FeedBurner
 	return fs_fetch_feedburner_data($name, 
 		"GetFeedData",
-		true,
-		"dates=" . $start . "," . $end
+		"dates=" . $start . "," . $end,
+        true
 	);
 }
 
@@ -245,8 +246,8 @@ function fs_load_item_data ($name, $days) {
 	// Get data from FeedBurner
 	return fs_fetch_feedburner_data($name, 
 		"GetItemData",
-		true,
-		"dates=" . $start . "," . $end
+		"dates=" . $start . "," . $end,
+        true
 	);
 }
 

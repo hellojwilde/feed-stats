@@ -1,6 +1,19 @@
 2009-06-19  Jonathan Wilde  <speedbreeze@gmail.com>
 
-	* fs-comm.php: Renamed fs_make_error_translatable to 
+	* feed-stats.php: Changed the the tempalate so that the error 
+        message uses the messages already contained in 
+        fs_translatable_error, rather than using conditional statements.
+	* fs-comm.php: Fixed sprintf usage. Fixed variable names in 
+        fs_fetch_feedburner_data. Added backwards compatibility for 
+        people who have a feed name saved, rather than a feed URL.  
+        Replaced all references to fs_make_error_translatable with 
+        fs_translatable_error. Updated the fs_load_feed_data and 
+        fs_load_item_data functions with the changes to the variables 
+        for the fs_fetch_feedburner_data function.
+
+2009-06-19  Jonathan Wilde  <speedbreeze@gmail.com>
+
+	* fs-comm.php: Renamed  to 
         fs_translatable_error.  I'm making it the general-purpose error 
         message manager function.  It now holds all of the errors and
         messages for the plugin. Rewrote (and documented) the 

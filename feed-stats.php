@@ -55,12 +55,11 @@ function display_feed_stats() {
 	// Load data from FeedBurner
 	$feed = fs_load_feed_data($name, $days);
 	$items = fs_load_item_data($name, $days);
-	
+
 	// Render the data into a pretty set of charts
 	if ($feed['success'] == true) {
         $have_reach = fs_have_reach($feed['data']);
 		$meta = fs_grab_meta($feed['data']);
-			
 ?>
 	<div class="wrap">
 		<h2>
@@ -162,69 +161,8 @@ function display_feed_stats() {
 	} else {
 ?>
 	<div class="wrap">
-		<?php if ($name == ''): ?>
-			<h2><?php _e('Please Configure Me!') ?></h2>
-			<p class="fs-message">
-				<?php _e("This plugin doesn't have a FeedBurner feed URL 
-                on record to display.  Please go to the settings page 
-                for this plugin and type in a feed URL. Thanks!"); ?>
-			</p>
-		<?php elseif ($feed['data']['code'] == 0): ?>
-			<h2><?php _e('Feed Not Found'); ?></h2>
-			<p class="fs-message">
-				<?php _e("For some reason, FeedBurner can't find the 
-                feed URL that you wanted this plugin to track.  Did you 
-                move your feed over to Google FeedProxy? Did you delete 
-                the feed?  Is the URL correct?  You might need to update 
-                the URL on the settings page."); ?>
-			</p>
-		<?php elseif ($feed['data']['code'] == 1): ?>
-			<h2><?php _e('Please Enable the Awareness API'); ?></h2>
-			<p class="fs-message">
-				<?php _e("The Awareness API, which gives this plugin 
-                access to your stats, is not enabled for this feed.  Go 
-                into your FeedBurner account, click on your feed, click 
-                on the \"Publicize\" tab, click on the \"Awareness API\" 
-                button in the sidebar, and then click on the \"Activate\" 
-                button."); ?>
-			</p>
-		<?php else: ?>
-			<h2><?php _e("Something Didn't Work Right..."); ?></h2>
-			<div class="fs-message">
-				<p>
-					<?php _e("This means that an error occurred, but 
-                    there's no specific problem that can be easily 
-                    determined.  This error was probably caused by one 
-                    of two things:"); ?>
-				</p>
-				<ol>
-					<li><?php _e("FeedBurner is down."); ?></li>
-					<li><?php _e("Your server can't access FeedBurner for some reason."); ?></li>
-				</ol>
-			</div>
-			
-			<p>
-				<?php echo sprintf(__("If you think it's the latter and 
-                there's no obvious cause, feel free to ask about these 
-                problems at this plugin's %a mailing list %a. In order 
-                to make it easier for me to help you with this, please 
-                provide the following information about your server:"), 
-                "<a href=\"http://www.speedbreeze.com/feed-stats/product/support\">", 
-                "</a>"); ?>
-			</p>
-			<ol>
-				<li>
-					<?php _e("What type of server you're running (e.g. 
-                    Apache, Microsoft IIS).  If you're unsure, tell me 
-                    the name of your web hosting company and the plan 
-                    that you're using."); ?>
-				</li>
-				<li>
-					<?php _e("Your PHP version (copy &amp; paste the following 
-					into your email):");?> <code><?php echo phpversion(); ?></code>
-				</li>
-			</ol>
-		<?php endif; ?>
+        <h2><?php echo $feed['error']['title']; ?></h2>
+        <p class="fs-message"><?php echo $feed['error']['message']; ?></p>
 	</div>
 <?
 	}
