@@ -20,20 +20,6 @@
     <http://www.gnu.org/licenses/>.
 */
 
-function fs_check_errors ($xml, $status) {
-	if (preg_match('|rsp stat="fail"|', $xml)) {
-		preg_match('|msg="(.*?)"|', $xml, $msg);
-		return $msg[1];
-	} elseif ($status == "401") {
-		return _e("This feed does not permit Awareness API access");
-	} elseif ($status == "500") {
-		return _e("FeedBurner encountered an error.");
-	} elseif (strlen($xml) == 0) 
-		return _e("Cannot access FeedBurner");
-	else
-		return false;	
-}
-
 function fs_grab_meta ($xml) {
 	preg_match('|id="(.*?)"|', $xml, $feed_id);
 	preg_match('|uri="(.*?)"|', $xml, $feed_name);

@@ -1,3 +1,17 @@
+2009-06-19  Jonathan Wilde  <speedbreeze@gmail.com>
+
+	* fs-comm.php: Renamed fs_make_error_translatable to 
+        fs_translatable_error.  I'm making it the general-purpose error 
+        message manager function.  It now holds all of the errors and
+        messages for the plugin. Rewrote (and documented) the 
+        fs_fetch_feedburner_data function so that it now only has 
+        support for the new Awareness API (the old one has been 
+        completely shut down) to improve performance.  The new function, 
+        combined with the fs_translatable error function, has much 
+        better error checking.
+    * fs-parse.php: Removed the now-obsolete fs_check_errors function, 
+        which has been integrated into fs_fetch_feedburner_data;
+
 2009-06-18  Jonathan Wilde  <speedbreeze@gmail.com>
 
 	* feed-stats.php: Fixed two parse errors.
