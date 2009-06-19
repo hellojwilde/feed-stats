@@ -179,7 +179,7 @@ function display_feed_stats() {
                 the URL on the settings page."); ?>
 			</p>
 		<?php elseif ($feed['data']['code'] == 1): ?>
-			<h2><?php _e('Please Enable the Awareness API')</h2>
+			<h2><?php _e('Please Enable the Awareness API'); ?></h2>
 			<p class="fs-message">
 				<?php _e("The Awareness API, which gives this plugin 
                 access to your stats, is not enabled for this feed.  Go 
@@ -189,7 +189,7 @@ function display_feed_stats() {
                 button."); ?>
 			</p>
 		<?php else: ?>
-			<h2><?php _e("Something Didn't Work Right...");</h2>
+			<h2><?php _e("Something Didn't Work Right..."); ?></h2>
 			<div class="fs-message">
 				<p>
 					<?php _e("This means that an error occurred, but 
