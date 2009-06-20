@@ -1,5 +1,10 @@
 2009-06-19  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* fs-comm.php: Cleaned up some of the error messages that are 
+        defined in the fs_translatable_error function.
+
+2009-06-19  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* feed-stats.php: Tweaked markup so that there's less space around 
         the "FeedBurner Dashboard" link.
 	* templates/settings.php: Made the "Testing..." text for the feed

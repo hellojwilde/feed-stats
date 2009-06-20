@@ -88,54 +88,49 @@ function fs_translatable_error ($original) {
             'code' => -4,
             'title' => __('Something Didn\'t Work Right...'),
             'message' => sprintf(__('This means that an error occurred,  
-                but there\'s no specific problem that can be easily 
-                determined. If you have questions, feel free to send a 
-                message to this plugin\'s <a href="%s">mailing list</a>.
-                '), SUPPORT_URL)
+but there\'s no specific problem that can be easily determined. If you 
+have questions, feel free to send a message to this plugin\'s 
+<a href="%s">mailing list</a>.'), SUPPORT_URL)
         ),
         'Feedburner issues' => array(
             'code' => -3,
             'title' => __('FeedBurner\'s servers are having problems.'),
-            'message' => sprintf(__('FeedBurner\'s Awareness API servers are 
-                currently having issues right now.  Try again later.  If
-                this problem persists, feel free to send a message to 
-                this plugin\'s <a href="%s">mailing list</a>.'), 
-                SUPPORT_URL)
+            'message' => sprintf(__('FeedBurner\'s Awareness API servers 
+are currently having issues right now.  Try again later.  If this 
+problem persists, feel free to send a message to this plugin\'s 
+<a href="%s">mailing list</a>.'), SUPPORT_URL)
         ),
         'Cannot access FeedBurner' => array(
             'code' => -2,
             'title' => __('Unable to connect to FeedBurner'),
-            'message' => sprintf(__('For some reason, this plugin cannot connect
-                to the FeedBurner Awareness API servers.  This is 
-                usually due to a configuration issue on your server.  If
-                you have questions, feel free to send a message to this 
-                plugin\'s <a href="%s">mailing list</a>.'), SUPPORT_URL)
+            'message' => sprintf(__('For some reason, this plugin cannot 
+connect to the FeedBurner Awareness API servers.  This is usually due to 
+a configuration issue on your server.  If you have questions, feel free 
+to send a message to this plugin\'s <a href="%s">mailing list</a>.'), SUPPORT_URL)
         ),
         'Configuration needed' => array(
             'code' => -1,
             'title' => __('Please configure me.'),
             'message' => __('This plugin doesn\'t have a FeedBurner feed 
-                URL on record to display.  Please go to the settings 
-                page for this plugin and type in a feed URL. Thanks!')
+URL on record to display.  Please go to the settings page for this 
+plugin and type in a feed URL.')
         ),
         'Feed Not Found' => array(
             'code' => 0,
             'title' => __('This feed doesn\'t exist.'),
             'message' => __('For some reason, FeedBurner can\'t find the 
-                feed URL that you wanted this plugin to track.  Did you 
-                move your feed over to Google FeedProxy? Did you delete 
-                the feed?  Is the URL correct?  You might need to update 
-                the URL on the settings page.')
+feed URL that you wanted this plugin to track.  Did you move your feed 
+over to Google FeedProxy? Did you delete the feed?  Is the URL correct?  
+You might need to update the URL on the settings page.')
         ),
         'This feed does not permit Awareness API access' => array(
             'code' => 1,
             'title' => __('The Awareness API is not enabled.'),
             'message' => __('The Awareness API, which gives this plugin 
-                access to your stats, is not enabled for this feed.  Go 
-                into your FeedBurner account, click on your feed, click 
-                on the "Publicize" tab, click on the "Awareness API" 
-                button in the sidebar, and then click on the "Activate" 
-                button.')
+access to your stats, is not enabled for this feed.  Go into your 
+FeedBurner account, click on your feed, click on the "Publicize" tab, 
+click on the "Awareness API" button in the sidebar, and then click on 
+the "Activate" button.')
         )
     );
     
