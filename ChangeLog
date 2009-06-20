@@ -1,5 +1,11 @@
 2009-06-20  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* feed-stats.php (added): Renamed from feed-stats-plugin.php.  The 
+        rename to feed-stats-plugin.php might have broken the updater.
+	* feed-stats-plugin.php (deleted): Renamed to feed-stats.php.
+
+2009-06-20  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* feed-stats-plugin.php (added): Renamed to feed-stats-plugin.php
         from feed-stats.php to make it conform to the WordPress standard
         of having the primary PHP file name match the repository name.  

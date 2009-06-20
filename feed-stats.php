@@ -51,11 +51,9 @@ function feed_stats_classes() {
 }
 
 function display_feed_stats() {
-	require_once (ABSPATH . WPINC . '/rss.php');
-
-	require_once (dirname(__FILE__) . '/fs-comm.php');
-	require_once (dirname(__FILE__) . '/fs-parse.php');
-	require_once (dirname(__FILE__) . '/fs-render.php');	
+	require_once (dirname(__FILE__) . '/client.php');
+	require_once (dirname(__FILE__) . '/parser.php');
+	require_once (dirname(__FILE__) . '/render.php');	
 
 	// Grab options from the DB
 	$days = get_option('feedburner_feed_stats_entries');
@@ -196,7 +194,7 @@ function display_feed_options() {
 			load_template(dirname(__FILE__) . "/templates/troubleshooting.php");
 		} elseif ($_GET['mode'] == 'test') {
 			echo '[result]';
-			include(dirname(__FILE__) . "/awapi-test.php");
+			include(dirname(__FILE__) . "/test.php");
 			echo '[result]';
 		} else {
 			load_template(dirname(__FILE__) . "/templates/settings.php");
