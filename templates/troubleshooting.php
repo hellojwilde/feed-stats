@@ -27,5 +27,5 @@
 <h3><?php _e('This feed does not permit Awareness API access.') ?></h4>
 <p><?php _e('You haven\'t enabled the FeedBurner Awareness API. Go into your FeedBurner account, click on your feed, click on the "Publicize" tab, click on the "Awareness API" button in the sidebar, and then click on the "Activate" button.') ?></p>
 
-<h3><?php _e('Cannot access FeedBurner.')</h4>
+<h3><?php _e('Cannot access FeedBurner.') ?></h4>
 <p><?php _e('There are three possible explanations for this. The first is that one of FeedBurner\'s servers might be down.  If this is the case, try again later.  The second possible reason is that you\'re using this on a development server that does not have access to the internet; if this is true, connect to the internet and try again.  The third possible explanation is that your server has a configuration issue that is preventing it from communicating with the internet.') ?></p>

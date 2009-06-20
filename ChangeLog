@@ -1,5 +1,10 @@
 2009-06-19  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* templates/troubleshooting.php: Fixing some syntax errors by adding
+        proper closing ?> tags.
+
+2009-06-19  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* js/test.js: Fixed the link to the troubleshooting page.
 
 2009-06-19  Jonathan Wilde  <speedbreeze@gmail.com>
