@@ -195,9 +195,7 @@ function display_feed_options() {
 		if ($_GET['mode'] == 'help') {
 			load_template(dirname(__FILE__) . "/templates/troubleshooting.php");
 		} elseif ($_GET['mode'] == 'test') {
-			echo '[result]';
-			include(dirname(__FILE__) . "/test.php");
-			echo '[result]';
+			load_template(dirname(__FILE__) . "/templates/test.php");
 		} else {
 			load_template(dirname(__FILE__) . "/templates/settings.php");
 		} ?>

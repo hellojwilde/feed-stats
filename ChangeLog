@@ -1,5 +1,12 @@
 2009-06-20  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* templates/test.php: Moved the template into a template variable.  
+        Moved the [result] tags into the template.
+	* templates/test.php (added): Moved from test.php.
+	* test.php (deleted): Moved to templates/test.php.
+
+2009-06-20  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* feed-stats.php: Moved all of the require_once statements to the 
         top of the file for sake of simplicity.
 	* templates/troubleshooting.php: Removed require_once statement; now

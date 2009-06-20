@@ -23,12 +23,17 @@
 // Figure out the URL for the information at FeedBurner
 $feed = urldecode($_GET['feed']);
 $response = fs_fetch_feedburner_data($feed, "GetFeedData", false);
+$template = "[result][%+d] %s[result]";
 
 // If there are no errors, tell the user that the feed is valid; if 
 // there are errors, print them out directly.
 if ($response['success'] == true) {
 	$status = fs_translatable_error("Valid");
-    printf("[%+d] %s", $status['code'], $status['title']);
+    printf($template, 
+        $status['code'], 
+        $status['title']);
 } else
-	printf("[%+d] %s", $response['error']['code'], $response['error']['title']);
+	printf($template, 
+        $response['error']['code'], 
+        $response['error']['title']);
 ?>
