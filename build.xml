@@ -13,4 +13,13 @@
             <fileset dir="." includes="**/*.php" />
         </apply>
     </target>
+    
+    <target name="makepot">
+        <!-- Run the WordPress i18n MakePOT utility. -->
+        <exec executable="php">
+            <arg value="${wpi18n}/makepot.php" />
+            <arg value="wp-plugin" />
+            <arg value="." />
+        </exec>
+    </target>
 </project>

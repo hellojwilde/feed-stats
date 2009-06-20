@@ -1,3 +1,8 @@
+2009-06-20  Jonathan Wilde  <speedbreeze@gmail.com>
+
+	* build.xml: Added the makepot target, which generates a POT file
+        from the plugin.
+
 2009-06-19  Jonathan Wilde  <speedbreeze@gmail.com>
 
 	* feed-stats.php: Added the feed-stats-plugin textdomain to all 
