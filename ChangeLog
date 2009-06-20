@@ -1,5 +1,25 @@
 2009-06-20  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* feed-stats-plugin.php (added): Renamed to feed-stats-plugin.php
+        from feed-stats.php to make it conform to the WordPress standard
+        of having the primary PHP file name match the repository name.  
+        This should also speed up the performance of the plugin.
+	* parser.php (added): Renamed from fs-parse.php; this makes the 
+        filenames look cleaner.
+	* client.php (added): Renamed from fs-comm.php; this makes the 
+        filenames look cleaner.
+	* test.php (added): Renamed from awapi-test.php; this makes the 
+        filenames look cleaner.
+	* render.php (added): Renamed from fs-render.php; this makes the 
+        filenames look cleaner.
+	* feed-stats.php (deleted): Renamed to feed-stats-plugin.php.
+	* fs-comm.php (deleted): Renamed to client.php.
+	* awapi-test.php (deleted): Renamed to test.php.
+	* fs-parse.php (deleted): Renamed to parser.php.
+	* fs-render.php (deleted): Renamed to render.php.
+
+2009-06-20  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* feed-stats.php: Added the fs_add_textdomain function to load the 
         textdomain for the plugin.
 	* translations (added): Added a folder to hold all of the po/mo 
