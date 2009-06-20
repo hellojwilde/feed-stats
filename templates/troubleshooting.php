@@ -19,9 +19,6 @@
     along with the Feed Stats Plugin for WordPress.  If not, see 
     <http://www.gnu.org/licenses/>.
 */
-
-// Load dependencies
-require_once(dirname(__FILE__) . '/../fs-comm.php');
 ?>
 
 <h2>

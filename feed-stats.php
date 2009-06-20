@@ -29,6 +29,12 @@
     <http://www.gnu.org/licenses/>.
 */
 
+// Some dependencies needed to use the WP HTTP libraries and parse the
+// output from the WP HTTP libraries
+require_once (dirname(__FILE__) . '/client.php');
+require_once (dirname(__FILE__) . '/parser.php');
+require_once (dirname(__FILE__) . '/render.php');	
+
 add_action('admin_menu', 'add_feed_stats_pages');
 add_action('admin_head', 'feed_stats_classes');
 add_action('init', 'fs_add_textdomain');
@@ -51,11 +57,7 @@ function feed_stats_classes() {
 }
 
 function display_feed_stats() {
-	require_once (dirname(__FILE__) . '/client.php');
-	require_once (dirname(__FILE__) . '/parser.php');
-	require_once (dirname(__FILE__) . '/render.php');	
-
-	// Grab options from the DB
+    // Grab options from the DB
 	$days = get_option('feedburner_feed_stats_entries');
 	$name = get_option('feedburner_feed_stats_name');
 
