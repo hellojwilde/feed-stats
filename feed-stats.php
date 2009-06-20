@@ -31,6 +31,15 @@
 
 add_action('admin_menu', 'add_feed_stats_pages');
 add_action('admin_head', 'feed_stats_classes');
+add_action('init', 'fs_add_textdomain');
+
+function fs_add_textdomain () {
+    // Determine our translations folder name
+    $i18n = basename(dirname(__FILE__)) . "/translations";
+    
+    // Load the text domain from the folder
+    load_plugin_textdomain('feed-stats-plugin', 'wp-content/plugins/' . $i18n, $i18n);
+}
 
 function add_feed_stats_pages() {
 	add_submenu_page('index.php', 'Feed Stats', 'Feed Stats', 'manage_options', 'feed-stats-stats', 'display_feed_stats');

@@ -1,5 +1,12 @@
 2009-06-20  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* feed-stats.php: Added the fs_add_textdomain function to load the 
+        textdomain for the plugin.
+	* translations (added): Added a folder to hold all of the po/mo 
+        translated files for this plugin.
+
+2009-06-20  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* feed-stats.php: Changed line endings to LF (instead if CRLF) to 
         make gettext happy.  Cleaned up the strings to be translated so
         that generated POT files look prettier.
