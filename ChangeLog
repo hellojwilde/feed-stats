@@ -1,5 +1,11 @@
 2009-06-20  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* tests/EXTERNALS.txt (added): Added a file to list all of the SVN
+        externals for this folder.  SimpleTest was added as one.
+	* tests/fs-comm-test.php (deleted): Obsolete.
+
+2009-06-20  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* templates/test.php: Moved the template into a template variable.  
         Moved the [result] tags into the template.
 	* templates/test.php (added): Moved from test.php.
