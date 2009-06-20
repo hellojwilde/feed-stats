@@ -1,5 +1,20 @@
 2009-06-19  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* awapi-test.php: Updated it so that it sends the code for the 
+        message to the client, along with the translatable message.  
+        Moved the "This feed is valid." message into the "Valid" error
+        message in the fs_translatable_error function in fs-comm.php.
+	* fs-comm.php: Added a "Valid" error message to the 
+        fs_translatable_error function. In fs_fetch_feedburner_data, I
+        replaced $response->data with $response->body.  There is no
+        $response->body.  My mistake. 
+	* js/test.js: Updated it so that it uses the message code, rather
+        than the message, to determine whether the feed is valid or not.
+        This will ensure that the script doesn't implode when the plugin
+        is localized.
+
+2009-06-19  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* feed-stats.php: Changed the the tempalate so that the error 
         message uses the messages already contained in 
         fs_translatable_error, rather than using conditional statements.

@@ -27,12 +27,13 @@ require_once('fs-parse.php');
 
 // Figure out the URL for the information at FeedBurner
 $feed = urldecode($_GET['feed']);
-$data = fs_fetch_feedburner_data($feed, "GetFeedData", false);
+$response = fs_fetch_feedburner_data($feed, "GetFeedData", false);
 
 // If there are no errors, tell the user that the feed is valid; if 
 // there are errors, print them out directly.
-if ($data['success'] == true)
-	echo _e("The feed is valid.");
-else
-	echo $data['data']["message"];
+if ($response['success'] == true) {
+	$status = fs_translatable_error("Valid");
+    printf("[%+d] %s", $status['code'], $status['title']);
+} else
+	printf("[%+d] %s", $response['error']['code'], $response['error']['title']);
 ?>

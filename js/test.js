@@ -55,15 +55,15 @@ function testChange(state, XHR) {
 		result = result[0].replace(/\[result\]/gi, '');		
 
 		// Check the response text to see whether the feed is valid
-		if (result == 'The feed is valid.') {
+		if (result.substring(0, 5) == '[-5] ') {
 			// Display the check mark icon and the response text
 			good.style.display = "inline";
-			good.innerHTML = good.title + result;
+			good.innerHTML = good.title + result.substring(5);
 		} else {
 			// Display the exclamation icon and the response text
 			bad.style.display = "inline";
-			bad.innerHTML = bad.title + result + 
-				'. (<a href="./options-general.php?page=feed-stats&mode=help" target="_new">' + help + '</a>)';
+			bad.innerHTML = bad.title + result.substring(5) + 
+				' (<a href="./options-general.php?page=feed-stats&mode=help" target="_new">' + help + '</a>)';
 		}
 	}
 }

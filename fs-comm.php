@@ -79,9 +79,14 @@ define('SUPPORT_URL', 'http://www.speedbreeze.com/feed-stats/product/support');
 
 function fs_translatable_error ($original) {
     $translatable = array(
+        'Valid' => array(
+            'code' => -5,
+            'title' => __('This feed is valid.'),
+            'message' => null
+        ),
         'Unknown' => array(
             'code' => -4,
-            'title' => _('Something Didn\'t Work Right...'),
+            'title' => __('Something Didn\'t Work Right...'),
             'message' => sprintf(__('This means that an error occurred,  
                 but there\'s no specific problem that can be easily 
                 determined. If you have questions, feel free to send a 
@@ -178,10 +183,10 @@ function fs_fetch_feedburner_data ($url, $action, $get='', $update=true) {
     $response = fetch_remote_xml($request);
     
     // Search through the feed for errors
-    if (preg_match('|rsp stat="fail"|', $response->data)) {
+    if (preg_match('|rsp stat="fail"|', $response->body)) {
         // If there's an error embedded in the feed response, make it
         // grammatically correct and translatable
-        preg_match('|msg="(.*?)"|', $response->data, $msg);
+        preg_match('|msg="(.*?)"|', $response->body, $msg);
         $result['error'] = fs_translatable_error($msg[1]);
     } elseif ($response->status == "401") {
         // If the feed does not permit AwAPI access, return that;
