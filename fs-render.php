@@ -72,7 +72,7 @@ function fs_feed_chart ($data, $type) {
 				 account&mdash;please wait a day or two for your first 
 				 stats to appear. If you know than you do have stats, 
 				 then your server is probably having issues 
-				 communicating with FeedBurner.");
+				 communicating with FeedBurner.", 'feed-stats-plugin');
 	}
 }
 
@@ -107,7 +107,7 @@ function fs_items_chart ($data, $type) {
 		$url = 'http://chart.apis.google.com/chart?cht=p&chs=450x200&chco=E4F2FD,A0BAE9&chd=' . $datas . '&chl=' . $labels;
 		echo "<img class='feed-stats-chart' src='$url' />";
 	} else {
-		echo _e("There were no $type of your feed items yesterday.");
+		echo _e("There were no $type of your feed items yesterday.", 'feed-stats-plugin');
 	}
 }
 
@@ -119,9 +119,9 @@ function fs_items_table ($xml) {
 	<?endif;?>">
 		<thead>
 			<tr>
-				<th><?php _e('Title'); ?></th>
-				<th style="width: 50px;"><?php _e('Clicks') ?></th>
-				<th style="width: 50px;"><?php _e('Views') ?></th>
+				<th><?php _e('Title', 'feed-stats-plugin'); ?></th>
+				<th style="width: 50px;"><?php _e('Clicks', 'feed-stats-plugin') ?></th>
+				<th style="width: 50px;"><?php _e('Views', 'feed-stats-plugin') ?></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -167,11 +167,11 @@ function fs_feed_table ($xml, $have_reach=false) {
 	<?endif;?>">
 		<thead>
 			<tr>
-				<th><?php _e('Date'); ?></th>
-				<th style="width: 100px;"><?php _e('Subscribers'); ?></th>
-				<th style="width: 50px;"><?php _e('Hits'); ?></th>
+				<th><?php _e('Date', 'feed-stats-plugin'); ?></th>
+				<th style="width: 100px;"><?php _e('Subscribers', 'feed-stats-plugin'); ?></th>
+				<th style="width: 50px;"><?php _e('Hits', 'feed-stats-plugin'); ?></th>
             <?php if ($have_reach): ?>
-				<th style="width: 50px;"><?php _e('Reach'); ?></th>
+				<th style="width: 50px;"><?php _e('Reach', 'feed-stats-plugin'); ?></th>
             <?php endif; ?>
 			</tr>
 		</thead>

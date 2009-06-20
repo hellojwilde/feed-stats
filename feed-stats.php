@@ -63,9 +63,9 @@ function display_feed_stats() {
 ?>
 	<div class="wrap">
 		<h2>
-			<?php _e('Feed Stats:') ?> <?php fs_feed_name($meta); ?>
+			<?php _e('Feed Stats:', 'feed-stats-plugin') ?> <?php fs_feed_name($meta); ?>
 			<span class="feed-stats-link">
-                &nbsp;(<a href="<?php fs_dashboard_url($name, $meta); ?>"><?php _e('FeedBurner Dashboard'); ?></a>)
+                &nbsp;(<a href="<?php fs_dashboard_url($name, $meta); ?>"><?php _e('FeedBurner Dashboard', 'feed-stats-plugin'); ?></a>)
 			<span>
 		</h2>
 		
@@ -75,12 +75,12 @@ function display_feed_stats() {
 				<div id="total-tab" class="feed-stats-tabs">
 					<ul class="total-tab-list">
 						<li id="hits-tab" onclick="selectTab('total-tab', 'hits');">
-							<a><?php _e('Hits') ?></a></li>
+							<a><?php _e('Hits', 'feed-stats-plugin') ?></a></li>
 						<li id="subs-tab" onclick="selectTab('total-tab', 'subs');">
-							<a><?php _e('Subscribers') ?></a></li>
+							<a><?php _e('Subscribers', 'feed-stats-plugin') ?></a></li>
                     <?php if ($have_reach): ?>
 						<li id="reach-tab" onclick="selectTab('total-tab', 'reach');">
-							<a><?php _e('Reach') ?></a></li>
+							<a><?php _e('Reach', 'feed-stats-plugin') ?></a></li>
                     <?php endif; ?>
 					</ul>
 
@@ -102,7 +102,7 @@ function display_feed_stats() {
 				</div>
 			</td>
 			<td width="50%" class="feed-stats-right-chart-cell">
-				<h3><?php _e('Yesterday\'s Viewed &amp; Clicked Feed Items') ?></h3>
+				<h3><?php _e('Yesterday\'s Viewed &amp; Clicked Feed Items', 'feed-stats-plugin') ?></h3>
 <?php
 		if ($items['success'] == true) :
 			$item_count = fs_count_yesterday_items($items['data']);
@@ -112,9 +112,9 @@ function display_feed_stats() {
 				<div id="yest-tab" class="feed-stats-tabs">
 					<ul class="total-tab-list">
 						<li id="clicks-tab" onclick="selectTab('yest-tab', 'clicks');">
-							<a><?php _e('Clicks') ?></a></li>
+							<a><?php _e('Clicks', 'feed-stats-plugin') ?></a></li>
 						<li id="views-tab" onclick="selectTab('yest-tab', 'views');">
-							<a><?php _e('Views') ?></a></li>
+							<a><?php _e('Views', 'feed-stats-plugin') ?></a></li>
 					</ul>
 
 					<div id="clicks" class="feed-stats-tab">
@@ -132,7 +132,7 @@ function display_feed_stats() {
             <?php else: ?>
 				<div class="fs-message">
 					<p><?php _e('There weren\'t any items that were clicked on in your feed yesterday. 
-					   If you just turned on item stats, wait a day or two for information to start showing up.') ?></p>
+					   If you just turned on item stats, wait a day or two for information to start showing up.', 'feed-stats-plugin') ?></p>
 				</div>
 
             <?php endif; ?>
@@ -141,8 +141,8 @@ function display_feed_stats() {
 				<div class="fs-message">
 					<p><?php _e('It appears that you don\'t have Item Stats enabled in your 
 					   FeedBurner account.  If it was enabled, you would be able to 
-					   view information about clickthroughs on individual feed items.') ?></p>
-					<p><?php _e('To enable them, you can go to') ?> <a href="<?php fs_stats_set_url($name, $meta) ?>"><?php _e('FeedBurner Stats settings') ?></a>.</p>
+					   view information about clickthroughs on individual feed items.', 'feed-stats-plugin') ?></p>
+					<p><?php _e('To enable them, you can go to', 'feed-stats-plugin') ?> <a href="<?php fs_stats_set_url($name, $meta) ?>"><?php _e('FeedBurner Stats settings', 'feed-stats-plugin') ?></a>.</p>
 				</div>
 
         <?php endif; ?>

@@ -26,14 +26,14 @@ require_once(dirname(__FILE__) . '/../fs-comm.php');
 
 <h2>
     <?php printf(__('<a href="%s">Feed Stats Settings</a> &raquo; 
-    Troubleshooting'), "options-general.php?page=feed-stats-options") ?>
+    Troubleshooting', 'feed-stats-plugin'), "options-general.php?page=feed-stats-options") ?>
 </h2>
 
 <p>
     <?php printf(__("I've compiled this page of information to help you 
     get past those pesky error messages.  If you have any questions that 
     aren't answered on this page, feel free to send a message to this
-    plugin's <a href='%s'>mailing list</a>."), SUPPORT_URL); ?>
+    plugin's <a href='%s'>mailing list</a>.", 'feed-stats-plugin'), SUPPORT_URL); ?>
 </p>
 
 <?php

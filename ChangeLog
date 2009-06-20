@@ -1,5 +1,18 @@
 2009-06-19  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* feed-stats.php: Added the feed-stats-plugin textdomain to all 
+        gettext commands.
+	* fs-comm.php: Added the feed-stats-plugin textdomain to all gettext
+         commands.
+	* fs-render.php: Added the feed-stats-plugin textdomain to all 
+        gettext commands.
+	* templates/settings.php: Added the feed-stats-plugin textdomain to 
+        all gettext commands.
+	* templates/troubleshooting.php: Added the feed-stats-plugin 
+        textdomain to all gettext commands.
+
+2009-06-19  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* build.xml (added): Added an Apache Ant build file to deal with 
         textdomains and .POT files.
 	* build.properties.sample (added): Added a sample properties file 
