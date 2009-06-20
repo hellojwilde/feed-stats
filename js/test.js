@@ -63,7 +63,7 @@ function testChange(state, XHR) {
 			// Display the exclamation icon and the response text
 			bad.style.display = "inline";
 			bad.innerHTML = bad.title + result.substring(5) + 
-				' (<a href="./options-general.php?page=feed-stats&mode=help" target="_new">' + help + '</a>)';
+				' (<a href="./options-general.php?page=feed-stats-options&mode=help" target="_new">' + help + '</a>)';
 		}
 	}
 }
