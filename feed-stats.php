@@ -64,8 +64,10 @@ function display_feed_stats() {
 	<div class="wrap">
 		<h2>
 			<?php _e('Feed Stats:') ?> <?php fs_feed_name($meta); ?>
-			<span class="feed-stats-link">
-				&nbsp;(<a href="<?php fs_dashboard_url($name, $meta); ?>"><?php _e('FeedBurner Dashboard'); ?></a>)
+			<span class="feed-stats-link">&nbsp;(
+                <a href="<?php fs_dashboard_url($name, $meta); ?>">
+                    <?php _e('FeedBurner Dashboard'); ?>
+                </a>)
 			<span>
 		</h2>
 		
@@ -178,12 +180,6 @@ function display_feed_options() {
 		update_option('feedburner_feed_stats_entries', $_POST['feed-stats-entries']);
 	}
 ?>
-	<?php if (!empty($_POST)): ?>
-		<div id="message" class="updated fade">
-			<p><strong><?php _e('Options saved successfully.') ?></strong></p>
-		</div>
-	<?php endif; ?>
-	
 	<div class="wrap">
 	<?php 
 		if ($_GET['mode'] == 'help') {

@@ -1,5 +1,12 @@
 2009-06-19  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* feed-stats.php: Cleaned up the markup a bit. Moved the "Options
+        saved successfully" message into templates/settings.php.
+	* templates/settings.php: Added the "Options saved successfully" 
+        message from feed-stats.php.
+
+2009-06-19  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* templates/troubleshooting.php: Fixing some syntax errors by adding
         proper closing ?> tags.
 

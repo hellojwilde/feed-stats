@@ -20,6 +20,13 @@
     <http://www.gnu.org/licenses/>.
 */?>
 
+<?php if (!empty($_POST)): ?>
+    <div id="message" class="updated fade">
+        <p><strong><?php _e('Options saved successfully.') ?></strong></p>
+    </div>
+<?php endif; ?>
+	
+
 <h2><?php _e('Feed Stats Settings'); ?></h2>
 <form action="" method="post" id="feed-stats">
 	<?php wp_nonce_field('feed-stats-edit_options') ?>			
