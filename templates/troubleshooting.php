@@ -18,14 +18,41 @@
     You should have received a copy of the GNU General Public License
     along with the Feed Stats Plugin for WordPress.  If not, see 
     <http://www.gnu.org/licenses/>.
-*/?>
+*/
 
-<h2><?php _e('Feed Stats Troubleshooting') ?></h3>
-<h3><?php _e('Feed not found.') ?></h4>
-<p><?php _e('This means that you probably mistyped the name of your feed.  Make sure to check its capitalization.') ?></p>
-						
-<h3><?php _e('This feed does not permit Awareness API access.') ?></h4>
-<p><?php _e('You haven\'t enabled the FeedBurner Awareness API. Go into your FeedBurner account, click on your feed, click on the "Publicize" tab, click on the "Awareness API" button in the sidebar, and then click on the "Activate" button.') ?></p>
+// Load dependencies
+require_once(dirname(__FILE__) . '/../fs-comm.php');
+?>
 
-<h3><?php _e('Cannot access FeedBurner.') ?></h4>
-<p><?php _e('There are three possible explanations for this. The first is that one of FeedBurner\'s servers might be down.  If this is the case, try again later.  The second possible reason is that you\'re using this on a development server that does not have access to the internet; if this is true, connect to the internet and try again.  The third possible explanation is that your server has a configuration issue that is preventing it from communicating with the internet.') ?></p>
+<h2>
+    <?php printf(__('<a href="%s">Feed Stats Settings</a> &raquo; 
+    Troubleshooting'), "options-general.php?page=feed-stats-options") ?>
+</h2>
+
+<p>
+    <?php printf(__("I've compiled this page of information to help you 
+    get past those pesky error messages.  If you have any questions that 
+    aren't answered on this page, feel free to send a message to this
+    plugin's <a href='%s'>mailing list</a>."), SUPPORT_URL); ?>
+</p>
+
+<?php
+    // Compile the list of error messages that we're going to display
+    $types = array(
+        'This feed does not permit Awareness API access',
+        'Feed Not Found',
+        'Cannot access FeedBurner',
+        'Feedburner issues', 
+        'Unknown'
+    );
+    
+    // Loop though all of the errors and display the title and messages
+    foreach ($types as $type):
+        // Get the error
+        $error = fs_translatable_error($type);
+?>
+
+<h3><?php echo $error['title']; ?></h3>
+<p><?php echo $error['message']; ?></p>
+
+<?php endforeach; ?>

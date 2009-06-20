@@ -64,10 +64,8 @@ function display_feed_stats() {
 	<div class="wrap">
 		<h2>
 			<?php _e('Feed Stats:') ?> <?php fs_feed_name($meta); ?>
-			<span class="feed-stats-link">&nbsp;(
-                <a href="<?php fs_dashboard_url($name, $meta); ?>">
-                    <?php _e('FeedBurner Dashboard'); ?>
-                </a>)
+			<span class="feed-stats-link">
+                &nbsp;(<a href="<?php fs_dashboard_url($name, $meta); ?>"><?php _e('FeedBurner Dashboard'); ?></a>)
 			<span>
 		</h2>
 		

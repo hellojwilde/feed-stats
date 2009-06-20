@@ -1,5 +1,16 @@
 2009-06-19  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* feed-stats.php: Tweaked markup so that there's less space around 
+        the "FeedBurner Dashboard" link.
+	* templates/settings.php: Made the "Testing..." text for the feed
+        tester translatable.
+	* templates/troubleshooting.php: Added a paragraph to introduce the
+        troubleshooting information.  Added a link to go back to the 
+        configuration page.  Used the fs_translatable_error to output
+        all of the troubleshooting information.
+
+2009-06-19  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* feed-stats.php: Cleaned up the markup a bit. Moved the "Options
         saved successfully" message into templates/settings.php.
 	* templates/settings.php: Added the "Options saved successfully" 

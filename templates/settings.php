@@ -40,7 +40,7 @@
 				<input type="text" name="feed-stats-feed" id="feed-stats-feed" class="fs-text" value="<?php echo get_option('feedburner_feed_stats_name'); ?>" />
 				<input type="button" class="button" name="feed-stats-tester" id="feed-stats-tester" value="Test" onclick="testURL('<?php ajax_test_url(); ?>')" style="display: none" />
 				
-				<span id="feed-stats-waiting">Testing...</span>
+				<span id="feed-stats-waiting"><?php _e('Testing...')  ?></span>
 				<span id="feed-stats-result-good"></span>
 				<span id="feed-stats-result-bad"></span>
 				
