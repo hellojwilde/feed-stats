@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<project>
+    <property file="build.properties" />
+
+    <target name="textdomain">
+        <!-- Add the feed-stats-plugin text domain to all of the PHP 
+        files in this project using the apply task. -->
+        <apply executable="php">
+            <arg value="${wpi18n}/add-textdomain.php" />
+            <arg value="-i" />
+            <arg value="feed-stats-plugin" />
+            <fileset dir="." includes="**/*.php" />
+        </apply>
+    </target>
+</project>

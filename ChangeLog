@@ -1,5 +1,12 @@
 2009-06-19  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* build.xml (added): Added an Apache Ant build file to deal with 
+        textdomains and .POT files.
+	* build.properties.sample (added): Added a sample properties file 
+        for the build.xml file.
+
+2009-06-19  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* fs-comm.php: Cleaned up some of the error messages that are 
         defined in the fs_translatable_error function.
 

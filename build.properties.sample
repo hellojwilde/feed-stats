@@ -1,0 +1,16 @@
+# ----------------------------------------------------------------------
+# After you're done editing this file, make sure to rename it
+# build.properties.
+# ----------------------------------------------------------------------
+
+# In order to use this file, you'll need a copy of the WordPress i18n
+# Tools package.  You can check it out from the WordPress SVN repository
+# at the following URL:
+# 
+#      http://svn.automattic.com/wordpress-i18n/tools/trunk/
+# 
+# The wpi18n variable below is just the path to the directory of the 
+# checked-out copy of that folder. Note: there should be NO trailing
+# slash at the end of the path.
+
+wpi18n = /home/jonathan/Programs/wordpress-i18n
