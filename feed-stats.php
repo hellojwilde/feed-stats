@@ -131,17 +131,20 @@ function display_feed_stats() {
 
             <?php else: ?>
 				<div class="fs-message">
-					<p><?php _e('There weren\'t any items that were clicked on in your feed yesterday. 
-					   If you just turned on item stats, wait a day or two for information to start showing up.', 'feed-stats-plugin') ?></p>
+					<p><?php _e('There weren\'t any items that were 
+clicked on in your feed yesterday.  If you just turned on item stats, 
+wait a day or two for information to start showing up.', 
+'feed-stats-plugin') ?></p>
 				</div>
 
             <?php endif; ?>
 
 		<? else: ?>
 				<div class="fs-message">
-					<p><?php _e('It appears that you don\'t have Item Stats enabled in your 
-					   FeedBurner account.  If it was enabled, you would be able to 
-					   view information about clickthroughs on individual feed items.', 'feed-stats-plugin') ?></p>
+					<p><?php _e('It appears that you don\'t have Item 
+Stats enabled in your FeedBurner account.  If it was enabled, you would 
+be able to view information about clickthroughs on individual feed items.', 
+'feed-stats-plugin') ?></p>
 					<p><?php _e('To enable them, you can go to', 'feed-stats-plugin') ?> <a href="<?php fs_stats_set_url($name, $meta) ?>"><?php _e('FeedBurner Stats settings', 'feed-stats-plugin') ?></a>.</p>
 				</div>
 

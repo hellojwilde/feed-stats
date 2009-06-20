@@ -1,5 +1,15 @@
 2009-06-20  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* feed-stats.php: Changed line endings to LF (instead if CRLF) to 
+        make gettext happy.  Cleaned up the strings to be translated so
+        that generated POT files look prettier.
+	* fs-render.php: Cleaned up the strings to be translated so that 
+        generated POT files look prettier.
+	* templates/troubleshooting.php: Cleaned up the strings to be 
+        translated so that generated POT files look prettier.
+
+2009-06-20  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* build.xml: Added the makepot target, which generates a POT file
         from the plugin.
 

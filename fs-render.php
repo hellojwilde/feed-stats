@@ -69,10 +69,9 @@ function fs_feed_chart ($data, $type) {
 		echo "<img class='feed-stats-chart' src='$url' />";
 	} else {
 		echo _e("It appears that this is a brand new FeedBurner 
-				 account&mdash;please wait a day or two for your first 
-				 stats to appear. If you know than you do have stats, 
-				 then your server is probably having issues 
-				 communicating with FeedBurner.", 'feed-stats-plugin');
+account&mdash;please wait a day or two for your first stats to appear. 
+If you know than you do have stats, then your server is probably having 
+issues communicating with FeedBurner.", 'feed-stats-plugin');
 	}
 }
 
