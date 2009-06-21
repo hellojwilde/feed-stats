@@ -57,10 +57,6 @@
 */
 
 function fetch_remote_xml($url) {
-	// Load Troy Wolf's HTTP class so that we can communicate with remote 
-    // servers, in our case FeedBurner
-	require_once('include/class_http.php');
-	
 	// Create a new instance of Troy Wolf's HTTP class
 	$fetcher = new http();
 	$fetcher->dir = realpath("./cache/") . "/";

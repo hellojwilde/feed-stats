@@ -29,11 +29,11 @@
     <http://www.gnu.org/licenses/>.
 */
 
-// Some dependencies needed to use the WP HTTP libraries and parse the
-// output from the WP HTTP libraries
-require_once (dirname(__FILE__) . '/client.php');
-require_once (dirname(__FILE__) . '/parser.php');
-require_once (dirname(__FILE__) . '/render.php');	
+// Some dependencies needed to make this plugin run
+require_once(dirname(__FILE__) . 'include/class_http.php');
+require_once(dirname(__FILE__) . '/client.php');
+require_once(dirname(__FILE__) . '/parser.php');
+require_once(dirname(__FILE__) . '/render.php');	
 
 add_action('admin_menu', 'add_feed_stats_pages');
 add_action('admin_head', 'feed_stats_classes');

@@ -1,3 +1,11 @@
+2009-06-20  Jonathan Wilde  <speednreeze@gmail.com>
+
+	* client.php: Moved the "require_once" statement from the 
+        fetch_remote_xml function to the top of feed-stats.php.
+	* feed-stats.php: Added the "require_once" statement for Troy Wolf's
+        class_http that was originally in the fetch_remote_xml in 
+        client.php.
+
 2009-06-20  Jonathan Wilde  <speedbreeze@gmail.com>
 
 	* tests/EXTERNALS.txt (added): Added a file to list all of the SVN
