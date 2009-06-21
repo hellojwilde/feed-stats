@@ -1,3 +1,18 @@
+2009-06-21  Jonathan Wilde  <speedbreeze@gmail.com>
+
+	* client.php: Moved SUPPORT_URL and fs_translatable_error into 
+        lang.php. Added the $fetcher parameter to fetch_remote_xml and 
+        fs_fetch_feedburner_data to allow us to test the function with a 
+        Mock http object.
+	* feed-stats.php: Included lang.php.
+	* lang.php (added): Added fs_translatable error and the define for 
+        SUPPORT_URL.
+
+2009-06-20  Jonathan Wilde  <speedbreeze@gmail.com>
+
+    * feed-stats.php: Added a missing slash to the first require_once 
+        statement in the file.
+
 2009-06-20  Jonathan Wilde  <speednreeze@gmail.com>
 
 	* client.php: Moved the "require_once" statement from the 

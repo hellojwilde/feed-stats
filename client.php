@@ -56,9 +56,13 @@
         > // headers at the top
 */
 
-function fetch_remote_xml($url) {
-	// Create a new instance of Troy Wolf's HTTP class
-	$fetcher = new http();
+function fetch_remote_xml($url, $fetcher=false) {
+	// Create a new instance of Troy Wolf's HTTP class (if a mock one 
+    // wasn't created during testing)
+    if (!is_object($fetcher))
+        $fetcher = new http();
+        
+    // Set the path of the cache
 	$fetcher->dir = realpath("./cache/") . "/";
 	
 	// Fetch the data from the URL using a GET request (that's really 
@@ -69,68 +73,6 @@ function fetch_remote_xml($url) {
 	// Let's return the http class object to the caller function, assuming that we 
     // actually received some
 	return $fetcher;
-}
-
-define('SUPPORT_URL', 'http://www.speedbreeze.com/feed-stats/product/support');
-
-function fs_translatable_error ($original) {
-    $translatable = array(
-        'Valid' => array(
-            'code' => -5,
-            'title' => __('This feed is valid.', 'feed-stats-plugin'),
-            'message' => null
-        ),
-        'Unknown' => array(
-            'code' => -4,
-            'title' => __('Something Didn\'t Work Right...', 'feed-stats-plugin'),
-            'message' => sprintf(__('This means that an error occurred,  
-but there\'s no specific problem that can be easily determined. If you 
-have questions, feel free to send a message to this plugin\'s 
-<a href="%s">mailing list</a>.', 'feed-stats-plugin'), SUPPORT_URL)
-        ),
-        'Feedburner issues' => array(
-            'code' => -3,
-            'title' => __('FeedBurner\'s servers are having problems.', 'feed-stats-plugin'),
-            'message' => sprintf(__('FeedBurner\'s Awareness API servers 
-are currently having issues right now.  Try again later.  If this 
-problem persists, feel free to send a message to this plugin\'s 
-<a href="%s">mailing list</a>.', 'feed-stats-plugin'), SUPPORT_URL)
-        ),
-        'Cannot access FeedBurner' => array(
-            'code' => -2,
-            'title' => __('Unable to connect to FeedBurner', 'feed-stats-plugin'),
-            'message' => sprintf(__('For some reason, this plugin cannot 
-connect to the FeedBurner Awareness API servers.  This is usually due to 
-a configuration issue on your server.  If you have questions, feel free 
-to send a message to this plugin\'s <a href="%s">mailing list</a>.', 'feed-stats-plugin'), SUPPORT_URL)
-        ),
-        'Configuration needed' => array(
-            'code' => -1,
-            'title' => __('Please configure me.', 'feed-stats-plugin'),
-            'message' => __('This plugin doesn\'t have a FeedBurner feed 
-URL on record to display.  Please go to the settings page for this 
-plugin and type in a feed URL.', 'feed-stats-plugin')
-        ),
-        'Feed Not Found' => array(
-            'code' => 0,
-            'title' => __('This feed doesn\'t exist.', 'feed-stats-plugin'),
-            'message' => __('For some reason, FeedBurner can\'t find the 
-feed URL that you wanted this plugin to track.  Did you move your feed 
-over to Google FeedProxy? Did you delete the feed?  Is the URL correct?  
-You might need to update the URL on the settings page.', 'feed-stats-plugin')
-        ),
-        'This feed does not permit Awareness API access' => array(
-            'code' => 1,
-            'title' => __('The Awareness API is not enabled.', 'feed-stats-plugin'),
-            'message' => __('The Awareness API, which gives this plugin 
-access to your stats, is not enabled for this feed.  Go into your 
-FeedBurner account, click on your feed, click on the "Publicize" tab, 
-click on the "Awareness API" button in the sidebar, and then click on 
-the "Activate" button.', 'feed-stats-plugin')
-        )
-    );
-    
-    return $translatable[$original];
 }
 
 /*
@@ -147,7 +89,7 @@ the "Activate" button.', 'feed-stats-plugin')
  *                the URL).
  */
 
-function fs_fetch_feedburner_data ($url, $action, $get='', $update=true) {
+function fs_fetch_feedburner_data ($url, $action, $get='', $update=true, $fetcher=false) {
     // Let's instantiate our result variable ahead of time, assuming 
     // that the result will not be a success
     $result = array( 'success' => false );
@@ -171,7 +113,7 @@ function fs_fetch_feedburner_data ($url, $action, $get='', $update=true) {
     $request = sprintf($format, $action, $name, $get);
     
     // Try to pull down the data
-    $response = fetch_remote_xml($request);
+    $response = fetch_remote_xml($request, $fetcher);
     
     // Search through the feed for errors
     if (preg_match('|rsp stat="fail"|', $response->body)) {

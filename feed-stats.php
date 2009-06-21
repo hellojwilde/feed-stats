@@ -31,6 +31,7 @@
 
 // Some dependencies needed to make this plugin run
 require_once(dirname(__FILE__) . '/include/class_http.php');
+require_once(dirname(__FILE__) . '/lang.php');
 require_once(dirname(__FILE__) . '/client.php');
 require_once(dirname(__FILE__) . '/parser.php');
 require_once(dirname(__FILE__) . '/render.php');	
