@@ -1,5 +1,10 @@
 2009-06-21  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* client.php: Removed the $update parameter from 
+        fs_fetch_feedburner_data--it's currently unused.
+
+2009-06-21  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* client.php: Moved SUPPORT_URL and fs_translatable_error into 
         lang.php. Added the $fetcher parameter to fetch_remote_xml and 
         fs_fetch_feedburner_data to allow us to test the function with a 

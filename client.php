@@ -84,12 +84,10 @@ function fetch_remote_xml($url, $fetcher=false) {
  *                from.
  *      $action - The Awareness API action (eg. GetFeedData) to execute.
  *      $get    - Additional GET variables to append to the URL string.
- *      $update - Whether the function should update the database with 
- *                the URL (if the user entered the feed name instead of 
- *                the URL).
+ * 
  */
 
-function fs_fetch_feedburner_data ($url, $action, $get='', $update=true, $fetcher=false) {
+function fs_fetch_feedburner_data ($url, $action, $get='', $fetcher=false) {
     // Let's instantiate our result variable ahead of time, assuming 
     // that the result will not be a success
     $result = array( 'success' => false );
@@ -165,8 +163,7 @@ function fs_load_feed_data ($name, $days) {
 	// Get the data from FeedBurner
 	return fs_fetch_feedburner_data($name, 
 		"GetFeedData",
-		"dates=" . $start . "," . $end,
-        true
+		"dates=" . $start . "," . $end
 	);
 }
 
@@ -184,8 +181,7 @@ function fs_load_item_data ($name, $days) {
 	// Get data from FeedBurner
 	return fs_fetch_feedburner_data($name, 
 		"GetItemData",
-		"dates=" . $start . "," . $end,
-        true
+		"dates=" . $start . "," . $end
 	);
 }
 
