@@ -1,5 +1,6 @@
 2009-06-21  Jonathan Wilde  <speedbreeze@gmail.com>
 
+    * tests/client.php: Added two test cases for the client.php script.
 	* client.php: Slimmed down the fs_load_feed_data and 
         fs_load_item_data functions--they included much unnecessary 
         code.

@@ -152,13 +152,8 @@ function fs_fetch_feedburner_data ($url, $action, $get='', $fetcher=false) {
 function fs_load_feed_data ($name, $days) {
 	// Calculate out the date for the number of $days ago
 	$minussev = mktime(0, 0, 0, date("m"), date("d") - $days, date("Y"));
-	
-	// Calculate out yesterday's date
-	$minusone = mktime(0, 0, 0, date("m"), date("d") - 1, date("Y"));
-	
 	$end = date("Y-m-d");
 	$start = date("Y-m-d", $minussev);
-	$yesterday = date("Y-m-d", $minusone);
 
 	// Get the data from FeedBurner
 	return fs_fetch_feedburner_data($name, 
@@ -168,15 +163,10 @@ function fs_load_feed_data ($name, $days) {
 }
 
 function fs_load_item_data ($name, $days) {
-	// Calculate out the date for the number of $days ago
+	// Calculate out the dates
 	$minussev = mktime(0, 0, 0, date("m"), date("d") - $days, date("Y"));
-	
-	// Calculate out yesterday's date
-	$minusone = mktime(0, 0, 0, date("m"), date("d") - 1, date("Y"));
-	
 	$end = date("Y-m-d");
 	$start = date("Y-m-d", $minussev);
-	$yesterday = date("Y-m-d", $minusone);
 
 	// Get data from FeedBurner
 	return fs_fetch_feedburner_data($name, 
