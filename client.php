@@ -63,11 +63,11 @@ function fetch_remote_xml($url, $fetcher=false) {
         $fetcher = new http();
         
     // Set the path of the cache
-	$fetcher->dir = realpath("./cache/") . "/";
+	$fetcher->dir = dirname(__FILE__) . "/cache/";
 	
 	// Fetch the data from the URL using a GET request (that's really 
 	// all we need for this plugin--we're really only fetching gdata here)
-	if (!$fetcher->fetch($url))
+	if (!$fetcher->fetch($url, 43200))
 		return false;
 		
 	// Let's return the http class object to the caller function, assuming that we 

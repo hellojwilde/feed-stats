@@ -1,3 +1,8 @@
+2009-06-30  Jonathan Wilde  <speedbreeze@gmail.com>
+
+	* client.php: Made filesystem caching of data from FeedBurner work
+        properly.  There's a 12-hour time-to-live set on cached values.
+
 2009-06-21  Jonathan Wilde  <speedbreeze@gmail.com>
 
 	* feed-stats.php: Increased the version number from 1.0.5 to 1.0.6.
