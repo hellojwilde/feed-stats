@@ -9,61 +9,61 @@ var waiting = document.getElementById('feed-stats-waiting');
 tester.style.display = "inline";
 
 function testURL(tester) {
-	// Let's try to grab a copy of XHR
-	try { 
-		// If the browser is standards-compliant (IE 7+, Opera, Mozilla, 
-		// Safari, etc.)
-		var XHR = new XMLHttpRequest() 
-	} catch (e) { 
-		// If the browser is IE 6-
-		var XHR = new ActiveXObject("Msxml2.XMLHTTP");
-	}
-	
-	// Let's make sure that we have an XHR object before we go on
-	if (XHR) {
-		// We'll set up an event handler so we can notify the user of 
-		// progress
-		XHR.onreadystatechange = function () {
-			testChange(XHR.readyState, XHR);
-		}
-		
-		// Figure out what the url to the test script will be
-		var testURL = tester + "&feed=" + 
-			document.getElementById("feed-stats-feed").value;
-		
-		// Send the request
-		XHR.open("GET", testURL, true);
-		XHR.send(null);
-	}
+    // Let's try to grab a copy of XHR
+    try { 
+        // If the browser is standards-compliant (IE 7+, Opera, Mozilla, 
+        // Safari, etc.)
+        var XHR = new XMLHttpRequest() 
+    } catch (e) { 
+        // If the browser is IE 6-
+        var XHR = new ActiveXObject("Msxml2.XMLHTTP");
+    }
+    
+    // Let's make sure that we have an XHR object before we go on
+    if (XHR) {
+        // We'll set up an event handler so we can notify the user of 
+        // progress
+        XHR.onreadystatechange = function () {
+            testChange(XHR.readyState, XHR);
+        }
+        
+        // Figure out what the url to the test script will be
+        var testURL = tester + "&feed=" + 
+            document.getElementById("feed-stats-feed").value;
+        
+        // Send the request
+        XHR.open("GET", testURL, true);
+        XHR.send(null);
+    }
 }
-			
+            
 function testChange(state, XHR) {
-	if (state == 1) {
-		// If the request has been sent but we don't have a response 
-		// from the server yet, we'll display the throbber
-		tester.style.display = "none";
-		bad.style.display = "none";
-		good.style.display = "none";
-		
-		waiting.style.display = "inline";
-	} else if (state == 4) {
-		// We'll hide the throbber and display the "test" button again
-		waiting.style.display = "none";
-		tester.style.display = "inline";
+    if (state == 1) {
+        // If the request has been sent but we don't have a response 
+        // from the server yet, we'll display the throbber
+        tester.style.display = "none";
+        bad.style.display = "none";
+        good.style.display = "none";
+        
+        waiting.style.display = "inline";
+    } else if (state == 4) {
+        // We'll hide the throbber and display the "test" button again
+        waiting.style.display = "none";
+        tester.style.display = "inline";
 
-		var result = XHR.responseText.match(/\[result\].*\[result\]/g);
-		result = result[0].replace(/\[result\]/gi, '');		
+        var result = XHR.responseText.match(/\[result\].*\[result\]/g);
+        result = result[0].replace(/\[result\]/gi, '');     
 
-		// Check the response text to see whether the feed is valid
-		if (result.substring(0, 5) == '[-5] ') {
-			// Display the check mark icon and the response text
-			good.style.display = "inline";
-			good.innerHTML = good.title + result.substring(5);
-		} else {
-			// Display the exclamation icon and the response text
-			bad.style.display = "inline";
-			bad.innerHTML = bad.title + result.substring(5) + 
-				' (<a href="./options-general.php?page=feed-stats-options&mode=help" target="_new">' + help + '</a>)';
-		}
-	}
+        // Check the response text to see whether the feed is valid
+        if (result.substring(0, 5) == '[-5] ') {
+            // Display the check mark icon and the response text
+            good.style.display = "inline";
+            good.innerHTML = good.title + result.substring(5);
+        } else {
+            // Display the exclamation icon and the response text
+            bad.style.display = "inline";
+            bad.innerHTML = bad.title + result.substring(5) + 
+                ' (<a href="./options-general.php?page=feed-stats-options&mode=help" target="_new">' + help + '</a>)';
+        }
+    }
 }

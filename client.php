@@ -1,9 +1,9 @@
 <?php if (!defined('WPINC')) die("No outside script access allowed.");
 
 /*
-	Copyright (c) 2008 - 2009 Jonathan Wilde
+    Copyright (c) 2008 - 2009 Jonathan Wilde
 
-	This file is part of the Feed Stats Plugin for WordPress.
+    This file is part of the Feed Stats Plugin for WordPress.
 
     The Feed Stats Plugin for WordPress is free software: you can redistribute 
     it and/or modify it under the terms of the GNU General Public License as 
@@ -57,22 +57,22 @@
 */
 
 function fetch_remote_xml($url, $fetcher=false) {
-	// Create a new instance of Troy Wolf's HTTP class (if a mock one 
+    // Create a new instance of Troy Wolf's HTTP class (if a mock one 
     // wasn't created during testing)
     if (!is_object($fetcher))
         $fetcher = new http();
         
     // Set the path of the cache
-	$fetcher->dir = dirname(__FILE__) . "/cache/";
-	
-	// Fetch the data from the URL using a GET request (that's really 
-	// all we need for this plugin--we're really only fetching gdata here)
-	if (!$fetcher->fetch($url, 43200))
-		return false;
-		
-	// Let's return the http class object to the caller function, assuming that we 
+    $fetcher->dir = dirname(__FILE__) . "/cache/";
+    
+    // Fetch the data from the URL using a GET request (that's really 
+    // all we need for this plugin--we're really only fetching gdata here)
+    if (!$fetcher->fetch($url, 43200))
+        return false;
+        
+    // Let's return the http class object to the caller function, assuming that we 
     // actually received some
-	return $fetcher;
+    return $fetcher;
 }
 
 /*
@@ -100,7 +100,7 @@ function fs_fetch_feedburner_data ($url, $action, $get='', $fetcher=false) {
         // If we're using a Google FeedBurner/Google FeedProxy feed, 
         // we'll use PCRE to grab the feed name (temporarily stored in  
         // the $name variable)
-		$name = preg_replace("|(http:\/\/)?feed(.*)\.com\/|", "", $url);
+        $name = preg_replace("|(http:\/\/)?feed(.*)\.com\/|", "", $url);
     } else 
         // For backwards compatibility reasons, if the feed URL isn't 
         // a URL, we'll assume that it's the feed name
@@ -150,29 +150,29 @@ function fs_fetch_feedburner_data ($url, $action, $get='', $fetcher=false) {
 }
 
 function fs_load_feed_data ($name, $days) {
-	// Calculate out the date for the number of $days ago
-	$minussev = mktime(0, 0, 0, date("m"), date("d") - $days, date("Y"));
-	$end = date("Y-m-d");
-	$start = date("Y-m-d", $minussev);
+    // Calculate out the date for the number of $days ago
+    $minussev = mktime(0, 0, 0, date("m"), date("d") - $days, date("Y"));
+    $end = date("Y-m-d");
+    $start = date("Y-m-d", $minussev);
 
-	// Get the data from FeedBurner
-	return fs_fetch_feedburner_data($name, 
-		"GetFeedData",
-		"dates=" . $start . "," . $end
-	);
+    // Get the data from FeedBurner
+    return fs_fetch_feedburner_data($name, 
+        "GetFeedData",
+        "dates=" . $start . "," . $end
+    );
 }
 
 function fs_load_item_data ($name, $days) {
-	// Calculate out the dates
-	$minussev = mktime(0, 0, 0, date("m"), date("d") - $days, date("Y"));
-	$end = date("Y-m-d");
-	$start = date("Y-m-d", $minussev);
+    // Calculate out the dates
+    $minussev = mktime(0, 0, 0, date("m"), date("d") - $days, date("Y"));
+    $end = date("Y-m-d");
+    $start = date("Y-m-d", $minussev);
 
-	// Get data from FeedBurner
-	return fs_fetch_feedburner_data($name, 
-		"GetItemData",
-		"dates=" . $start . "," . $end
-	);
+    // Get data from FeedBurner
+    return fs_fetch_feedburner_data($name, 
+        "GetItemData",
+        "dates=" . $start . "," . $end
+    );
 }
 
 ?>

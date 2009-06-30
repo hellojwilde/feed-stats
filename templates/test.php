@@ -1,9 +1,9 @@
 <?php if (!defined('WPINC')) die("No outside script access allowed.");
 
 /*
-	Copyright (c) 2008 - 2009 Jonathan Wilde
+    Copyright (c) 2008 - 2009 Jonathan Wilde
 
-	This file is part of the Feed Stats Plugin for WordPress.
+    This file is part of the Feed Stats Plugin for WordPress.
 
     The Feed Stats Plugin for WordPress is free software: you can redistribute 
     it and/or modify it under the terms of the GNU General Public License as 
@@ -28,12 +28,12 @@ $template = "[result][%+d] %s[result]";
 // If there are no errors, tell the user that the feed is valid; if 
 // there are errors, print them out directly.
 if ($response['success'] == true) {
-	$status = fs_translatable_error("Valid");
+    $status = fs_translatable_error("Valid");
     printf($template, 
         $status['code'], 
         $status['title']);
 } else
-	printf($template, 
+    printf($template, 
         $response['error']['code'], 
         $response['error']['title']);
 ?>

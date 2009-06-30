@@ -22,4 +22,15 @@
             <arg value="." />
         </exec>
     </target>
+    
+    <target name="cleanup">
+        <fixcrlf srcdir="." includes="**/*.js" eol="asis" tab="remove"
+            tablength="4" eof="asis" />
+        <fixcrlf srcdir="." includes="**/*.xml" eol="asis" tab="remove"
+            tablength="4" eof="asis" />
+        <fixcrlf srcdir="." includes="**/*.html" eol="asis" tab="remove"
+            tablength="4" eof="asis" />
+        <fixcrlf srcdir="." includes="**/*.php" eol="asis" tab="remove"
+            tablength="4" eof="asis" />
+    </target>
 </project>

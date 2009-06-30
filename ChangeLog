@@ -1,5 +1,22 @@
 2009-06-30  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* build.xml: Converted tabs to spaces.
+	* client.php: Converted tabs to spaces.
+	* feed-stats.php: Converted tabs to spaces.
+	* js/tabs.js: Converted tabs to spaces.
+	* js/test.js: Converted tabs to spaces.
+	* lang.php: Converted tabs to spaces.
+	* parser.php: Converted tabs to spaces.
+	* render.php: Converted tabs to spaces.
+	* style.css.php: Converted tabs to spaces.
+	* templates/header.php: Converted tabs to spaces.
+	* templates/settings.php: Converted tabs to spaces.
+	* templates/test.php: Converted tabs to spaces.
+	* templates/troubleshooting.php: Converted tabs to spaces.
+	* tests/client.php: Converted tabs to spaces.
+
+2009-06-30  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* style.css.php: Set the `Expires` header on the stylesheet to 
         improve performance.  The file is set to expire in two years.
 

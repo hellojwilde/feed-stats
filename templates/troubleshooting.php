@@ -1,9 +1,9 @@
 <?php if (!defined('WPINC')) die("No outside script access allowed."); 
 
 /*
-	Copyright (c) 2008 - 2009 Jonathan Wilde
+    Copyright (c) 2008 - 2009 Jonathan Wilde
 
-	This file is part of the Feed Stats Plugin for WordPress.
+    This file is part of the Feed Stats Plugin for WordPress.
 
     The Feed Stats Plugin for WordPress is free software: you can redistribute 
     it and/or modify it under the terms of the GNU General Public License as 
