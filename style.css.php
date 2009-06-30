@@ -21,6 +21,10 @@
 
 // Set the content-type header so that the browser knows what to do
 header('Content-type: text/css');
+
+// Set the expire header so that the browser knows that this should be 
+// cached for two years to improve performance
+header('Expires ' . gmdate("D, d M Y H:i:s", time() + 63072000) . ' GMT';
 	
 // Set variable with the WP version taken from the post header
 $ver = $_GET['v'];
