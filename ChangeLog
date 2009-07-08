@@ -1,5 +1,9 @@
 2009-07-07  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* style.css.php: Added a missing colon in the Expires header.
+
+2009-07-07  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* style.css.php: Fixed a PHP syntax error in the Expires header 
         code.
 
