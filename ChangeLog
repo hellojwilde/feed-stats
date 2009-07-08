@@ -1,5 +1,10 @@
 2009-07-07  Jonathan Wilde  <speedbreeze@gmail.com>
 
+	* style.css.php: Fixed a PHP syntax error in the Expires header 
+        code.
+
+2009-07-07  Jonathan Wilde  <speedbreeze@gmail.com>
+
 	* feed-stats.php: Made the "Total Hits & Subscribers" text 
         translatable. Made sure to use the appropriate textdomain.
 
