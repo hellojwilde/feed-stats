@@ -81,7 +81,7 @@ function display_feed_stats() {
         
         <table class="layout" width="100%"><tr>
             <td width="50%" class="feed-stats-left-chart-cell">
-                <h3>Total Hits &amp; Subscribers</h3>
+                <h3><?php _e('Total Hits &amp; Subscribers', 'feed-stats-plugin'); ?></h3>
                 <div id="total-tab" class="feed-stats-tabs">
                     <ul class="total-tab-list">
                         <li id="hits-tab" onclick="selectTab('total-tab', 'hits');">

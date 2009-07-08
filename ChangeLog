@@ -1,3 +1,8 @@
+2009-07-07  Jonathan Wilde  <speedbreeze@gmail.com>
+
+	* feed-stats.php: Made the "Total Hits & Subscribers" text 
+        translatable. Made sure to use the appropriate textdomain.
+
 2009-06-30  Jonathan Wilde  <speedbreeze@gmail.com>
 
 	* build.xml: Converted tabs to spaces.
