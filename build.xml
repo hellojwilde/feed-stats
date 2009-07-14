@@ -30,7 +30,72 @@
             tablength="4" eof="asis" />
         <fixcrlf srcdir="." includes="**/*.html" eol="asis" tab="remove"
             tablength="4" eof="asis" />
-        <fixcrlf srcdir="." includes="**/*.php" eol="asis" tab="remove"
-            tablength="4" eof="asis" />
+        <fixcrlf srcdir="." includes="**/*.php" excludes="**/*simpletest*" 
+            eol="asis" tab="remove" tablength="4" eof="asis" />
+    </target>
+    
+    <target name="preptag">
+        <!-- Create a new directory for this release. -->
+        <exec executable="svn">
+            <arg value="mkdir" />
+            <arg value="../tags/${release}" />
+        </exec>
+        
+        <!-- Copy all of the appropriate folders into the tag folder. -->
+        <apply executable="svn">
+            <arg value="cp" />
+            <srcfile />
+            <dirset dir=".">
+                <include name="*" />
+                <exclude name="tests" />
+            </dirset>
+            <arg value="../tags/${release}/" />
+        </apply>
+        
+        <!-- Copy all of the appropriate files into the tag folder. -->
+        <apply executable="svn">
+            <arg value="cp" />
+            <srcfile />
+            <fileset dir=".">
+                <include name="*.php" />
+                <include name="ChangeLog" />
+                <include name="COPYING" />
+                <include name="readme.txt" />
+            </fileset>
+            <arg value="../tags/${release}/" />
+        </apply>
+    </target>
+    
+    <target name="changelog" description="Prepares a MOAP-style changelog entry.">
+        <exec executable="svn" vmlauncher="false" output="svnstatus.xml">
+            <arg line="status --xml" />
+        </exec>
+        <echo message="Fetched version information."/>
+        
+        <tstamp>
+            <format property="changelog.timestamp" pattern="yyyy-MM-dd" />
+        </tstamp>
+        
+        <xslt in="svnstatus.xml" out="ChangeLog-tmp" style="changelog.xsl">
+            <param name="timestamp" expression="${changelog.timestamp}"/>
+            <param name="author" expression="${user.name}" />
+        </xslt>
+        
+        <replace file="ChangeLog-tmp">
+            <replacetoken><![CDATA[<?xml version="1.0" encoding="UTF-8"?>]]></replacetoken>
+        </replace>
+        
+        <concat destfile="ChangeLog-com" fixlastline="true">
+            <fileset file="ChangeLog-tmp" />
+            <string><![CDATA[ ]]></string>
+            <fileset file="ChangeLog" />
+        </concat>
+        <echo message="Generated template." />
+        
+        <delete file="ChangeLog" />
+        <move file="ChangeLog-com" tofile="ChangeLog" />
+        <delete file="ChangeLog-tmp" />
+        <delete file="svnstatus.xml" />
+        <echo message="Housekeeping complete." />
     </target>
 </project>
