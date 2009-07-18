@@ -1,0 +1,14 @@
+Translation files contained in this directory are copyright as follows:
+
+	* feed-stats-plugin-de_DE.po: 
+		Copyright 2009 Björn Bürstinghaus (http://www.buerstinghaus.net/).
+	* feed-stats-plugin-de_DE.mo: 
+		Copyright 2009 Björn Bürstinghaus (http://www.buerstinghaus.net/).
+		
+All of the above files are distributed under the terms of version 2 the 
+GNU General Public License as published by the Free Software Foundation.
+
+A complete copy of the GNU General Public License, version 2, can be 
+found at:
+
+	http://www.gnu.org/licenses/old-licenses/gpl-2.0.html

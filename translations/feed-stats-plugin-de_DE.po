@@ -1,0 +1,267 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Feed Stats Wordpress Plugin\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/feed-stats-plugin\n"
+"POT-Creation-Date: 2009-07-07 23:03-0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: Björn Bürstinghaus <bjoern@buerstinghaus>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: feed-stats.php:76
+msgid "Feed Stats:"
+msgstr "Feed Stats:"
+
+#: feed-stats.php:78
+msgid "FeedBurner Dashboard"
+msgstr "FeedBurner Übersicht"
+
+#: feed-stats.php:84
+msgid "Total Hits &amp; Subscribers"
+msgstr "Alle Treffer &amp; Abonnenten"
+
+#: feed-stats.php:88
+#: render.php:171
+msgid "Hits"
+msgstr "Treffer"
+
+#: feed-stats.php:90
+#: render.php:170
+msgid "Subscribers"
+msgstr "Abonnenten"
+
+#: feed-stats.php:93
+#: render.php:173
+msgid "Reach"
+msgstr "Erreicht"
+
+#: feed-stats.php:115
+msgid "Yesterday's Viewed &amp; Clicked Feed Items"
+msgstr "Gestern angesehene &amp; angeklickte Feed Einträge"
+
+#: feed-stats.php:125
+#: render.php:122
+msgid "Clicks"
+msgstr "Angeklickt"
+
+#: feed-stats.php:127
+#: render.php:123
+msgid "Views"
+msgstr "Angesehen"
+
+#: feed-stats.php:144
+msgid ""
+"There weren't any items that were \n"
+"clicked on in your feed yesterday.  If you just turned on item stats, \n"
+"wait a day or two for information to start showing up."
+msgstr ""
+"Es wurden Gestern keine Beiträge angeklickt. \n"
+"Wenn Sie die Beitragsstatistik kürzlich erst \n"
+"aktiviert haben, warten Sie bitte einen \n"
+"oder zwei Tage bis Informationen angezeigt werden."
+
+#: feed-stats.php:154
+msgid ""
+"It appears that you don't have Item \n"
+"Stats enabled in your FeedBurner account.  If it was enabled, you would \n"
+"be able to view information about clickthroughs on individual feed items."
+msgstr ""
+"Es schein so als hätten Sie die Eintragsstatistik \n"
+" in Ihrem Feedburner Account nicht aktiviert. \n"
+"Wenn es aktiviert wäre, würden Sie \n"
+"in der Lage sein Informationen über das Durchklicken jedes Feedeintrags erhalten."
+
+#: feed-stats.php:158
+msgid "To enable them, you can go to"
+msgstr "Zum aktivieren können Sie "
+
+#: feed-stats.php:158
+msgid "FeedBurner Stats settings"
+msgstr "FeedBurner Stats Einstellungen"
+
+#: lang.php:29
+msgid "This feed is valid."
+msgstr "Dieser Feed ist gültig"
+
+#: lang.php:34
+msgid "Something Didn't Work Right..."
+msgstr "Etwas funktioniert nicht richtig..."
+
+#: lang.php:35
+#, php-format
+msgid ""
+"This means that an error occurred,  \n"
+"but there's no specific problem that can be easily determined. If you \n"
+"have questions, feel free to send a message to this plugin's \n"
+"<a href=\"%s\">mailing list</a>."
+msgstr ""
+"Meint, das ein Fehler aufgetreten ist, \n"
+"aber es gibt kein spezifisches Problem das leicht erkannt wird. \n"
+"Wenn Sie Fragen haben, können Sie sich an die <a href='%s'>Mailingliste</a> des Plugins wenden."
+
+#: lang.php:42
+msgid "FeedBurner's servers are having problems."
+msgstr "Die Feedburner Server haben ein Problem."
+
+#: lang.php:43
+#, php-format
+msgid ""
+"FeedBurner's Awareness API servers \n"
+"are currently having issues right now.  Try again later.  If this \n"
+"problem persists, feel free to send a message to this plugin's \n"
+"<a href=\"%s\">mailing list</a>."
+msgstr ""
+"Die Feedburner Awareness API Server \n"
+"haben zur Zeit Problemen. Bitte versuchen Sie es später noch einmal. \n"
+"Wenn das Problem weiterhin besteht, senden Sie bitte eine Nachrich an \n"
+"die <a href=\"%s\">Mailingliste</a> des Plugins."
+
+#: lang.php:50
+msgid "Unable to connect to FeedBurner"
+msgstr "Keine Verbindung zu Feedburner aufbaubar"
+
+#: lang.php:51
+#, php-format
+msgid ""
+"For some reason, this plugin cannot \n"
+"connect to the FeedBurner Awareness API servers.  This is usually due to \n"
+"a configuration issue on your server.  If you have questions, feel free \n"
+"to send a message to this plugin's <a href=\"%s\">mailing list</a>."
+msgstr ""
+"Aus irgendeinem Grund kann sich das Plugin \n"
+"nicht mit den Feedburner Awareness API Serverv verbinden. \n"
+"Dies ist normalerweise bei einem Konfigurationsfehler \n"
+"auf Ihrem Server der Fall. Bei Fragen sende Sie bitte \n"
+"eine Nachricht an die <a href=\"%s\">Mailingliste</a> des Plugins."
+
+#: lang.php:58
+msgid "Please configure me."
+msgstr "Bitte konfiguriere mich."
+
+#: lang.php:59
+msgid ""
+"This plugin doesn't have a FeedBurner feed \n"
+"URL on record to display.  Please go to the settings page for this \n"
+"plugin and type in a feed URL."
+msgstr ""
+"Das Plugin hat keine Feedburner Feed URL \n"
+" in den Eintstellungen gespeichert. Bitte wechseln Sie \n"
+"auf die Einstellungsseite und geben Sie dort Ihren Feed an."
+
+#: lang.php:65
+msgid "This feed doesn't exist."
+msgstr "Dieser Feed existiert nicht."
+
+#: lang.php:66
+msgid ""
+"For some reason, FeedBurner can't find the \n"
+"feed URL that you wanted this plugin to track.  Did you move your feed \n"
+"over to Google FeedProxy? Did you delete the feed?  Is the URL correct?  \n"
+"You might need to update the URL on the settings page."
+msgstr ""
+"Feedburner kann die Feed URL die Sie angegeben haben nicht finden \n"
+"Haben Sie ihren Feed zu Google Feedproxy umgezogen? Ist die URL richtig? \n"
+"Sie müssen die URL auf auf Einstellungsseite aktualisieren."
+
+#: lang.php:73
+msgid "The Awareness API is not enabled."
+msgstr "Die Awareness API ist nicht aktiviert."
+
+#: lang.php:74
+msgid ""
+"The Awareness API, which gives this plugin \n"
+"access to your stats, is not enabled for this feed.  Go into your \n"
+"FeedBurner account, click on your feed, click on the \"Publicize\" tab, \n"
+"click on the \"Awareness API\" button in the sidebar, and then click on \n"
+"the \"Activate\" button."
+msgstr ""
+"Die Awareness API, die es dem Plugin ermöglicht, \n"
+"die Statistik abzurufen ist nicht aktiviert. \n"
+"Gehen Sie in IhrenFeedburneraccount und klicken Sie \n"
+"auf \"Publizieren\" im Untermenü wählen Sie \n"
+"\"Awareness API\" aus, und klicken auf \"Aktivieren\"."
+
+#: render.php:71
+msgid ""
+"It appears that this is a brand new FeedBurner \n"
+"account&mdash;please wait a day or two for your first stats to appear. \n"
+"If you know than you do have stats, then your server is probably having \n"
+"issues communicating with FeedBurner."
+msgstr ""
+"Es schein so, als ob dies ein ganz neuer \n"
+"Feedburneraccount ist; bitte einen oder zwei Tage \n"
+"warten bis die erste Statistik angezeigt wird. \n"
+"Sollten Sie sich sicher sein, dass Statistiken \n"
+"vorliegen, hat der Server momentan Verbindungs- \n"
+"probleme mit Feedburner."
+
+#: render.php:121
+msgid "Title"
+msgstr "Titel"
+
+#: render.php:169
+msgid "Date"
+msgstr "Datum"
+
+#: templates/settings.php:25
+msgid "Options saved successfully."
+msgstr "Optionen erfolgreich gespeichert."
+
+#: templates/settings.php:30
+msgid "Feed Stats Settings"
+msgstr "Feed Stats Einstellungen"
+
+#: templates/settings.php:35
+msgid "FeedBurner Feed URL"
+msgstr "FeedBurner Feed URL"
+
+#: templates/settings.php:38
+msgid "What does this mean?"
+msgstr "Was bedeutet das?"
+
+#: templates/settings.php:43
+msgid "Testing..."
+msgstr "Teste..."
+
+#: templates/settings.php:47
+msgid "The entire URL of your feed (eg. <code>http://feeds.feedburner.com/speedbreeze</code>)."
+msgstr "Die ganze Adresse Ihres Feeds (z.B. <code>http://feeds.feedburner.com/speedbreeze</code>)."
+
+#: templates/settings.php:51
+msgid "Number of Days to Show"
+msgstr "Anzahl zu zeigende Tage"
+
+#: templates/settings.php:58
+msgid "Icons by"
+msgstr "Icons von"
+
+#: templates/settings.php:61
+msgid "Save Changes"
+msgstr "Änderungen speichern"
+
+#: templates/troubleshooting.php:25
+#, php-format
+msgid ""
+"<a href=\"%s\">Feed Stats Settings</a> &raquo; \n"
+"Troubleshooting"
+msgstr ""
+"<a href=\"%s\">Feed Stats Einstellungen</a> &raquo; \n"
+"Fehlerbehebung"
+
+#: templates/troubleshooting.php:31
+#, php-format
+msgid ""
+"I've compiled this page of information to help you \n"
+"get past those pesky error messages.  If you have any questions that \n"
+"aren't answered on this page, feel free to send a message to this \n"
+"plugin's <a href='%s'>mailing list</a>."
+msgstr ""
+"Ich habe diese Informationsseite erstellt, um Ihnen zu helfen \n"
+"keine verwirrenden Fehlermeldungen zu erhalten. Wenn Sie irgendwelche Fragen haben, die \n"
+"hier nicht erklärt werden, können Sie sich an die <a href='%s'>Mailingliste</a> des Plugins wende."
+
