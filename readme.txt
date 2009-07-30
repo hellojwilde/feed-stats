@@ -130,6 +130,9 @@ for the plugin on my website.
   date format option set in WordPress to increase readability.
 * Added Bjoern Buerstinghaus's fantastic translation of the plugin into
   German.
+* Improved initial user experience by improving the messages to the user.
+* Improved code quality by writing tests (using the SimpleTest PHP
+  toolkit) to ensure that the code works properly.
 
 = 1.0.5 =
 * A new HTTP engine (Troy Wolf's `class_http`) that should offer more 
