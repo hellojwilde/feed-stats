@@ -186,7 +186,8 @@ function fs_feed_table ($xml, $have_reach=false) {
             if ( $row_num % 2 != 0 ) $style_data = "feed-stats-alt";
 ?>
                     <tr>
-                        <td class="feed-stats-left <?php echo $style_data; ?>"><?php echo $data['date']; ?></td>
+                        <td class="feed-stats-left <?php echo $style_data; ?>">
+                            <?php echo date(get_option('date_format'), strtotime($data['date'])); ?></td>
                         <td class="<?php echo $style_data; ?>"><?php echo $data['subs'] ?></td>
                         <td class="<?php echo $style_data; ?>"><?php echo $data['hits'] ?></td>
                     <?php if ($have_reach): ?>

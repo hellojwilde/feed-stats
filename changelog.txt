@@ -1,5 +1,11 @@
 2009-07-30  Jonathan Wilde  <speedbreeze@gmail.com>  
 	
+	* render.php: Formatted the dates in the tables according to the 
+		date_format settings in WordPress.  This makes it a lot easier
+		on the eyes.
+ 
+2009-07-30  Jonathan Wilde  <speedbreeze@gmail.com>  
+	
 	* feed-stats.php: Modified the `get_plugin_folder` function so that
 		it is faster and runs properly on Windows-based servers.
  
@@ -702,6 +708,7 @@
 	* feed-stats.php: Edited the description line so that the link to 
 		the configure page is a relative path rather than one that goes 
 		to my site.
+
 
 
 
