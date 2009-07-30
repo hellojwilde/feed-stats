@@ -76,25 +76,25 @@
             <format property="changelog.timestamp" pattern="yyyy-MM-dd" />
         </tstamp>
         
-        <xslt in="svnstatus.xml" out="ChangeLog-tmp" style="changelog.xsl">
+        <xslt in="svnstatus.xml" out="changelog-tmp.txt" style="changelog.xsl">
             <param name="timestamp" expression="${changelog.timestamp}"/>
             <param name="author" expression="${user.name}" />
         </xslt>
         
-        <replace file="ChangeLog-tmp">
+        <replace file="changelog-tmp.txt">
             <replacetoken><![CDATA[<?xml version="1.0" encoding="UTF-8"?>]]></replacetoken>
         </replace>
         
-        <concat destfile="ChangeLog-com" fixlastline="true">
-            <fileset file="ChangeLog-tmp" />
+        <concat destfile="changelog-com.txt" fixlastline="true">
+            <fileset file="changelog-tmp.txt" />
             <string><![CDATA[ ]]></string>
-            <fileset file="ChangeLog" />
+            <fileset file="changelog.txt" />
         </concat>
         <echo message="Generated template." />
         
-        <delete file="ChangeLog" />
-        <move file="ChangeLog-com" tofile="ChangeLog" />
-        <delete file="ChangeLog-tmp" />
+        <delete file="changelog.txt" />
+        <move file="changelog-com.txt" tofile="changelog.txt" />
+        <delete file="changelog-tmp.txt" />
         <delete file="svnstatus.xml" />
         <echo message="Housekeeping complete." />
     </target>

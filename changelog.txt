@@ -1,4 +1,11 @@
-2009-07-18  Jonathan Wilde <speedbreeze@gmail.com>  
+2009-07-29  Jonathan Wilde  <speedbreeze@gmail.com>  
+	
+	* build.xml: Updated the "changelog" target to deal with the 
+		ChangeLog being renamed to changelog.txt.  The temporary files
+		created while generating the changelog entry (eg. ChangeLog-com)
+		were renamed to match this naming convention.
+ 
+2009-07-18  Jonathan Wilde  <speedbreeze@gmail.com>  
 	
 	* COPYING.txt: Originally named COPYING.
 	* COPYING: Renamed to COPYING.txt, which is friendlier to Windows users.
@@ -671,6 +678,7 @@
 	* feed-stats.php: Edited the description line so that the link to 
 		the configure page is a relative path rather than one that goes 
 		to my site.
+
 
 
 
