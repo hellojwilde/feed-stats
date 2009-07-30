@@ -1,4 +1,12 @@
-2009-07-29  Jonathan  <youremail@mail.com>  
+2009-07-30  Jonathan Wilde  <speedbreeze@gmail.com>  
+	
+	* readme.txt: Updated the title of the plugin, since the plugin's 
+		name is being changed from "FeedBurner Feed Stats" to "Feed 
+		Stats for WordPress".  Updated the summary and disclaimers.  
+		Added a FAQ item about whether the plugin polls FeedBurner 
+		continuously.
+ 
+2009-07-29  Jonathan Wilde  <speedbreeze@gmail.com>  
 	
 	* build.xml: Updated the "preptag" target so that the copying.txt  
 		and changelog.txt files are properly copied to the tag.
@@ -689,6 +697,7 @@
 	* feed-stats.php: Edited the description line so that the link to 
 		the configure page is a relative path rather than one that goes 
 		to my site.
+
 
 
 

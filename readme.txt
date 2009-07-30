@@ -1,12 +1,12 @@
-=== FeedBurner Feed Stats ===
+=== Feed Stats for WordPress ===
 Contributors: speedbreeze
-Tags: feedburner, stats, statistics, feeds, rss, atom, hits, subscribers
+Tags: feedburner, stats, feeds, hits, subscribers, reach
 Requires at least: 2.3.3
 Tested up to: 2.7.1
 Stable tag: 1.0.5
 
-Finally, you can see your FeedBurner feed stats from inside your 
-WordPress admin panel!
+A plugin that seamlessly integrates detailed FeedBurner stats into your
+WordPress blog's dashboard.
 
 == Description ==
 
@@ -25,7 +25,7 @@ statistics:
 * Item Views
 
 **Note:** This is a third-party plugin for viewing data from the 
-FeedBurner web service. I am *not* in any way affiliated with FeedBurner.
+FeedBurner web service. I am *not* in any way affiliated with Google.
 
 = Questions? Comments? Found a Bug? =
 Feel free to ask these questions, get help, find out about new releases, 
@@ -73,6 +73,12 @@ To enable the Awareness API, login to your FeedBurner account, click on
 "My Feeds" and select the feed you want to enable the API for from the 
 list. Click on the "Publicize" tab and then click on the "Awareness API" 
 link under the services column. Finally, click on the "Activate" button.
+
+= How often is information retrieved from FeedBurner? =
+
+The data about your feeds is loaded from FeedBurner only when you open 
+the "Feed Stats" page.  This plugin does **not** continuously poll 
+FeedBurner.
 
 = How are the charts displayed? =
 
