@@ -147,9 +147,15 @@ function display_feed_stats() {
                     </div>
                     <?php endif; ?>
 
+                    <?php if (fs_have_stat($items['data'], 'clicks')): ?>
                     <script type="text/javascript">
                         selectTab('yest-tab', 'clicks');
                     </script>
+                    <?php else: ?>
+                    <script type="text/javascript">
+                        selectTab('yest-tab', 'views');
+                    </script>
+                    <?php endif; ?>
                 </div>
 
             <?php else: ?>

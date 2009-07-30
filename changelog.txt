@@ -1,5 +1,11 @@
 2009-07-30  Jonathan Wilde  <speedbreeze@gmail.com>  
 	
+	* feed-stats.php: Tweaked the JavaScript that is run at page load
+		so that if only one tab is displayed, the tab that is being
+		displayed is selected.
+ 
+2009-07-30  Jonathan Wilde  <speedbreeze@gmail.com>  
+	
 	* parser.php: Added the `fs_have_stat` function to determine if 
 		there are stats available for views and clicks.
 	* feed-stats.php: Set up the plugin so that if there are no clicks 
@@ -798,6 +804,7 @@
 
 
 >>>>>>> .r141100
+
 
 
 
