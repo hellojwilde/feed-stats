@@ -212,10 +212,7 @@ function plugin_folder() {
     echo get_plugin_folder();
 }
 
-function get_plugin_folder() {
-    $match = '|plugins/(.*?)feed-stats.php|';   
-    preg_match($match, __FILE__, $dir);
-    
-    return get_bloginfo("wpurl") . "/wp-content/plugins/" . $dir[1];
+function get_plugin_folder() {  
+    return get_bloginfo("wpurl") . "/wp-content/plugins/" . basename(dirname(__FILE__)) . "/";
 }
 ?>
