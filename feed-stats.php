@@ -204,6 +204,12 @@ function display_feed_options() {
 <?php
 }
 
+if (!function_exists("admin_url")) {
+    function admin_url () {
+        return get_bloginfo("wpurl") . "/wp-admin/";
+    }    
+}
+
 function ajax_test_url() {
     echo admin_url() . "options-general.php?page=feed-stats-options&mode=test";
 }

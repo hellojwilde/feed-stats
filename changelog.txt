@@ -1,5 +1,11 @@
 2009-07-30  Jonathan Wilde  <speedbreeze@gmail.com>  
 	
+	* feed-stats.php: Added a placeholder `admin_url` function to make 
+		sure that WordPress 2.3.x and WordPress 2.5.x work without 
+		errors.
+ 
+2009-07-30  Jonathan Wilde  <speedbreeze@gmail.com>  
+	
 	* parser.php: Updated the GPL statement.
 	* feed-stats.php: Updated the GPL statement.
 	* templates\test.php: Updated the GPL statement.
@@ -741,6 +747,7 @@
 	* feed-stats.php: Edited the description line so that the link to 
 		the configure page is a relative path rather than one that goes 
 		to my site.
+
 
 
 
