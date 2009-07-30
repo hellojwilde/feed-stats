@@ -93,18 +93,20 @@ function fs_fetch_feedburner_data ($url, $action, $get='', $fetcher=false) {
     $result = array( 'success' => false );
     $name = '';
     
-    if ($url == '')
-        // If no URL was passed in, then return an error message
+    if ($url == '') {
+        // If no URL was passed in, stop now and return an error message
         $result['error'] = fs_translatable_error('Configuration needed');
-    elseif (preg_match("|(http:\/\/)?feed(.*)\.com\/|", $url) != 0) {
+        return $result;
+    } elseif (preg_match("|(http:\/\/)?feed(.*)\.com\/|", $url) != 0) {
         // If we're using a Google FeedBurner/Google FeedProxy feed, 
         // we'll use PCRE to grab the feed name (temporarily stored in  
         // the $name variable)
         $name = preg_replace("|(http:\/\/)?feed(.*)\.com\/|", "", $url);
-    } else 
+    } else {
         // For backwards compatibility reasons, if the feed URL isn't 
         // a URL, we'll assume that it's the feed name
         $name = $url;
+    }
 
     // Generate our request string
     $format = "https://feedburner.google.com/api/awareness/1.0/%s?uri=%s&%s";
