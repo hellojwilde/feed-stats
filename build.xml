@@ -58,8 +58,8 @@
             <srcfile />
             <fileset dir=".">
                 <include name="*.php" />
-                <include name="ChangeLog" />
-                <include name="COPYING" />
+                <include name="changelog.txt" />
+                <include name="copying.txt" />
                 <include name="readme.txt" />
             </fileset>
             <arg value="../tags/${release}/" />
