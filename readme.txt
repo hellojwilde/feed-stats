@@ -111,3 +111,40 @@ You can view screenshots of this plugin at the
 [official page](http://www.speedbreeze.com/feed-stats/product/screenshots) 
 for the plugin on my website.
 
+== Changelog ==
+
+= 1.0.6 =
+* Removed the scary Google FeedBurner error messages--Google fixed their 
+  Awareness API issues.
+* Fixed the bug (reported by Bjoern Buerstinghaus) where both the Feed 
+  Stats options and Feed Stats stats pages' navigation menu items would 
+  be highlighted at the same time when either of those pages were viewed.
+* Made the plugin fully translatable.
+* Improved code cleanliness and documentation.
+* Rewrote parts of the code that loads information from FeedBurner to
+  improve performance; it now makes only two data requests (1.0.5 made 
+  four) to FeedBurner when the stats page is loaded.
+* Set cache headers on the CSS file to improve performance.
+* Improved compatibility with Windows servers.
+* Formatted the dates in the tables below the charts according to the 
+  date format option set in WordPress to increase readability.
+* Added Bjoern Buerstinghaus's fantastic translation of the plugin into
+  German.
+
+= 1.0.5 =
+* A new HTTP engine (Troy Wolf's `class_http`) that should offer more 
+  consistency across WordPress versions.
+* FeedBurner vs. Google FeedBurner detection code to ease the transition 
+  to Google.
+* Improved error messages.
+* Templated CSS (to improve consistency across versions of WordPress).
+* CSS updates to make the plugin feel more at home in WordPress 2.7+.
+* More robust detection of the availability of reach stats.
+* The feed tester is now run in the domain of the WordPress admin 
+  panels.  This should allow it to run under more configurations of 
+  WordPress and improve security.
+* External script access of internal PHP scripts is now blocked (using 
+  a similar method to CodeIgniter).
+* Improved internal documentation.
+* Proper ChangeLog documentation.
+* A proper GPL COPYING file has been added.

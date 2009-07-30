@@ -1,7 +1,12 @@
-2009-07-30  Jonathan  <youremail@mail.com>  
+2009-07-30  Jonathan Wilde  <speedbreeze@gmail.com>  
 	
-	* feed-stats.php: 
-	* tests\simpletest: 
+	* readme.txt: Added information to the Changelog section of the 
+		readme file.
+ 
+2009-07-30  Jonathan Wilde  <speedbreeze@gmail.com>  
+	
+	* feed-stats.php: Fixed the link to the configuration page from the
+		plugin management page.
  
 2009-07-30  Jonathan Wilde  <speedbreeze@gmail.com>  
 	
@@ -713,6 +718,7 @@
 	* feed-stats.php: Edited the description line so that the link to 
 		the configure page is a relative path rather than one that goes 
 		to my site.
+
 
 
 
