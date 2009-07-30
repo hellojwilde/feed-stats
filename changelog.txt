@@ -1,5 +1,23 @@
 2009-07-30  Jonathan Wilde  <speedbreeze@gmail.com>  
 	
+	* parser.php: Updated the GPL statement.
+	* feed-stats.php: Updated the GPL statement.
+	* templates\test.php: Updated the GPL statement.
+	* templates\settings.php: Updated the GPL statement.
+	* templates\troubleshooting.php: Updated the GPL statement.
+	* templates\header.php:  Updated the GPL statement.
+	* tests\client.php: Added a GPL statement.
+	* client.php: Updated the GPL statement.
+	* render.php: Updated the GPL statement.
+	* lang.php: Updated the GPL statement.
+	* readme.txt: Changed the name of the plugin from "FeedBurner Feed
+		Stats" to "Feed Stats for WordPress."
+	* js\tabs.js: Added a GPL statement.
+	* js\test.js: Added a GPL statement.
+	* style.css.php: Updated the GPL statement.
+ 
+2009-07-30  Jonathan Wilde  <speedbreeze@gmail.com>  
+	
 	* readme.txt: Changed the "Tested Up To" field of the plugin to 
 		2.8.2, which is the latest version of WordPress.
  
@@ -723,6 +741,7 @@
 	* feed-stats.php: Edited the description line so that the link to 
 		the configure page is a relative path rather than one that goes 
 		to my site.
+
 
 
 

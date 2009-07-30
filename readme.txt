@@ -10,7 +10,7 @@ WordPress blog's dashboard.
 
 == Description ==
 
-**FeedBurner Feed Stats** is a plugin that allows you to view your 
+**Feed Stats for WordPress** is a plugin that allows you to view your 
 FeedBurner feed stats from inside of the WordPress admin interface.  
 Stats for your feed can be viewed from the "Feed Stats" page in the 
 "Dashboard" section of WordPress.
@@ -29,8 +29,8 @@ FeedBurner web service. I am *not* in any way affiliated with Google.
 
 = Questions? Comments? Found a Bug? =
 Feel free to ask these questions, get help, find out about new releases, 
-and more at the 
-[Feed Stats Plugin mailing list](http://www.speedbreeze.com/feed-stats/product/support).
+and more at this plugin's 
+[mailing list](http://www.speedbreeze.com/feed-stats/product/support).
 
 == Installation ==
 
