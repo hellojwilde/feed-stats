@@ -1,4 +1,11 @@
 2009-07-30  Jonathan Wilde  <speedbreeze@gmail.com>  
+
+	* feed-stats.php: Modified the data loading code so that if no 
+		number of days to view stats for is set, it defaults to ten.
+	* templates\settings.php: If no number of days to view stats for is
+		set, 10 is displayed.
+ 
+2009-07-30  Jonathan Wilde  <speedbreeze@gmail.com>  
 	
 	* client.php: Tweaked the `fs_load_feedburner_data` function so that
 		it properly returns the "Configuration needed" error to the 
@@ -767,5 +774,9 @@
 
 
 
+<<<<<<< .mine
+
+=======
 
 
+>>>>>>> .r141100

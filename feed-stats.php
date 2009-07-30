@@ -61,6 +61,9 @@ function display_feed_stats() {
     // Grab options from the DB
     $days = get_option('feedburner_feed_stats_entries');
     $name = get_option('feedburner_feed_stats_name');
+    
+    // If the number of days is false (it wasn't set), default to 10
+    $days = (!$days) ? 10 : $days;
 
     // Load data from FeedBurner
     $feed = fs_load_feed_data($name, $days);
