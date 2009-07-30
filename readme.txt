@@ -3,7 +3,7 @@ Contributors: speedbreeze
 Tags: feedburner, stats, feeds, hits, subscribers, reach
 Requires at least: 2.3.3
 Tested up to: 2.8.2
-Stable tag: 1.0.5
+Stable tag: 1.0.6
 
 A plugin that seamlessly integrates detailed FeedBurner stats into your
 WordPress blog's dashboard.
