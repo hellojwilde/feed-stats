@@ -1,5 +1,11 @@
 2009-07-29  Jonathan Wilde  <speedbreeze@gmail.com>  
 	
+	* changelog.xsl: Tweaked the spacing of items in the stylesheet so
+		that there are two spaces before the person's name instead of 
+		one; this ensures that we're using proper GNU ChangeLog format.
+ 
+2009-07-29  Jonathan Wilde  <speedbreeze@gmail.com>  
+	
 	* build.xml: Updated the "changelog" target to deal with the 
 		ChangeLog being renamed to changelog.txt.  The temporary files
 		created while generating the changelog entry (eg. ChangeLog-com)
@@ -678,6 +684,7 @@
 	* feed-stats.php: Edited the description line so that the link to 
 		the configure page is a relative path rather than one that goes 
 		to my site.
+
 
 
 

@@ -8,7 +8,7 @@
 <xsl:template match="/">
 
 <xsl:value-of select="$timestamp"/>
-<xsl:text> </xsl:text>
+<xsl:text>  </xsl:text>
 <xsl:value-of select="$author"/>
 <xsl:text disable-output-escaping="yes"><![CDATA[  <youremail@mail.com>  ]]>
 	</xsl:text>
