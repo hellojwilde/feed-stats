@@ -118,4 +118,22 @@ function fs_count_yesterday_items ($xml) {
 
     return count($items);
 }
+
+function fs_have_stat ($data, $type) {
+    // A slightly ugly hack to fix FeedBurner's issues
+    $entries = fs_grab_yesterday_entry($data);
+    $items = fs_grab_items($entries);
+
+    // A couple of temporary vars to store data in
+    $total = 0;
+
+    // Count the items
+    foreach ($items as $item) {
+        $parsed = fs_parse_item($item);
+        $total += (int)$parsed[$type];
+    }
+    
+    // Determine if there are any of that stat type
+    return $total > 0;
+}
 ?>

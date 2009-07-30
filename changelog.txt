@@ -1,5 +1,12 @@
 2009-07-30  Jonathan Wilde  <speedbreeze@gmail.com>  
 	
+	* parser.php: Added the `fs_have_stat` function to determine if 
+		there are stats available for views and clicks.
+	* feed-stats.php: Set up the plugin so that if there are no clicks 
+		or views, the respective tab is not shown.
+ 
+2009-07-30  Jonathan Wilde  <speedbreeze@gmail.com>  
+	
 	* readme.txt: Mentioned that SimpleTest is now being used to improve
 		code quality and that the initial user experience has been 
 		improved in the notes about 1.0.6.
@@ -791,5 +798,6 @@
 
 
 >>>>>>> .r141100
+
 
 

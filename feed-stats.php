@@ -124,18 +124,28 @@ function display_feed_stats() {
             <?php if ($item_count > 0) : ?>
                 <div id="yest-tab" class="feed-stats-tabs">
                     <ul class="total-tab-list">
+                        <?php if (fs_have_stat($items['data'], 'clicks')): ?>
                         <li id="clicks-tab" onclick="selectTab('yest-tab', 'clicks');">
                             <a><?php _e('Clicks', 'feed-stats-plugin') ?></a></li>
+                        <?php endif; ?>
+                        
+                        <?php if (fs_have_stat($items['data'], 'views')): ?>
                         <li id="views-tab" onclick="selectTab('yest-tab', 'views');">
                             <a><?php _e('Views', 'feed-stats-plugin') ?></a></li>
+                        <?php endif; ?>
                     </ul>
 
+                    <?php if (fs_have_stat($items['data'], 'clicks')): ?>
                     <div id="clicks" class="feed-stats-tab">
                         <?php fs_items_chart($items['data'], 'clicks'); ?>
                     </div>
+                    <?php endif; ?>
+                    
+                    <?php if (fs_have_stat($items['data'], 'views')): ?>
                     <div id="views" class="feed-stats-tab">
                         <?php fs_items_chart($items['data'], 'views'); ?>
                     </div>
+                    <?php endif; ?>
 
                     <script type="text/javascript">
                         selectTab('yest-tab', 'clicks');
