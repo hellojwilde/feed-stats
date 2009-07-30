@@ -152,6 +152,7 @@ $folder = urldecode($_GET['f']);
     padding: 0 10px;
     cursor: pointer;
     color: #000 !important;
+    border: 0;
 }
 
 .feed-stats-tab {

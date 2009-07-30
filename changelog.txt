@@ -1,4 +1,9 @@
 2009-07-30  Jonathan Wilde  <speedbreeze@gmail.com>  
+	
+	* style.css.php: Removed the ugly underline of the text in the tabs
+		for WordPress 2.3 and below.
+ 
+2009-07-30  Jonathan Wilde  <speedbreeze@gmail.com>  
 
 	* feed-stats.php: Modified the data loading code so that if no 
 		number of days to view stats for is set, it defaults to ten.
@@ -780,3 +785,4 @@
 
 
 >>>>>>> .r141100
+
