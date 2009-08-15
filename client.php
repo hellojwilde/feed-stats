@@ -147,6 +147,9 @@ function fs_fetch_feedburner_data ($url, $action, $get='', $fetcher=false) {
         $result['error'] = fs_translatable_error('Unknown error');
     }
     
+    // Send the log as well (for debugging purposes)
+    $result['log'] = $response->log;
+    
     // Return our result array to the user
     return $result;
 }

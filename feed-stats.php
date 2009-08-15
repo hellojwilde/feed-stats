@@ -195,6 +195,10 @@ be able to view information about clickthroughs on individual feed items.',
     <div class="wrap">
         <h2><?php echo $feed['error']['title']; ?></h2>
         <p class="fs-message"><?php echo $feed['error']['message']; ?></p>
+        
+        <?php if ($feed['error']['code'] == -4): ?>
+        <pre><?php echo $feed['log']; ?></pre>
+        <?php endif; ?>
     </div>
 <?
     }
