@@ -1,5 +1,13 @@
 2009-08-15  Jonathan Wilde  <speedbreeze@gmail.com>  
 	
+	* feed-stats.php: Improved the error dump UI so that the dump is 
+		separated into multiple sections: URL, Response, Request and 
+		Log.
+	* client.php: Made the `fs_fetch_feedburner_data` function pass
+		the entire HTTP engine to the output, not just the log.
+
+2009-08-15  Jonathan Wilde  <speedbreeze@gmail.com>  
+	
 	* feed-stats.php: Made the logging information from the 
 		`fs_fetch_feedburner_data` function be outputted on the
 		"Unknown Error" screen.

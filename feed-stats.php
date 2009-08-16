@@ -197,7 +197,21 @@ be able to view information about clickthroughs on individual feed items.',
         <p class="fs-message"><?php echo $feed['error']['message']; ?></p>
         
         <?php if ($feed['error']['code'] == -4): ?>
-        <pre><?php echo $feed['log']; ?></pre>
+		<h3>Log</h3>
+		<pre><?php echo preg_replace("/Filename\: ([^\<]*)/", "Filename: [REDACTED FOR SECURITY]", $feed['engine']->log); ?></pre>
+		
+		<h3>URL</h3>
+		<pre><?php echo htmlentities($feed['engine']->url); ?></pre>
+		
+		<h3>Request</h3>
+        <pre><?php echo htmlentities(var_export($feed['engine']->headers, true)); ?></pre>
+		
+		<h3>Response</h3>
+        <pre><?php echo htmlentities($feed['engine']->header); ?></pre>
+		<br />
+		
+        <pre><?php echo htmlentities($feed['engine']->body); ?></pre>
+		<br />
         <?php endif; ?>
     </div>
 <?
